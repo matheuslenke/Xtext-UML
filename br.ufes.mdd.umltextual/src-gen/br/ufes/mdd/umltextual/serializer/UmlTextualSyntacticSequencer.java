@@ -11,7 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -22,13 +21,15 @@ public class UmlTextualSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected UmlTextualGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Association_UndirectedKeyword_0_q;
-	protected AbstractElementAlias match_AttributeType_BooleanKeyword_3_1_or_ByteKeyword_4_1_or_CharKeyword_5_1_or_DoubleKeyword_2_1_or_FloatKeyword_6_1_or_IntKeyword_1_1_or_LongKeyword_8_1_or_ShortKeyword_7_1_or_StringKeyword_0_1;
+	protected AbstractElementAlias match_Method_AbstractKeyword_0_q;
+	protected AbstractElementAlias match_Method_StaticKeyword_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UmlTextualGrammarAccess) access;
 		match_Association_UndirectedKeyword_0_q = new TokenAlias(false, true, grammarAccess.getAssociationAccess().getUndirectedKeyword_0());
-		match_AttributeType_BooleanKeyword_3_1_or_ByteKeyword_4_1_or_CharKeyword_5_1_or_DoubleKeyword_2_1_or_FloatKeyword_6_1_or_IntKeyword_1_1_or_LongKeyword_8_1_or_ShortKeyword_7_1_or_StringKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getBooleanKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getByteKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getCharKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getDoubleKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getFloatKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getIntKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getLongKeyword_8_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getShortKeyword_7_1()), new TokenAlias(false, false, grammarAccess.getAttributeTypeAccess().getStringKeyword_0_1()));
+		match_Method_AbstractKeyword_0_q = new TokenAlias(false, true, grammarAccess.getMethodAccess().getAbstractKeyword_0());
+		match_Method_StaticKeyword_1_q = new TokenAlias(false, true, grammarAccess.getMethodAccess().getStaticKeyword_1());
 	}
 	
 	@Override
@@ -45,8 +46,10 @@ public class UmlTextualSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Association_UndirectedKeyword_0_q.equals(syntax))
 				emit_Association_UndirectedKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_AttributeType_BooleanKeyword_3_1_or_ByteKeyword_4_1_or_CharKeyword_5_1_or_DoubleKeyword_2_1_or_FloatKeyword_6_1_or_IntKeyword_1_1_or_LongKeyword_8_1_or_ShortKeyword_7_1_or_StringKeyword_0_1.equals(syntax))
-				emit_AttributeType_BooleanKeyword_3_1_or_ByteKeyword_4_1_or_CharKeyword_5_1_or_DoubleKeyword_2_1_or_FloatKeyword_6_1_or_IntKeyword_1_1_or_LongKeyword_8_1_or_ShortKeyword_7_1_or_StringKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Method_AbstractKeyword_0_q.equals(syntax))
+				emit_Method_AbstractKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Method_StaticKeyword_1_q.equals(syntax))
+				emit_Method_StaticKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -65,22 +68,25 @@ public class UmlTextualSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (
-	  *         'string' | 
-	  *         'int' | 
-	  *         'double' | 
-	  *         'boolean' | 
-	  *         'byte' | 
-	  *         'char' | 
-	  *         'float' | 
-	  *         'short' | 
-	  *         'long'
-	  *     )
+	 *     'abstract'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) 'static'? 'function' name=ID
+	 *     (rule start) (ambiguity) 'static'? visibility=Visibility
 	 */
-	protected void emit_AttributeType_BooleanKeyword_3_1_or_ByteKeyword_4_1_or_CharKeyword_5_1_or_DoubleKeyword_2_1_or_FloatKeyword_6_1_or_IntKeyword_1_1_or_LongKeyword_8_1_or_ShortKeyword_7_1_or_StringKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Method_AbstractKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'static'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'abstract'? (ambiguity) 'function' name=ID
+	 *     (rule start) 'abstract'? (ambiguity) visibility=Visibility
+	 */
+	protected void emit_Method_StaticKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

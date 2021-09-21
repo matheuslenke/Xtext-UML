@@ -3,6 +3,8 @@
  */
 package br.ufes.mdd.umltextual.umlTextual.util;
 
+import br.ufes.mdd.umltextual.umlTextual.Actor;
+import br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation;
 import br.ufes.mdd.umltextual.umlTextual.Aggregation;
 import br.ufes.mdd.umltextual.umlTextual.Association;
 import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
@@ -10,8 +12,17 @@ import br.ufes.mdd.umltextual.umlTextual.Attribute;
 import br.ufes.mdd.umltextual.umlTextual.AttributeType;
 import br.ufes.mdd.umltextual.umlTextual.Composition;
 import br.ufes.mdd.umltextual.umlTextual.DomainSpecificType;
+import br.ufes.mdd.umltextual.umlTextual.Element;
+import br.ufes.mdd.umltextual.umlTextual.Interface;
+import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;
+import br.ufes.mdd.umltextual.umlTextual.ModelElement;
+import br.ufes.mdd.umltextual.umlTextual.Parameter;
+import br.ufes.mdd.umltextual.umlTextual.Subsystem;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
+import br.ufes.mdd.umltextual.umlTextual.UseCase;
+import br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram;
+import br.ufes.mdd.umltextual.umlTextual.UseCaseElement;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -88,10 +99,32 @@ public class UmlTextualSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UmlTextualPackage.MODEL_ELEMENT:
+      {
+        ModelElement modelElement = (ModelElement)theEObject;
+        T result = caseModelElement(modelElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UmlTextualPackage.PACKAGE:
       {
         br.ufes.mdd.umltextual.umlTextual.Package package_ = (br.ufes.mdd.umltextual.umlTextual.Package)theEObject;
         T result = casePackage(package_);
+        if (result == null) result = caseModelElement(package_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.SUBSYSTEM:
+      {
+        Subsystem subsystem = (Subsystem)theEObject;
+        T result = caseSubsystem(subsystem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.ELEMENT:
+      {
+        Element element = (Element)theEObject;
+        T result = caseElement(element);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,6 +132,15 @@ public class UmlTextualSwitch<T> extends Switch<T>
       {
         br.ufes.mdd.umltextual.umlTextual.Class class_ = (br.ufes.mdd.umltextual.umlTextual.Class)theEObject;
         T result = caseClass(class_);
+        if (result == null) result = caseElement(class_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.INTERFACE:
+      {
+        Interface interface_ = (Interface)theEObject;
+        T result = caseInterface(interface_);
+        if (result == null) result = caseElement(interface_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -124,10 +166,25 @@ public class UmlTextualSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UmlTextualPackage.METHOD:
+      {
+        Method method = (Method)theEObject;
+        T result = caseMethod(method);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UmlTextualPackage.ASSOCIATION_CONNECTOR:
       {
         AssociationConnector associationConnector = (AssociationConnector)theEObject;
         T result = caseAssociationConnector(associationConnector);
+        if (result == null) result = caseElement(associationConnector);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -136,6 +193,7 @@ public class UmlTextualSwitch<T> extends Switch<T>
         Association association = (Association)theEObject;
         T result = caseAssociation(association);
         if (result == null) result = caseAssociationConnector(association);
+        if (result == null) result = caseElement(association);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -144,6 +202,7 @@ public class UmlTextualSwitch<T> extends Switch<T>
         Aggregation aggregation = (Aggregation)theEObject;
         T result = caseAggregation(aggregation);
         if (result == null) result = caseAssociationConnector(aggregation);
+        if (result == null) result = caseElement(aggregation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -152,6 +211,45 @@ public class UmlTextualSwitch<T> extends Switch<T>
         Composition composition = (Composition)theEObject;
         T result = caseComposition(composition);
         if (result == null) result = caseAssociationConnector(composition);
+        if (result == null) result = caseElement(composition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.USE_CASE_DIAGRAM:
+      {
+        UseCaseDiagram useCaseDiagram = (UseCaseDiagram)theEObject;
+        T result = caseUseCaseDiagram(useCaseDiagram);
+        if (result == null) result = caseModelElement(useCaseDiagram);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.USE_CASE_ELEMENT:
+      {
+        UseCaseElement useCaseElement = (UseCaseElement)theEObject;
+        T result = caseUseCaseElement(useCaseElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.ACTOR:
+      {
+        Actor actor = (Actor)theEObject;
+        T result = caseActor(actor);
+        if (result == null) result = caseUseCaseElement(actor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.USE_CASE:
+      {
+        UseCase useCase = (UseCase)theEObject;
+        T result = caseUseCase(useCase);
+        if (result == null) result = caseUseCaseElement(useCase);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlTextualPackage.ACTOR_USE_CASE_ASSOCIATION:
+      {
+        ActorUseCaseAssociation actorUseCaseAssociation = (ActorUseCaseAssociation)theEObject;
+        T result = caseActorUseCaseAssociation(actorUseCaseAssociation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,6 +274,22 @@ public class UmlTextualSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModelElement(ModelElement object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -192,6 +306,38 @@ public class UmlTextualSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Subsystem</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Subsystem</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubsystem(Subsystem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElement(Element object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -203,6 +349,22 @@ public class UmlTextualSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClass(br.ufes.mdd.umltextual.umlTextual.Class object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInterface(Interface object)
   {
     return null;
   }
@@ -251,6 +413,38 @@ public class UmlTextualSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAttribute(Attribute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethod(Method object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
   {
     return null;
   }
@@ -315,6 +509,86 @@ public class UmlTextualSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseComposition(Composition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Use Case Diagram</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Use Case Diagram</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUseCaseDiagram(UseCaseDiagram object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Use Case Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Use Case Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUseCaseElement(UseCaseElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Actor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActor(Actor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Use Case</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Use Case</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUseCase(UseCase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Actor Use Case Association</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Actor Use Case Association</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActorUseCaseAssociation(ActorUseCaseAssociation object)
   {
     return null;
   }

@@ -33,6 +33,15 @@ public interface UmlTextualFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Model Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Model Element</em>'.
+   * @generated
+   */
+  ModelElement createModelElement();
+
+  /**
    * Returns a new object of class '<em>Package</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -42,6 +51,24 @@ public interface UmlTextualFactory extends EFactory
   Package createPackage();
 
   /**
+   * Returns a new object of class '<em>Subsystem</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Subsystem</em>'.
+   * @generated
+   */
+  Subsystem createSubsystem();
+
+  /**
+   * Returns a new object of class '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element</em>'.
+   * @generated
+   */
+  Element createElement();
+
+  /**
    * Returns a new object of class '<em>Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +76,15 @@ public interface UmlTextualFactory extends EFactory
    * @generated
    */
   Class createClass();
+
+  /**
+   * Returns a new object of class '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface</em>'.
+   * @generated
+   */
+  Interface createInterface();
 
   /**
    * Returns a new object of class '<em>Attribute Type</em>'.
@@ -76,6 +112,24 @@ public interface UmlTextualFactory extends EFactory
    * @generated
    */
   Attribute createAttribute();
+
+  /**
+   * Returns a new object of class '<em>Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method</em>'.
+   * @generated
+   */
+  Method createMethod();
+
+  /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
 
   /**
    * Returns a new object of class '<em>Association Connector</em>'.
@@ -112,6 +166,51 @@ public interface UmlTextualFactory extends EFactory
    * @generated
    */
   Composition createComposition();
+
+  /**
+   * Returns a new object of class '<em>Use Case Diagram</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Case Diagram</em>'.
+   * @generated
+   */
+  UseCaseDiagram createUseCaseDiagram();
+
+  /**
+   * Returns a new object of class '<em>Use Case Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Case Element</em>'.
+   * @generated
+   */
+  UseCaseElement createUseCaseElement();
+
+  /**
+   * Returns a new object of class '<em>Actor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Actor</em>'.
+   * @generated
+   */
+  Actor createActor();
+
+  /**
+   * Returns a new object of class '<em>Use Case</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Case</em>'.
+   * @generated
+   */
+  UseCase createUseCase();
+
+  /**
+   * Returns a new object of class '<em>Actor Use Case Association</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Actor Use Case Association</em>'.
+   * @generated
+   */
+  ActorUseCaseAssociation createActorUseCaseAssociation();
 
   /**
    * Returns the package supported by this factory.

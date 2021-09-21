@@ -3,7 +3,7 @@
  */
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
-import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
+import br.ufes.mdd.umltextual.umlTextual.Element;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 
 import java.util.Collection;
@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,14 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getType <em>Type</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getName <em>Name</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getClasses <em>Classes</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getAssociations <em>Associations</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getParentPackage <em>Parent Package</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes.mdd.umltextual.umlTextual.Package
+public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltextual.umlTextual.Package
 {
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -61,44 +59,24 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getParentPackage() <em>Parent Package</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getParentPackage()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected br.ufes.mdd.umltextual.umlTextual.Package parentPackage;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClasses()
-   * @generated
-   * @ordered
-   */
-  protected EList<br.ufes.mdd.umltextual.umlTextual.Class> classes;
-
-  /**
-   * The cached value of the '{@link #getAssociations() <em>Associations</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAssociations()
-   * @generated
-   * @ordered
-   */
-  protected EList<AssociationConnector> associations;
+  protected EList<Element> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -152,9 +130,29 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
    * @generated
    */
   @Override
-  public String getName()
+  public br.ufes.mdd.umltextual.umlTextual.Package getParentPackage()
   {
-    return name;
+    if (parentPackage != null && parentPackage.eIsProxy())
+    {
+      InternalEObject oldParentPackage = (InternalEObject)parentPackage;
+      parentPackage = (br.ufes.mdd.umltextual.umlTextual.Package)eResolveProxy(oldParentPackage);
+      if (parentPackage != oldParentPackage)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UmlTextualPackage.PACKAGE__PARENT_PACKAGE, oldParentPackage, parentPackage));
+      }
+    }
+    return parentPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public br.ufes.mdd.umltextual.umlTextual.Package basicGetParentPackage()
+  {
+    return parentPackage;
   }
 
   /**
@@ -163,12 +161,12 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setParentPackage(br.ufes.mdd.umltextual.umlTextual.Package newParentPackage)
   {
-    String oldName = name;
-    name = newName;
+    br.ufes.mdd.umltextual.umlTextual.Package oldParentPackage = parentPackage;
+    parentPackage = newParentPackage;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.PACKAGE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.PACKAGE__PARENT_PACKAGE, oldParentPackage, parentPackage));
   }
 
   /**
@@ -177,28 +175,13 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
    * @generated
    */
   @Override
-  public EList<br.ufes.mdd.umltextual.umlTextual.Class> getClasses()
+  public EList<Element> getElements()
   {
-    if (classes == null)
+    if (elements == null)
     {
-      classes = new EObjectContainmentEList<br.ufes.mdd.umltextual.umlTextual.Class>(br.ufes.mdd.umltextual.umlTextual.Class.class, this, UmlTextualPackage.PACKAGE__CLASSES);
+      elements = new EObjectContainmentEList<Element>(Element.class, this, UmlTextualPackage.PACKAGE__ELEMENTS);
     }
-    return classes;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<AssociationConnector> getAssociations()
-  {
-    if (associations == null)
-    {
-      associations = new EObjectContainmentEList<AssociationConnector>(AssociationConnector.class, this, UmlTextualPackage.PACKAGE__ASSOCIATIONS);
-    }
-    return associations;
+    return elements;
   }
 
   /**
@@ -211,10 +194,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
   {
     switch (featureID)
     {
-      case UmlTextualPackage.PACKAGE__CLASSES:
-        return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
-      case UmlTextualPackage.PACKAGE__ASSOCIATIONS:
-        return ((InternalEList<?>)getAssociations()).basicRemove(otherEnd, msgs);
+      case UmlTextualPackage.PACKAGE__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -231,12 +212,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
     {
       case UmlTextualPackage.PACKAGE__TYPE:
         return getType();
-      case UmlTextualPackage.PACKAGE__NAME:
-        return getName();
-      case UmlTextualPackage.PACKAGE__CLASSES:
-        return getClasses();
-      case UmlTextualPackage.PACKAGE__ASSOCIATIONS:
-        return getAssociations();
+      case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
+        if (resolve) return getParentPackage();
+        return basicGetParentPackage();
+      case UmlTextualPackage.PACKAGE__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -255,16 +235,12 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
       case UmlTextualPackage.PACKAGE__TYPE:
         setType((String)newValue);
         return;
-      case UmlTextualPackage.PACKAGE__NAME:
-        setName((String)newValue);
+      case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
+        setParentPackage((br.ufes.mdd.umltextual.umlTextual.Package)newValue);
         return;
-      case UmlTextualPackage.PACKAGE__CLASSES:
-        getClasses().clear();
-        getClasses().addAll((Collection<? extends br.ufes.mdd.umltextual.umlTextual.Class>)newValue);
-        return;
-      case UmlTextualPackage.PACKAGE__ASSOCIATIONS:
-        getAssociations().clear();
-        getAssociations().addAll((Collection<? extends AssociationConnector>)newValue);
+      case UmlTextualPackage.PACKAGE__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends Element>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -283,14 +259,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
       case UmlTextualPackage.PACKAGE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case UmlTextualPackage.PACKAGE__NAME:
-        setName(NAME_EDEFAULT);
+      case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
+        setParentPackage((br.ufes.mdd.umltextual.umlTextual.Package)null);
         return;
-      case UmlTextualPackage.PACKAGE__CLASSES:
-        getClasses().clear();
-        return;
-      case UmlTextualPackage.PACKAGE__ASSOCIATIONS:
-        getAssociations().clear();
+      case UmlTextualPackage.PACKAGE__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -308,12 +281,10 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
     {
       case UmlTextualPackage.PACKAGE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case UmlTextualPackage.PACKAGE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case UmlTextualPackage.PACKAGE__CLASSES:
-        return classes != null && !classes.isEmpty();
-      case UmlTextualPackage.PACKAGE__ASSOCIATIONS:
-        return associations != null && !associations.isEmpty();
+      case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
+        return parentPackage != null;
+      case UmlTextualPackage.PACKAGE__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -331,8 +302,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements br.ufes
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (type: ");
     result.append(type);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

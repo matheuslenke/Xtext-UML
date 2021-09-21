@@ -5,8 +5,6 @@ package br.ufes.mdd.umltextual.umlTextual;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Class</b></em>'.
@@ -18,16 +16,17 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getVisibility <em>Visibility</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getName <em>Name</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getParentClass <em>Parent Class</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getInterface <em>Interface</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getMethods <em>Methods</em>}</li>
  * </ul>
  *
  * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getClass_()
  * @model
  * @generated
  */
-public interface Class extends EObject
+public interface Class extends Element
 {
   /**
    * Returns the value of the '<em><b>Stereotype</b></em>' attribute.
@@ -74,48 +73,38 @@ public interface Class extends EObject
   void setVisibility(String value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Parent Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getClass_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Class#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Parent Class</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Parent Class</em>' containment reference.
+   * @return the value of the '<em>Parent Class</em>' reference.
    * @see #setParentClass(Class)
    * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getClass_ParentClass()
-   * @model containment="true"
+   * @model
    * @generated
    */
   Class getParentClass();
 
   /**
-   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Class#getParentClass <em>Parent Class</em>}' containment reference.
+   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Class#getParentClass <em>Parent Class</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parent Class</em>' containment reference.
+   * @param value the new value of the '<em>Parent Class</em>' reference.
    * @see #getParentClass()
    * @generated
    */
   void setParentClass(Class value);
+
+  /**
+   * Returns the value of the '<em><b>Interface</b></em>' reference list.
+   * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.Interface}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Interface</em>' reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getClass_Interface()
+   * @model
+   * @generated
+   */
+  EList<Interface> getInterface();
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
@@ -128,5 +117,17 @@ public interface Class extends EObject
    * @generated
    */
   EList<Attribute> getAttributes();
+
+  /**
+   * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.Method}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Methods</em>' containment reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getClass_Methods()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Method> getMethods();
 
 } // Class

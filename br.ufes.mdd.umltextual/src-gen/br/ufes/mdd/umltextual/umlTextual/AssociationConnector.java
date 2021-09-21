@@ -3,7 +3,6 @@
  */
 package br.ufes.mdd.umltextual.umlTextual;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getName <em>Name</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getClass1 <em>Class1</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getMultiplicity1 <em>Multiplicity1</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getClass2 <em>Class2</em>}</li>
@@ -25,30 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface AssociationConnector extends EObject
+public interface AssociationConnector extends Element
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getAssociationConnector_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Class1</b></em>' reference.
    * <!-- begin-user-doc -->

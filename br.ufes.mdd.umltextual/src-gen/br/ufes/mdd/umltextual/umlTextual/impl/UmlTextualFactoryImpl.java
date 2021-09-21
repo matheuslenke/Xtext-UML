@@ -3,6 +3,8 @@
  */
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
+import br.ufes.mdd.umltextual.umlTextual.Actor;
+import br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation;
 import br.ufes.mdd.umltextual.umlTextual.Aggregation;
 import br.ufes.mdd.umltextual.umlTextual.Association;
 import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
@@ -10,9 +12,18 @@ import br.ufes.mdd.umltextual.umlTextual.Attribute;
 import br.ufes.mdd.umltextual.umlTextual.AttributeType;
 import br.ufes.mdd.umltextual.umlTextual.Composition;
 import br.ufes.mdd.umltextual.umlTextual.DomainSpecificType;
+import br.ufes.mdd.umltextual.umlTextual.Element;
+import br.ufes.mdd.umltextual.umlTextual.Interface;
+import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;
+import br.ufes.mdd.umltextual.umlTextual.ModelElement;
+import br.ufes.mdd.umltextual.umlTextual.Parameter;
+import br.ufes.mdd.umltextual.umlTextual.Subsystem;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualFactory;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
+import br.ufes.mdd.umltextual.umlTextual.UseCase;
+import br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram;
+import br.ufes.mdd.umltextual.umlTextual.UseCaseElement;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -75,15 +86,26 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
     switch (eClass.getClassifierID())
     {
       case UmlTextualPackage.MODEL: return createModel();
+      case UmlTextualPackage.MODEL_ELEMENT: return createModelElement();
       case UmlTextualPackage.PACKAGE: return createPackage();
+      case UmlTextualPackage.SUBSYSTEM: return createSubsystem();
+      case UmlTextualPackage.ELEMENT: return createElement();
       case UmlTextualPackage.CLASS: return createClass();
+      case UmlTextualPackage.INTERFACE: return createInterface();
       case UmlTextualPackage.ATTRIBUTE_TYPE: return createAttributeType();
       case UmlTextualPackage.DOMAIN_SPECIFIC_TYPE: return createDomainSpecificType();
       case UmlTextualPackage.ATTRIBUTE: return createAttribute();
+      case UmlTextualPackage.METHOD: return createMethod();
+      case UmlTextualPackage.PARAMETER: return createParameter();
       case UmlTextualPackage.ASSOCIATION_CONNECTOR: return createAssociationConnector();
       case UmlTextualPackage.ASSOCIATION: return createAssociation();
       case UmlTextualPackage.AGGREGATION: return createAggregation();
       case UmlTextualPackage.COMPOSITION: return createComposition();
+      case UmlTextualPackage.USE_CASE_DIAGRAM: return createUseCaseDiagram();
+      case UmlTextualPackage.USE_CASE_ELEMENT: return createUseCaseElement();
+      case UmlTextualPackage.ACTOR: return createActor();
+      case UmlTextualPackage.USE_CASE: return createUseCase();
+      case UmlTextualPackage.ACTOR_USE_CASE_ASSOCIATION: return createActorUseCaseAssociation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -107,6 +129,18 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
    * @generated
    */
   @Override
+  public ModelElement createModelElement()
+  {
+    ModelElementImpl modelElement = new ModelElementImpl();
+    return modelElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public br.ufes.mdd.umltextual.umlTextual.Package createPackage()
   {
     PackageImpl package_ = new PackageImpl();
@@ -119,10 +153,46 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
    * @generated
    */
   @Override
+  public Subsystem createSubsystem()
+  {
+    SubsystemImpl subsystem = new SubsystemImpl();
+    return subsystem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Element createElement()
+  {
+    ElementImpl element = new ElementImpl();
+    return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public br.ufes.mdd.umltextual.umlTextual.Class createClass()
   {
     ClassImpl class_ = new ClassImpl();
     return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Interface createInterface()
+  {
+    InterfaceImpl interface_ = new InterfaceImpl();
+    return interface_;
   }
 
   /**
@@ -159,6 +229,30 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
   {
     AttributeImpl attribute = new AttributeImpl();
     return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Method createMethod()
+  {
+    MethodImpl method = new MethodImpl();
+    return method;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**
@@ -207,6 +301,66 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
   {
     CompositionImpl composition = new CompositionImpl();
     return composition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCaseDiagram createUseCaseDiagram()
+  {
+    UseCaseDiagramImpl useCaseDiagram = new UseCaseDiagramImpl();
+    return useCaseDiagram;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCaseElement createUseCaseElement()
+  {
+    UseCaseElementImpl useCaseElement = new UseCaseElementImpl();
+    return useCaseElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Actor createActor()
+  {
+    ActorImpl actor = new ActorImpl();
+    return actor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCase createUseCase()
+  {
+    UseCaseImpl useCase = new UseCaseImpl();
+    return useCase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ActorUseCaseAssociation createActorUseCaseAssociation()
+  {
+    ActorUseCaseAssociationImpl actorUseCaseAssociation = new ActorUseCaseAssociationImpl();
+    return actorUseCaseAssociation;
   }
 
   /**

@@ -68,13 +68,13 @@ public interface UmlTextualPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Packages</b></em>' containment reference list.
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__PACKAGES = 0;
+  int MODEL__ELEMENTS = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -86,23 +86,14 @@ public interface UmlTextualPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl <em>Package</em>}' class.
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ModelElementImpl <em>Model Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl
-   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getPackage()
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.ModelElementImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getModelElement()
    * @generated
    */
-  int PACKAGE = 1;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE__TYPE = 0;
+  int MODEL_ELEMENT = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -111,25 +102,62 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__NAME = 1;
+  int MODEL_ELEMENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+   * The number of structural features of the '<em>Model Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__CLASSES = 2;
+  int MODEL_ELEMENT_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>Associations</b></em>' containment reference list.
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl <em>Package</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getPackage()
+   * @generated
+   */
+  int PACKAGE = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__ASSOCIATIONS = 3;
+  int PACKAGE__NAME = MODEL_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parent Package</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__PARENT_PACKAGE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Package</em>' class.
@@ -138,7 +166,81 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_FEATURE_COUNT = 4;
+  int PACKAGE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.SubsystemImpl <em>Subsystem</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.SubsystemImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getSubsystem()
+   * @generated
+   */
+  int SUBSYSTEM = 3;
+
+  /**
+   * The feature id for the '<em><b>Instantiable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM__INSTANTIABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM__ELEMENTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Subsystem</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBSYSTEM_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ElementImpl <em>Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.ElementImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getElement()
+   * @generated
+   */
+  int ELEMENT = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl <em>Class</em>}' class.
@@ -148,25 +250,7 @@ public interface UmlTextualPackage extends EPackage
    * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getClass_()
    * @generated
    */
-  int CLASS = 2;
-
-  /**
-   * The feature id for the '<em><b>Stereotype</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS__STEREOTYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS__VISIBILITY = 1;
+  int CLASS = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -175,16 +259,43 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__NAME = 2;
+  int CLASS__NAME = ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Parent Class</b></em>' containment reference.
+   * The feature id for the '<em><b>Stereotype</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__PARENT_CLASS = 3;
+  int CLASS__STEREOTYPE = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__VISIBILITY = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Parent Class</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__PARENT_CLASS = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Interface</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__INTERFACE = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -193,7 +304,16 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__ATTRIBUTES = 4;
+  int CLASS__ATTRIBUTES = ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__METHODS = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Class</em>' class.
@@ -202,7 +322,71 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS_FEATURE_COUNT = 5;
+  int CLASS_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl <em>Interface</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getInterface()
+   * @generated
+   */
+  int INTERFACE = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__NAME = ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Stereotype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__STEREOTYPE = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__VISIBILITY = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Parent Class</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__PARENT_CLASS = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__ATTRIBUTES = ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Interface</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AttributeTypeImpl <em>Attribute Type</em>}' class.
@@ -212,7 +396,16 @@ public interface UmlTextualPackage extends EPackage
    * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getAttributeType()
    * @generated
    */
-  int ATTRIBUTE_TYPE = 3;
+  int ATTRIBUTE_TYPE = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_TYPE__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Attribute Type</em>' class.
@@ -221,7 +414,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_TYPE_FEATURE_COUNT = 0;
+  int ATTRIBUTE_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.DomainSpecificTypeImpl <em>Domain Specific Type</em>}' class.
@@ -231,7 +424,7 @@ public interface UmlTextualPackage extends EPackage
    * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getDomainSpecificType()
    * @generated
    */
-  int DOMAIN_SPECIFIC_TYPE = 4;
+  int DOMAIN_SPECIFIC_TYPE = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -240,7 +433,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_SPECIFIC_TYPE__NAME = ATTRIBUTE_TYPE_FEATURE_COUNT + 0;
+  int DOMAIN_SPECIFIC_TYPE__NAME = ATTRIBUTE_TYPE__NAME;
 
   /**
    * The number of structural features of the '<em>Domain Specific Type</em>' class.
@@ -249,7 +442,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_SPECIFIC_TYPE_FEATURE_COUNT = ATTRIBUTE_TYPE_FEATURE_COUNT + 1;
+  int DOMAIN_SPECIFIC_TYPE_FEATURE_COUNT = ATTRIBUTE_TYPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -259,7 +452,7 @@ public interface UmlTextualPackage extends EPackage
    * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 5;
+  int ATTRIBUTE = 9;
 
   /**
    * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -307,14 +500,23 @@ public interface UmlTextualPackage extends EPackage
   int ATTRIBUTE_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AssociationConnectorImpl <em>Association Connector</em>}' class.
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.MethodImpl <em>Method</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see br.ufes.mdd.umltextual.umlTextual.impl.AssociationConnectorImpl
-   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getAssociationConnector()
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.MethodImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getMethod()
    * @generated
    */
-  int ASSOCIATION_CONNECTOR = 6;
+  int METHOD = 10;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__VISIBILITY = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -323,7 +525,90 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_CONNECTOR__NAME = 0;
+  int METHOD__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__PARAMETERS = 2;
+
+  /**
+   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__RETURN_TYPE = 3;
+
+  /**
+   * The number of structural features of the '<em>Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.ParameterImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__PARAMETER_TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AssociationConnectorImpl <em>Association Connector</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.AssociationConnectorImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getAssociationConnector()
+   * @generated
+   */
+  int ASSOCIATION_CONNECTOR = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION_CONNECTOR__NAME = ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Class1</b></em>' reference.
@@ -332,7 +617,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_CONNECTOR__CLASS1 = 1;
+  int ASSOCIATION_CONNECTOR__CLASS1 = ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Multiplicity1</b></em>' attribute.
@@ -341,7 +626,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_CONNECTOR__MULTIPLICITY1 = 2;
+  int ASSOCIATION_CONNECTOR__MULTIPLICITY1 = ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Class2</b></em>' reference.
@@ -350,7 +635,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_CONNECTOR__CLASS2 = 3;
+  int ASSOCIATION_CONNECTOR__CLASS2 = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Multiplicity2</b></em>' attribute.
@@ -359,7 +644,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_CONNECTOR__MULTIPLICITY2 = 4;
+  int ASSOCIATION_CONNECTOR__MULTIPLICITY2 = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Association Connector</em>' class.
@@ -368,7 +653,7 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_CONNECTOR_FEATURE_COUNT = 5;
+  int ASSOCIATION_CONNECTOR_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AssociationImpl <em>Association</em>}' class.
@@ -378,7 +663,7 @@ public interface UmlTextualPackage extends EPackage
    * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getAssociation()
    * @generated
    */
-  int ASSOCIATION = 7;
+  int ASSOCIATION = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -444,13 +729,22 @@ public interface UmlTextualPackage extends EPackage
   int ASSOCIATION__NAVIGATION2 = ASSOCIATION_CONNECTOR_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Class</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION__CLASS = ASSOCIATION_CONNECTOR_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Association</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSOCIATION_FEATURE_COUNT = ASSOCIATION_CONNECTOR_FEATURE_COUNT + 2;
+  int ASSOCIATION_FEATURE_COUNT = ASSOCIATION_CONNECTOR_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AggregationImpl <em>Aggregation</em>}' class.
@@ -460,7 +754,7 @@ public interface UmlTextualPackage extends EPackage
    * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getAggregation()
    * @generated
    */
-  int AGGREGATION = 8;
+  int AGGREGATION = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -533,7 +827,7 @@ public interface UmlTextualPackage extends EPackage
    * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getComposition()
    * @generated
    */
-  int COMPOSITION = 9;
+  int COMPOSITION = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -598,6 +892,236 @@ public interface UmlTextualPackage extends EPackage
    */
   int COMPOSITION_FEATURE_COUNT = ASSOCIATION_CONNECTOR_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseDiagramImpl <em>Use Case Diagram</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UseCaseDiagramImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getUseCaseDiagram()
+   * @generated
+   */
+  int USE_CASE_DIAGRAM = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_DIAGRAM__NAME = MODEL_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_DIAGRAM__ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Use Case Diagram</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_DIAGRAM_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseElementImpl <em>Use Case Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UseCaseElementImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getUseCaseElement()
+   * @generated
+   */
+  int USE_CASE_ELEMENT = 17;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_ELEMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Use Case Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl <em>Actor</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getActor()
+   * @generated
+   */
+  int ACTOR = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__NAME = USE_CASE_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__VISIBILITY = USE_CASE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__ABSTRACT = USE_CASE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Active</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__ACTIVE = USE_CASE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Business</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__BUSINESS = USE_CASE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Parent Actor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__PARENT_ACTOR = USE_CASE_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Use Cases</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__USE_CASES = USE_CASE_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>Actor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR_FEATURE_COUNT = USE_CASE_ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl <em>Use Case</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getUseCase()
+   * @generated
+   */
+  int USE_CASE = 19;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__NAME = USE_CASE_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Included Use Case</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__INCLUDED_USE_CASE = USE_CASE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Extended Use Case</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__EXTENDED_USE_CASE = USE_CASE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__DESCRIPTION = USE_CASE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Use Case</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_FEATURE_COUNT = USE_CASE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorUseCaseAssociationImpl <em>Actor Use Case Association</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.ActorUseCaseAssociationImpl
+   * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getActorUseCaseAssociation()
+   * @generated
+   */
+  int ACTOR_USE_CASE_ASSOCIATION = 20;
+
+  /**
+   * The feature id for the '<em><b>Use Case</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR_USE_CASE_ASSOCIATION__USE_CASE = 0;
+
+  /**
+   * The number of structural features of the '<em>Actor Use Case Association</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR_USE_CASE_ASSOCIATION_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Model <em>Model</em>}'.
@@ -610,15 +1134,36 @@ public interface UmlTextualPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Model#getPackages <em>Packages</em>}'.
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Model#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Packages</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Model#getPackages()
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Model#getElements()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Packages();
+  EReference getModel_Elements();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.ModelElement <em>Model Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Model Element</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.ModelElement
+   * @generated
+   */
+  EClass getModelElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.ModelElement#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.ModelElement#getName()
+   * @see #getModelElement()
+   * @generated
+   */
+  EAttribute getModelElement_Name();
 
   /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Package <em>Package</em>}'.
@@ -642,37 +1187,90 @@ public interface UmlTextualPackage extends EPackage
   EAttribute getPackage_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Package#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.Package#getParentPackage <em>Parent Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent Package</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Package#getParentPackage()
+   * @see #getPackage()
+   * @generated
+   */
+  EReference getPackage_ParentPackage();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Package#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Package#getElements()
+   * @see #getPackage()
+   * @generated
+   */
+  EReference getPackage_Elements();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Subsystem <em>Subsystem</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Subsystem</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Subsystem
+   * @generated
+   */
+  EClass getSubsystem();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Subsystem#getInstantiable <em>Instantiable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Instantiable</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Subsystem#getInstantiable()
+   * @see #getSubsystem()
+   * @generated
+   */
+  EAttribute getSubsystem_Instantiable();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Subsystem#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Package#getName()
-   * @see #getPackage()
+   * @see br.ufes.mdd.umltextual.umlTextual.Subsystem#getName()
+   * @see #getSubsystem()
    * @generated
    */
-  EAttribute getPackage_Name();
+  EAttribute getSubsystem_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Package#getClasses <em>Classes</em>}'.
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Subsystem#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Classes</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Package#getClasses()
-   * @see #getPackage()
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Subsystem#getElements()
+   * @see #getSubsystem()
    * @generated
    */
-  EReference getPackage_Classes();
+  EReference getSubsystem_Elements();
 
   /**
-   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Package#getAssociations <em>Associations</em>}'.
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Associations</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Package#getAssociations()
-   * @see #getPackage()
+   * @return the meta object for class '<em>Element</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Element
    * @generated
    */
-  EReference getPackage_Associations();
+  EClass getElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Element#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Element#getName()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_Name();
 
   /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Class <em>Class</em>}'.
@@ -707,26 +1305,26 @@ public interface UmlTextualPackage extends EPackage
   EAttribute getClass_Visibility();
 
   /**
-   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Class#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.Class#getParentClass <em>Parent Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Class#getName()
-   * @see #getClass_()
-   * @generated
-   */
-  EAttribute getClass_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link br.ufes.mdd.umltextual.umlTextual.Class#getParentClass <em>Parent Class</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parent Class</em>'.
+   * @return the meta object for the reference '<em>Parent Class</em>'.
    * @see br.ufes.mdd.umltextual.umlTextual.Class#getParentClass()
    * @see #getClass_()
    * @generated
    */
   EReference getClass_ParentClass();
+
+  /**
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.Class#getInterface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Interface</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Class#getInterface()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_Interface();
 
   /**
    * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Class#getAttributes <em>Attributes</em>}'.
@@ -740,6 +1338,71 @@ public interface UmlTextualPackage extends EPackage
   EReference getClass_Attributes();
 
   /**
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Class#getMethods <em>Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Methods</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Class#getMethods()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_Methods();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Interface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Interface</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Interface
+   * @generated
+   */
+  EClass getInterface();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getStereotype <em>Stereotype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Stereotype</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Interface#getStereotype()
+   * @see #getInterface()
+   * @generated
+   */
+  EAttribute getInterface_Stereotype();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Visibility</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Interface#getVisibility()
+   * @see #getInterface()
+   * @generated
+   */
+  EAttribute getInterface_Visibility();
+
+  /**
+   * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getParentClass <em>Parent Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parent Class</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Interface#getParentClass()
+   * @see #getInterface()
+   * @generated
+   */
+  EReference getInterface_ParentClass();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getAttributes <em>Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attributes</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Interface#getAttributes()
+   * @see #getInterface()
+   * @generated
+   */
+  EReference getInterface_Attributes();
+
+  /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.AttributeType <em>Attribute Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -750,6 +1413,17 @@ public interface UmlTextualPackage extends EPackage
   EClass getAttributeType();
 
   /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.AttributeType#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.AttributeType#getName()
+   * @see #getAttributeType()
+   * @generated
+   */
+  EAttribute getAttributeType_Name();
+
+  /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.DomainSpecificType <em>Domain Specific Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -758,17 +1432,6 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    */
   EClass getDomainSpecificType();
-
-  /**
-   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.DomainSpecificType#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.DomainSpecificType#getName()
-   * @see #getDomainSpecificType()
-   * @generated
-   */
-  EAttribute getDomainSpecificType_Name();
 
   /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Attribute <em>Attribute</em>}'.
@@ -825,6 +1488,92 @@ public interface UmlTextualPackage extends EPackage
   EAttribute getAttribute_Multiplicity();
 
   /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Method <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Method</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Method
+   * @generated
+   */
+  EClass getMethod();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Method#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Visibility</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Method#getVisibility()
+   * @see #getMethod()
+   * @generated
+   */
+  EAttribute getMethod_Visibility();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Method#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Method#getName()
+   * @see #getMethod()
+   * @generated
+   */
+  EAttribute getMethod_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Method#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Method#getParameters()
+   * @see #getMethod()
+   * @generated
+   */
+  EReference getMethod_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link br.ufes.mdd.umltextual.umlTextual.Method#getReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Type</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Method#getReturnType()
+   * @see #getMethod()
+   * @generated
+   */
+  EReference getMethod_ReturnType();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Parameter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Parameter#getName()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link br.ufes.mdd.umltextual.umlTextual.Parameter#getParameterType <em>Parameter Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameter Type</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Parameter#getParameterType()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_ParameterType();
+
+  /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector <em>Association Connector</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -833,17 +1582,6 @@ public interface UmlTextualPackage extends EPackage
    * @generated
    */
   EClass getAssociationConnector();
-
-  /**
-   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getName()
-   * @see #getAssociationConnector()
-   * @generated
-   */
-  EAttribute getAssociationConnector_Name();
 
   /**
    * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector#getClass1 <em>Class1</em>}'.
@@ -922,6 +1660,17 @@ public interface UmlTextualPackage extends EPackage
   EAttribute getAssociation_Navigation2();
 
   /**
+   * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.Association#getClass_ <em>Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Class</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Association#getClass_()
+   * @see #getAssociation()
+   * @generated
+   */
+  EReference getAssociation_Class();
+
+  /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Aggregation <em>Aggregation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -964,6 +1713,188 @@ public interface UmlTextualPackage extends EPackage
   EAttribute getComposition_Navigation();
 
   /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram <em>Use Case Diagram</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Use Case Diagram</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram
+   * @generated
+   */
+  EClass getUseCaseDiagram();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram#getElements()
+   * @see #getUseCaseDiagram()
+   * @generated
+   */
+  EReference getUseCaseDiagram_Elements();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.UseCaseElement <em>Use Case Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Use Case Element</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCaseElement
+   * @generated
+   */
+  EClass getUseCaseElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.UseCaseElement#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCaseElement#getName()
+   * @see #getUseCaseElement()
+   * @generated
+   */
+  EAttribute getUseCaseElement_Name();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.Actor <em>Actor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Actor</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor
+   * @generated
+   */
+  EClass getActor();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Visibility</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getVisibility()
+   * @see #getActor()
+   * @generated
+   */
+  EAttribute getActor_Visibility();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getAbstract <em>Abstract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Abstract</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getAbstract()
+   * @see #getActor()
+   * @generated
+   */
+  EAttribute getActor_Abstract();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getActive <em>Active</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Active</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getActive()
+   * @see #getActor()
+   * @generated
+   */
+  EAttribute getActor_Active();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getBusiness <em>Business</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Business</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getBusiness()
+   * @see #getActor()
+   * @generated
+   */
+  EAttribute getActor_Business();
+
+  /**
+   * Returns the meta object for the containment reference '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor <em>Parent Actor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parent Actor</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor()
+   * @see #getActor()
+   * @generated
+   */
+  EReference getActor_ParentActor();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getUseCases <em>Use Cases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Use Cases</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getUseCases()
+   * @see #getActor()
+   * @generated
+   */
+  EReference getActor_UseCases();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.UseCase <em>Use Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Use Case</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCase
+   * @generated
+   */
+  EClass getUseCase();
+
+  /**
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCase <em>Included Use Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Included Use Case</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCase()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_IncludedUseCase();
+
+  /**
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCase <em>Extended Use Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Extended Use Case</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCase()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_ExtendedUseCase();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCase#getDescription()
+   * @see #getUseCase()
+   * @generated
+   */
+  EAttribute getUseCase_Description();
+
+  /**
+   * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation <em>Actor Use Case Association</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Actor Use Case Association</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation
+   * @generated
+   */
+  EClass getActorUseCaseAssociation();
+
+  /**
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation#getUseCase <em>Use Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Use Case</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation#getUseCase()
+   * @see #getActorUseCaseAssociation()
+   * @generated
+   */
+  EReference getActorUseCaseAssociation_UseCase();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -997,12 +1928,30 @@ public interface UmlTextualPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__PACKAGES = eINSTANCE.getModel_Packages();
+    EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ModelElementImpl <em>Model Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.ModelElementImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getModelElement()
+     * @generated
+     */
+    EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL_ELEMENT__NAME = eINSTANCE.getModelElement_Name();
 
     /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl <em>Package</em>}' class.
@@ -1023,28 +1972,72 @@ public interface UmlTextualPackage extends EPackage
     EAttribute PACKAGE__TYPE = eINSTANCE.getPackage_Type();
 
     /**
+     * The meta object literal for the '<em><b>Parent Package</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE__PARENT_PACKAGE = eINSTANCE.getPackage_ParentPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE__ELEMENTS = eINSTANCE.getPackage_Elements();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.SubsystemImpl <em>Subsystem</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.SubsystemImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getSubsystem()
+     * @generated
+     */
+    EClass SUBSYSTEM = eINSTANCE.getSubsystem();
+
+    /**
+     * The meta object literal for the '<em><b>Instantiable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUBSYSTEM__INSTANTIABLE = eINSTANCE.getSubsystem_Instantiable();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+    EAttribute SUBSYSTEM__NAME = eINSTANCE.getSubsystem_Name();
 
     /**
-     * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PACKAGE__CLASSES = eINSTANCE.getPackage_Classes();
+    EReference SUBSYSTEM__ELEMENTS = eINSTANCE.getSubsystem_Elements();
 
     /**
-     * The meta object literal for the '<em><b>Associations</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ElementImpl <em>Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.ElementImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getElement()
+     * @generated
+     */
+    EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PACKAGE__ASSOCIATIONS = eINSTANCE.getPackage_Associations();
+    EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
 
     /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl <em>Class</em>}' class.
@@ -1073,20 +2066,20 @@ public interface UmlTextualPackage extends EPackage
     EAttribute CLASS__VISIBILITY = eINSTANCE.getClass_Visibility();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parent Class</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Parent Class</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference CLASS__PARENT_CLASS = eINSTANCE.getClass_ParentClass();
+
+    /**
+     * The meta object literal for the '<em><b>Interface</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__INTERFACE = eINSTANCE.getClass_Interface();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
@@ -1095,6 +2088,56 @@ public interface UmlTextualPackage extends EPackage
      * @generated
      */
     EReference CLASS__ATTRIBUTES = eINSTANCE.getClass_Attributes();
+
+    /**
+     * The meta object literal for the '<em><b>Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__METHODS = eINSTANCE.getClass_Methods();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl <em>Interface</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getInterface()
+     * @generated
+     */
+    EClass INTERFACE = eINSTANCE.getInterface();
+
+    /**
+     * The meta object literal for the '<em><b>Stereotype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTERFACE__STEREOTYPE = eINSTANCE.getInterface_Stereotype();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTERFACE__VISIBILITY = eINSTANCE.getInterface_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Parent Class</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE__PARENT_CLASS = eINSTANCE.getInterface_ParentClass();
+
+    /**
+     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE__ATTRIBUTES = eINSTANCE.getInterface_Attributes();
 
     /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AttributeTypeImpl <em>Attribute Type</em>}' class.
@@ -1107,6 +2150,14 @@ public interface UmlTextualPackage extends EPackage
     EClass ATTRIBUTE_TYPE = eINSTANCE.getAttributeType();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE_TYPE__NAME = eINSTANCE.getAttributeType_Name();
+
+    /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.DomainSpecificTypeImpl <em>Domain Specific Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1115,14 +2166,6 @@ public interface UmlTextualPackage extends EPackage
      * @generated
      */
     EClass DOMAIN_SPECIFIC_TYPE = eINSTANCE.getDomainSpecificType();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DOMAIN_SPECIFIC_TYPE__NAME = eINSTANCE.getDomainSpecificType_Name();
 
     /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -1167,6 +2210,74 @@ public interface UmlTextualPackage extends EPackage
     EAttribute ATTRIBUTE__MULTIPLICITY = eINSTANCE.getAttribute_Multiplicity();
 
     /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.MethodImpl <em>Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.MethodImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getMethod()
+     * @generated
+     */
+    EClass METHOD = eINSTANCE.getMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD__VISIBILITY = eINSTANCE.getMethod_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD__NAME = eINSTANCE.getMethod_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD__PARAMETERS = eINSTANCE.getMethod_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD__RETURN_TYPE = eINSTANCE.getMethod_ReturnType();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.ParameterImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__PARAMETER_TYPE = eINSTANCE.getParameter_ParameterType();
+
+    /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AssociationConnectorImpl <em>Association Connector</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1175,14 +2286,6 @@ public interface UmlTextualPackage extends EPackage
      * @generated
      */
     EClass ASSOCIATION_CONNECTOR = eINSTANCE.getAssociationConnector();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ASSOCIATION_CONNECTOR__NAME = eINSTANCE.getAssociationConnector_Name();
 
     /**
      * The meta object literal for the '<em><b>Class1</b></em>' reference feature.
@@ -1243,6 +2346,14 @@ public interface UmlTextualPackage extends EPackage
     EAttribute ASSOCIATION__NAVIGATION2 = eINSTANCE.getAssociation_Navigation2();
 
     /**
+     * The meta object literal for the '<em><b>Class</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSOCIATION__CLASS = eINSTANCE.getAssociation_Class();
+
+    /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.AggregationImpl <em>Aggregation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1277,6 +2388,152 @@ public interface UmlTextualPackage extends EPackage
      * @generated
      */
     EAttribute COMPOSITION__NAVIGATION = eINSTANCE.getComposition_Navigation();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseDiagramImpl <em>Use Case Diagram</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UseCaseDiagramImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getUseCaseDiagram()
+     * @generated
+     */
+    EClass USE_CASE_DIAGRAM = eINSTANCE.getUseCaseDiagram();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE_DIAGRAM__ELEMENTS = eINSTANCE.getUseCaseDiagram_Elements();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseElementImpl <em>Use Case Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UseCaseElementImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getUseCaseElement()
+     * @generated
+     */
+    EClass USE_CASE_ELEMENT = eINSTANCE.getUseCaseElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USE_CASE_ELEMENT__NAME = eINSTANCE.getUseCaseElement_Name();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl <em>Actor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getActor()
+     * @generated
+     */
+    EClass ACTOR = eINSTANCE.getActor();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTOR__VISIBILITY = eINSTANCE.getActor_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTOR__ABSTRACT = eINSTANCE.getActor_Abstract();
+
+    /**
+     * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTOR__ACTIVE = eINSTANCE.getActor_Active();
+
+    /**
+     * The meta object literal for the '<em><b>Business</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTOR__BUSINESS = eINSTANCE.getActor_Business();
+
+    /**
+     * The meta object literal for the '<em><b>Parent Actor</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTOR__PARENT_ACTOR = eINSTANCE.getActor_ParentActor();
+
+    /**
+     * The meta object literal for the '<em><b>Use Cases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTOR__USE_CASES = eINSTANCE.getActor_UseCases();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl <em>Use Case</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getUseCase()
+     * @generated
+     */
+    EClass USE_CASE = eINSTANCE.getUseCase();
+
+    /**
+     * The meta object literal for the '<em><b>Included Use Case</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__INCLUDED_USE_CASE = eINSTANCE.getUseCase_IncludedUseCase();
+
+    /**
+     * The meta object literal for the '<em><b>Extended Use Case</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__EXTENDED_USE_CASE = eINSTANCE.getUseCase_ExtendedUseCase();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USE_CASE__DESCRIPTION = eINSTANCE.getUseCase_Description();
+
+    /**
+     * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorUseCaseAssociationImpl <em>Actor Use Case Association</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.ActorUseCaseAssociationImpl
+     * @see br.ufes.mdd.umltextual.umlTextual.impl.UmlTextualPackageImpl#getActorUseCaseAssociation()
+     * @generated
+     */
+    EClass ACTOR_USE_CASE_ASSOCIATION = eINSTANCE.getActorUseCaseAssociation();
+
+    /**
+     * The meta object literal for the '<em><b>Use Case</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTOR_USE_CASE_ASSOCIATION__USE_CASE = eINSTANCE.getActorUseCaseAssociation_UseCase();
 
   }
 

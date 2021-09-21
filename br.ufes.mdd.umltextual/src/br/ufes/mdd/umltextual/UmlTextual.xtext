@@ -3,28 +3,45 @@ grammar br.ufes.mdd.umltextual.UmlTextual with org.eclipse.xtext.common.Terminal
 generate umlTextual "http://www.ufes.br/mdd/umltextual/UmlTextual"
 
 Model:
-	packages+=Package*
+	elements+=ModelElement*
 	;
 	
+ModelElement:
+	Package | UseCaseDiagram
+;
+	
+// <--- Diagrama de Pacotes --->
+	
 Package:
-	type=('package' | 'subsystem') name=ID '{'
+	type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
 	elements+=Element*
 	'}'
 ;
 
-Element:
-	Class | AssociationConnector
+Subsystem:
+	(instantiable='instantiable')? 'subsystem' name=ID '{'
+	elements+=Element*
+	'}'
 ;
 
-//Subsystem:
-//	'subsystem' name=ID '{'
-//	classes+=Class*
-//	'}'
-//;
+// <--- Diagrama de Classes --->
+
+Element:
+	Class | AssociationConnector | Interface
+;
+
 
 Class:
 	('@'stereotype=ID)?
-	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? '{'
+	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (','interface+=[Interface])*)? '{'
+	attributes+=Attribute*
+	methods+=Method*
+	'}'
+;
+
+Interface:
+	('@'stereotype=ID)?
+	visibility=Visibility? 'interface' name=ID ('extends' parentClass=[Class])? '{'
 	attributes+=Attribute*
 	'}'
 ;
@@ -33,10 +50,18 @@ Visibility:
 	"public" | "private" | "protected" | "package"
 ;
 
+Abstract:
+	'abstract'
+;
+
+Active:
+	'active'
+;
+
 AttributeType:
-	{AttributeType} "string" | {AttributeType} "int" | {AttributeType} "double" | {AttributeType} "boolean" |
-	{AttributeType} "byte" | {AttributeType} "char" | {AttributeType} "float" | {AttributeType} "short" |
-	{AttributeType} "long" | DomainSpecificType
+	name="string" | name="int" | name="double" | name="boolean" |
+	name="byte" | name="char" | name="float" | name="short" |
+	name="long" | DomainSpecificType
 ;
 
 DomainSpecificType:
@@ -50,6 +75,14 @@ Multiplicity:
 
 Attribute:
 	visibility=(Visibility)? 'attr' name=ID ':' type=AttributeType ("[" multiplicity=Multiplicity "]")?
+;
+
+Method:
+	'abstract'? 'static'? visibility=(Visibility)? 'function' name=ID '(' parameters+=Parameter*  ')' '->' returnType=AttributeType
+;
+
+Parameter:
+	name=ID ':' parameterType=AttributeType
 ;
 
 // <---- Relações ---->
@@ -70,7 +103,7 @@ Association:
 	'undirected'? 'association' name= (ID | Unamed) '{'
 		'from' navigation1=Navigation?  class1=[Class]'['multiplicity1=Multiplicity ']' 
 		'to' navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
-		('class' class=[Class])?
+		('associatedclass' '=' class=[Class])?
 	'}'
 ;
 
@@ -86,8 +119,42 @@ Composition:
 	'}'
 ;
 
-// Gramática de Diagrama de Pacotes
 
 
-// Gramática do diagrama de Casos de Uso
+// <--- Gramática do diagrama de Casos de Uso --->
+
+UseCaseDiagram:
+	'usecase' 'diagram' name=ID '{'
+		elements+=UseCaseElement*
+	'}'
+;
+
+UseCaseElement:
+	Actor | UseCase
+;
+
+Actor:
+	(visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')? 
+	'actor' name=ID ('extends' parentActor=Actor)? '{'
+		useCases+=ActorUseCaseAssociation*
+	'}'
+;
+
+UseCase:
+	'usecase' name=ID  ('includes' includedUseCase+=[UseCase])? ('extends' extendedUseCase+=[UseCase])? '=' description=STRING
+	(
+	'{'
+		('includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
+		'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		|
+		'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
+	'}'	
+	)?
+;
+
+ActorUseCaseAssociation:
+	'uses' useCase+=[UseCase] (','useCase+=[UseCase])*
+;
+
 

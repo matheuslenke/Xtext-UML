@@ -9,6 +9,7 @@ import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.AssociationImpl#getNavigation1 <em>Navigation1</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.AssociationImpl#getNavigation2 <em>Navigation2</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.AssociationImpl#getClass_ <em>Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +69,16 @@ public class AssociationImpl extends AssociationConnectorImpl implements Associa
    * @ordered
    */
   protected String navigation2 = NAVIGATION2_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getClass_() <em>Class</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClass_()
+   * @generated
+   * @ordered
+   */
+  protected br.ufes.mdd.umltextual.umlTextual.Class class_;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,6 +157,51 @@ public class AssociationImpl extends AssociationConnectorImpl implements Associa
    * @generated
    */
   @Override
+  public br.ufes.mdd.umltextual.umlTextual.Class getClass_()
+  {
+    if (class_ != null && class_.eIsProxy())
+    {
+      InternalEObject oldClass = (InternalEObject)class_;
+      class_ = (br.ufes.mdd.umltextual.umlTextual.Class)eResolveProxy(oldClass);
+      if (class_ != oldClass)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UmlTextualPackage.ASSOCIATION__CLASS, oldClass, class_));
+      }
+    }
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public br.ufes.mdd.umltextual.umlTextual.Class basicGetClass()
+  {
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setClass(br.ufes.mdd.umltextual.umlTextual.Class newClass)
+  {
+    br.ufes.mdd.umltextual.umlTextual.Class oldClass = class_;
+    class_ = newClass;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.ASSOCIATION__CLASS, oldClass, class_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -153,6 +210,9 @@ public class AssociationImpl extends AssociationConnectorImpl implements Associa
         return getNavigation1();
       case UmlTextualPackage.ASSOCIATION__NAVIGATION2:
         return getNavigation2();
+      case UmlTextualPackage.ASSOCIATION__CLASS:
+        if (resolve) return getClass_();
+        return basicGetClass();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,6 +232,9 @@ public class AssociationImpl extends AssociationConnectorImpl implements Associa
         return;
       case UmlTextualPackage.ASSOCIATION__NAVIGATION2:
         setNavigation2((String)newValue);
+        return;
+      case UmlTextualPackage.ASSOCIATION__CLASS:
+        setClass((br.ufes.mdd.umltextual.umlTextual.Class)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,6 +256,9 @@ public class AssociationImpl extends AssociationConnectorImpl implements Associa
       case UmlTextualPackage.ASSOCIATION__NAVIGATION2:
         setNavigation2(NAVIGATION2_EDEFAULT);
         return;
+      case UmlTextualPackage.ASSOCIATION__CLASS:
+        setClass((br.ufes.mdd.umltextual.umlTextual.Class)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -211,6 +277,8 @@ public class AssociationImpl extends AssociationConnectorImpl implements Associa
         return NAVIGATION1_EDEFAULT == null ? navigation1 != null : !NAVIGATION1_EDEFAULT.equals(navigation1);
       case UmlTextualPackage.ASSOCIATION__NAVIGATION2:
         return NAVIGATION2_EDEFAULT == null ? navigation2 != null : !NAVIGATION2_EDEFAULT.equals(navigation2);
+      case UmlTextualPackage.ASSOCIATION__CLASS:
+        return class_ != null;
     }
     return super.eIsSet(featureID);
   }

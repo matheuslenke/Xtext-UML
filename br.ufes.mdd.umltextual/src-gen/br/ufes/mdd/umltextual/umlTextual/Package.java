@@ -5,8 +5,6 @@ package br.ufes.mdd.umltextual.umlTextual;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Package</b></em>'.
@@ -17,16 +15,15 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Package#getType <em>Type</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Package#getName <em>Name</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Package#getClasses <em>Classes</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Package#getAssociations <em>Associations</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Package#getParentPackage <em>Parent Package</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Package#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getPackage()
  * @model
  * @generated
  */
-public interface Package extends EObject
+public interface Package extends ModelElement
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -51,49 +48,37 @@ public interface Package extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Parent Package</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getPackage_Name()
+   * @return the value of the '<em>Parent Package</em>' reference.
+   * @see #setParentPackage(Package)
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getPackage_ParentPackage()
    * @model
    * @generated
    */
-  String getName();
+  Package getParentPackage();
 
   /**
-   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Package#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Package#getParentPackage <em>Parent Package</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Parent Package</em>' reference.
+   * @see #getParentPackage()
    * @generated
    */
-  void setName(String value);
+  void setParentPackage(Package value);
 
   /**
-   * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.Class}.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.Element}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Classes</em>' containment reference list.
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getPackage_Classes()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getPackage_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<br.ufes.mdd.umltextual.umlTextual.Class> getClasses();
-
-  /**
-   * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.AssociationConnector}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Associations</em>' containment reference list.
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getPackage_Associations()
-   * @model containment="true"
-   * @generated
-   */
-  EList<AssociationConnector> getAssociations();
+  EList<Element> getElements();
 
 } // Package

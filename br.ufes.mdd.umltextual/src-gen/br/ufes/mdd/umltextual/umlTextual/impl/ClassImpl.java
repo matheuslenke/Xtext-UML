@@ -4,6 +4,8 @@
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
 import br.ufes.mdd.umltextual.umlTextual.Attribute;
+import br.ufes.mdd.umltextual.umlTextual.Interface;
+import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 
 import java.util.Collection;
@@ -17,9 +19,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,14 +34,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getVisibility <em>Visibility</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getParentClass <em>Parent Class</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getInterface <em>Interface</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getMethods <em>Methods</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.mdd.umltextual.umlTextual.Class
+public class ClassImpl extends ElementImpl implements br.ufes.mdd.umltextual.umlTextual.Class
 {
   /**
    * The default value of the '{@link #getStereotype() <em>Stereotype</em>}' attribute.
@@ -82,27 +85,7 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
   protected String visibility = VISIBILITY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getParentClass() <em>Parent Class</em>}' containment reference.
+   * The cached value of the '{@link #getParentClass() <em>Parent Class</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParentClass()
@@ -110,6 +93,16 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
    * @ordered
    */
   protected br.ufes.mdd.umltextual.umlTextual.Class parentClass;
+
+  /**
+   * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInterface()
+   * @generated
+   * @ordered
+   */
+  protected EList<Interface> interface_;
 
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -120,6 +113,16 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
    * @ordered
    */
   protected EList<Attribute> attributes;
+
+  /**
+   * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethods()
+   * @generated
+   * @ordered
+   */
+  protected EList<Method> methods;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,33 +201,18 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
    * @generated
    */
   @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.CLASS__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public br.ufes.mdd.umltextual.umlTextual.Class getParentClass()
   {
+    if (parentClass != null && parentClass.eIsProxy())
+    {
+      InternalEObject oldParentClass = (InternalEObject)parentClass;
+      parentClass = (br.ufes.mdd.umltextual.umlTextual.Class)eResolveProxy(oldParentClass);
+      if (parentClass != oldParentClass)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UmlTextualPackage.CLASS__PARENT_CLASS, oldParentClass, parentClass));
+      }
+    }
     return parentClass;
   }
 
@@ -233,16 +221,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParentClass(br.ufes.mdd.umltextual.umlTextual.Class newParentClass, NotificationChain msgs)
+  public br.ufes.mdd.umltextual.umlTextual.Class basicGetParentClass()
   {
-    br.ufes.mdd.umltextual.umlTextual.Class oldParentClass = parentClass;
-    parentClass = newParentClass;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UmlTextualPackage.CLASS__PARENT_CLASS, oldParentClass, newParentClass);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return parentClass;
   }
 
   /**
@@ -253,18 +234,25 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
   @Override
   public void setParentClass(br.ufes.mdd.umltextual.umlTextual.Class newParentClass)
   {
-    if (newParentClass != parentClass)
+    br.ufes.mdd.umltextual.umlTextual.Class oldParentClass = parentClass;
+    parentClass = newParentClass;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.CLASS__PARENT_CLASS, oldParentClass, parentClass));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Interface> getInterface()
+  {
+    if (interface_ == null)
     {
-      NotificationChain msgs = null;
-      if (parentClass != null)
-        msgs = ((InternalEObject)parentClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UmlTextualPackage.CLASS__PARENT_CLASS, null, msgs);
-      if (newParentClass != null)
-        msgs = ((InternalEObject)newParentClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UmlTextualPackage.CLASS__PARENT_CLASS, null, msgs);
-      msgs = basicSetParentClass(newParentClass, msgs);
-      if (msgs != null) msgs.dispatch();
+      interface_ = new EObjectResolvingEList<Interface>(Interface.class, this, UmlTextualPackage.CLASS__INTERFACE);
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.CLASS__PARENT_CLASS, newParentClass, newParentClass));
+    return interface_;
   }
 
   /**
@@ -288,14 +276,29 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
    * @generated
    */
   @Override
+  public EList<Method> getMethods()
+  {
+    if (methods == null)
+    {
+      methods = new EObjectContainmentEList<Method>(Method.class, this, UmlTextualPackage.CLASS__METHODS);
+    }
+    return methods;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case UmlTextualPackage.CLASS__PARENT_CLASS:
-        return basicSetParentClass(null, msgs);
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case UmlTextualPackage.CLASS__METHODS:
+        return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -314,12 +317,15 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
         return getStereotype();
       case UmlTextualPackage.CLASS__VISIBILITY:
         return getVisibility();
-      case UmlTextualPackage.CLASS__NAME:
-        return getName();
       case UmlTextualPackage.CLASS__PARENT_CLASS:
-        return getParentClass();
+        if (resolve) return getParentClass();
+        return basicGetParentClass();
+      case UmlTextualPackage.CLASS__INTERFACE:
+        return getInterface();
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         return getAttributes();
+      case UmlTextualPackage.CLASS__METHODS:
+        return getMethods();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -341,15 +347,20 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
       case UmlTextualPackage.CLASS__VISIBILITY:
         setVisibility((String)newValue);
         return;
-      case UmlTextualPackage.CLASS__NAME:
-        setName((String)newValue);
-        return;
       case UmlTextualPackage.CLASS__PARENT_CLASS:
         setParentClass((br.ufes.mdd.umltextual.umlTextual.Class)newValue);
+        return;
+      case UmlTextualPackage.CLASS__INTERFACE:
+        getInterface().clear();
+        getInterface().addAll((Collection<? extends Interface>)newValue);
         return;
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
+        return;
+      case UmlTextualPackage.CLASS__METHODS:
+        getMethods().clear();
+        getMethods().addAll((Collection<? extends Method>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -371,14 +382,17 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
       case UmlTextualPackage.CLASS__VISIBILITY:
         setVisibility(VISIBILITY_EDEFAULT);
         return;
-      case UmlTextualPackage.CLASS__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case UmlTextualPackage.CLASS__PARENT_CLASS:
         setParentClass((br.ufes.mdd.umltextual.umlTextual.Class)null);
         return;
+      case UmlTextualPackage.CLASS__INTERFACE:
+        getInterface().clear();
+        return;
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         getAttributes().clear();
+        return;
+      case UmlTextualPackage.CLASS__METHODS:
+        getMethods().clear();
         return;
     }
     super.eUnset(featureID);
@@ -398,12 +412,14 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
         return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
       case UmlTextualPackage.CLASS__VISIBILITY:
         return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
-      case UmlTextualPackage.CLASS__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UmlTextualPackage.CLASS__PARENT_CLASS:
         return parentClass != null;
+      case UmlTextualPackage.CLASS__INTERFACE:
+        return interface_ != null && !interface_.isEmpty();
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
+      case UmlTextualPackage.CLASS__METHODS:
+        return methods != null && !methods.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -423,8 +439,6 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements br.ufes.m
     result.append(stereotype);
     result.append(", visibility: ");
     result.append(visibility);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Model#getPackages <em>Packages</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Model#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getModel()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.Package}.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.ModelElement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Packages</em>' containment reference list.
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getModel_Packages()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getModel_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<br.ufes.mdd.umltextual.umlTextual.Package> getPackages();
+  EList<ModelElement> getElements();
 
 } // Model

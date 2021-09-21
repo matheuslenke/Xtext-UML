@@ -15,6 +15,7 @@ package br.ufes.mdd.umltextual.umlTextual;
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Association#getNavigation1 <em>Navigation1</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Association#getNavigation2 <em>Navigation2</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Association#getClass_ <em>Class</em>}</li>
  * </ul>
  *
  * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getAssociation()
@@ -66,5 +67,27 @@ public interface Association extends AssociationConnector
    * @generated
    */
   void setNavigation2(String value);
+
+  /**
+   * Returns the value of the '<em><b>Class</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Class</em>' reference.
+   * @see #setClass(br.ufes.mdd.umltextual.umlTextual.Class)
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getAssociation_Class()
+   * @model
+   * @generated
+   */
+  br.ufes.mdd.umltextual.umlTextual.Class getClass_();
+
+  /**
+   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Association#getClass_ <em>Class</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Class</em>' reference.
+   * @see #getClass_()
+   * @generated
+   */
+  void setClass(br.ufes.mdd.umltextual.umlTextual.Class value);
 
 } // Association

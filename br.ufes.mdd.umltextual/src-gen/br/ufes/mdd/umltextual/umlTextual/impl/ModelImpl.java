@@ -4,6 +4,7 @@
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
 import br.ufes.mdd.umltextual.umlTextual.Model;
+import br.ufes.mdd.umltextual.umlTextual.ModelElement;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 
 import java.util.Collection;
@@ -28,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ModelImpl#getPackages <em>Packages</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPackages()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<br.ufes.mdd.umltextual.umlTextual.Package> packages;
+  protected EList<ModelElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +73,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<br.ufes.mdd.umltextual.umlTextual.Package> getPackages()
+  public EList<ModelElement> getElements()
   {
-    if (packages == null)
+    if (elements == null)
     {
-      packages = new EObjectContainmentEList<br.ufes.mdd.umltextual.umlTextual.Package>(br.ufes.mdd.umltextual.umlTextual.Package.class, this, UmlTextualPackage.MODEL__PACKAGES);
+      elements = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, UmlTextualPackage.MODEL__ELEMENTS);
     }
-    return packages;
+    return elements;
   }
 
   /**
@@ -91,8 +92,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UmlTextualPackage.MODEL__PACKAGES:
-        return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
+      case UmlTextualPackage.MODEL__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +108,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UmlTextualPackage.MODEL__PACKAGES:
-        return getPackages();
+      case UmlTextualPackage.MODEL__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +125,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UmlTextualPackage.MODEL__PACKAGES:
-        getPackages().clear();
-        getPackages().addAll((Collection<? extends br.ufes.mdd.umltextual.umlTextual.Package>)newValue);
+      case UmlTextualPackage.MODEL__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends ModelElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +143,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UmlTextualPackage.MODEL__PACKAGES:
-        getPackages().clear();
+      case UmlTextualPackage.MODEL__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +160,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UmlTextualPackage.MODEL__PACKAGES:
-        return packages != null && !packages.isEmpty();
+      case UmlTextualPackage.MODEL__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
