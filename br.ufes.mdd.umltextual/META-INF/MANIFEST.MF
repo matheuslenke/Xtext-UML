@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: br.ufes.mdd.umltextual
+Bundle-ManifestVersion: 2
+Bundle-Name: br.ufes.mdd.umltextual
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: br.ufes.mdd.umltextual; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: br.ufes.mdd.umltextual.parser.antlr.internal,
+ br.ufes.mdd.umltextual.serializer,
+ br.ufes.mdd.umltextual.generator,
+ br.ufes.mdd.umltextual.umlTextual.impl,
+ br.ufes.mdd.umltextual.umlTextual.util,
+ br.ufes.mdd.umltextual,
+ br.ufes.mdd.umltextual.parser.antlr,
+ br.ufes.mdd.umltextual.umlTextual,
+ br.ufes.mdd.umltextual.scoping,
+ br.ufes.mdd.umltextual.services,
+ br.ufes.mdd.umltextual.validation
+Import-Package: org.apache.log4j

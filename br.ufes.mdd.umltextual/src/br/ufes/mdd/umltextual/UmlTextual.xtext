@@ -1,0 +1,93 @@
+grammar br.ufes.mdd.umltextual.UmlTextual with org.eclipse.xtext.common.Terminals
+
+generate umlTextual "http://www.ufes.br/mdd/umltextual/UmlTextual"
+
+Model:
+	packages+=Package*
+	;
+	
+Package:
+	type=('package' | 'subsystem') name=ID '{'
+	elements+=Element*
+	'}'
+;
+
+Element:
+	Class | AssociationConnector
+;
+
+//Subsystem:
+//	'subsystem' name=ID '{'
+//	classes+=Class*
+//	'}'
+//;
+
+Class:
+	('@'stereotype=ID)?
+	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? '{'
+	attributes+=Attribute*
+	'}'
+;
+
+Visibility:
+	"public" | "private" | "protected" | "package"
+;
+
+AttributeType:
+	{AttributeType} "string" | {AttributeType} "int" | {AttributeType} "double" | {AttributeType} "boolean" |
+	{AttributeType} "byte" | {AttributeType} "char" | {AttributeType} "float" | {AttributeType} "short" |
+	{AttributeType} "long" | DomainSpecificType
+;
+
+DomainSpecificType:
+	name=ID
+	// Lembrar de modificar para declarar no começo da classe os tipos específicos de domínio
+;
+
+Multiplicity:
+	"1" | "0..1" | "0..*" | "*" | "1..*" | "0.."INT | "1.."INT | INT | INT".."INT
+;
+
+Attribute:
+	visibility=(Visibility)? 'attr' name=ID ':' type=AttributeType ("[" multiplicity=Multiplicity "]")?
+;
+
+// <---- Relações ---->
+
+Unamed:
+	"unamed"	
+;
+
+Navigation:
+	"navigable"
+;
+
+AssociationConnector:
+	Association | Aggregation | Composition
+;
+
+Association:
+	'undirected'? 'association' name= (ID | Unamed) '{'
+		'from' navigation1=Navigation?  class1=[Class]'['multiplicity1=Multiplicity ']' 
+		'to' navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
+		('class' class=[Class])?
+	'}'
+;
+
+Aggregation:
+	'aggregation' name= (ID | Unamed) '{'
+		'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+	'}'
+;
+
+Composition:
+	'composition' name= (ID | Unamed) '{'
+		'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+	'}'
+;
+
+// Gramática de Diagrama de Pacotes
+
+
+// Gramática do diagrama de Casos de Uso
+
