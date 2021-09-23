@@ -5,7 +5,6 @@ package br.ufes.mdd.umltextual.serializer;
 
 import br.ufes.mdd.umltextual.services.UmlTextualGrammarAccess;
 import br.ufes.mdd.umltextual.umlTextual.Actor;
-import br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation;
 import br.ufes.mdd.umltextual.umlTextual.Aggregation;
 import br.ufes.mdd.umltextual.umlTextual.Association;
 import br.ufes.mdd.umltextual.umlTextual.Attribute;
@@ -15,7 +14,6 @@ import br.ufes.mdd.umltextual.umlTextual.DomainSpecificType;
 import br.ufes.mdd.umltextual.umlTextual.Interface;
 import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;
-import br.ufes.mdd.umltextual.umlTextual.Subsystem;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 import br.ufes.mdd.umltextual.umlTextual.UseCase;
 import br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram;
@@ -47,9 +45,6 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 			switch (semanticObject.eClass().getClassifierID()) {
 			case UmlTextualPackage.ACTOR:
 				sequence_Actor(context, (Actor) semanticObject); 
-				return; 
-			case UmlTextualPackage.ACTOR_USE_CASE_ASSOCIATION:
-				sequence_ActorUseCaseAssociation(context, (ActorUseCaseAssociation) semanticObject); 
 				return; 
 			case UmlTextualPackage.AGGREGATION:
 				sequence_Aggregation(context, (Aggregation) semanticObject); 
@@ -87,9 +82,6 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case UmlTextualPackage.PARAMETER:
 				sequence_Parameter(context, (br.ufes.mdd.umltextual.umlTextual.Parameter) semanticObject); 
 				return; 
-			case UmlTextualPackage.SUBSYSTEM:
-				sequence_Subsystem(context, (Subsystem) semanticObject); 
-				return; 
 			case UmlTextualPackage.USE_CASE:
 				sequence_UseCase(context, (UseCase) semanticObject); 
 				return; 
@@ -100,18 +92,6 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     ActorUseCaseAssociation returns ActorUseCaseAssociation
-	 *
-	 * Constraint:
-	 *     (useCase+=[UseCase|ID] useCase+=[UseCase|ID]*)
-	 */
-	protected void sequence_ActorUseCaseAssociation(ISerializationContext context, ActorUseCaseAssociation semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -126,7 +106,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         business='business'? 
 	 *         name=ID 
 	 *         parentActor=Actor? 
-	 *         useCases+=ActorUseCaseAssociation*
+	 *         (useCase+=[UseCase|ID] useCase+=[UseCase|ID]*)*
 	 *     )
 	 */
 	protected void sequence_Actor(ISerializationContext context, Actor semanticObject) {
@@ -192,7 +172,8 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         name='char' | 
 	 *         name='float' | 
 	 *         name='short' | 
-	 *         name='long'
+	 *         name='long' | 
+	 *         domainType=[DomainSpecificType|ID]
 	 *     )
 	 */
 	protected void sequence_AttributeType(ISerializationContext context, AttributeType semanticObject) {
@@ -256,19 +237,21 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     AttributeType returns DomainSpecificType
 	 *     DomainSpecificType returns DomainSpecificType
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID description=STRING)
 	 */
 	protected void sequence_DomainSpecificType(ISerializationContext context, DomainSpecificType semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UmlTextualPackage.Literals.ATTRIBUTE_TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlTextualPackage.Literals.ATTRIBUTE_TYPE__NAME));
+			if (transientValues.isValueTransient(semanticObject, UmlTextualPackage.Literals.DOMAIN_SPECIFIC_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlTextualPackage.Literals.DOMAIN_SPECIFIC_TYPE__NAME));
+			if (transientValues.isValueTransient(semanticObject, UmlTextualPackage.Literals.DOMAIN_SPECIFIC_TYPE__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlTextualPackage.Literals.DOMAIN_SPECIFIC_TYPE__DESCRIPTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDomainSpecificTypeAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDomainSpecificTypeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDomainSpecificTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_0(), semanticObject.getDescription());
 		feeder.finish();
 	}
 	
@@ -316,7 +299,14 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Package returns Package
 	 *
 	 * Constraint:
-	 *     ((type='package' | type='subsystem') name=ID parentPackage=[Package|ID]? elements+=Element*)
+	 *     (
+	 *         instantiable='instantiable'? 
+	 *         (type='package' | type='subsystem') 
+	 *         name=ID 
+	 *         parentPackage=[Package|ID]? 
+	 *         domainSpecificTypes+=DomainSpecificType* 
+	 *         elements+=Element*
+	 *     )
 	 */
 	protected void sequence_Package(ISerializationContext context, br.ufes.mdd.umltextual.umlTextual.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -341,18 +331,6 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getParameterAccess().getParameterTypeAttributeTypeParserRuleCall_2_0(), semanticObject.getParameterType());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Subsystem returns Subsystem
-	 *
-	 * Constraint:
-	 *     (instantiable='instantiable'? name=ID elements+=Element*)
-	 */
-	protected void sequence_Subsystem(ISerializationContext context, Subsystem semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

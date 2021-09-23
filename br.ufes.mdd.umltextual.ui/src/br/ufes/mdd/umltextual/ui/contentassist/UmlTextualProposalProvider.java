@@ -9,4 +9,5 @@ package br.ufes.mdd.umltextual.ui.contentassist;
  * on how to customize the content assistant.
  */
 public class UmlTextualProposalProvider extends AbstractUmlTextualProposalProvider {
+	
 }

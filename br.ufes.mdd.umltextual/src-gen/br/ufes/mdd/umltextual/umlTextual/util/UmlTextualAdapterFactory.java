@@ -4,7 +4,6 @@
 package br.ufes.mdd.umltextual.umlTextual.util;
 
 import br.ufes.mdd.umltextual.umlTextual.Actor;
-import br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation;
 import br.ufes.mdd.umltextual.umlTextual.Aggregation;
 import br.ufes.mdd.umltextual.umlTextual.Association;
 import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
@@ -18,7 +17,6 @@ import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;
 import br.ufes.mdd.umltextual.umlTextual.ModelElement;
 import br.ufes.mdd.umltextual.umlTextual.Parameter;
-import br.ufes.mdd.umltextual.umlTextual.Subsystem;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 import br.ufes.mdd.umltextual.umlTextual.UseCase;
 import br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram;
@@ -110,11 +108,6 @@ public class UmlTextualAdapterFactory extends AdapterFactoryImpl
         return createPackageAdapter();
       }
       @Override
-      public Adapter caseSubsystem(Subsystem object)
-      {
-        return createSubsystemAdapter();
-      }
-      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
@@ -195,11 +188,6 @@ public class UmlTextualAdapterFactory extends AdapterFactoryImpl
         return createUseCaseAdapter();
       }
       @Override
-      public Adapter caseActorUseCaseAssociation(ActorUseCaseAssociation object)
-      {
-        return createActorUseCaseAssociationAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -262,21 +250,6 @@ public class UmlTextualAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPackageAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufes.mdd.umltextual.umlTextual.Subsystem <em>Subsystem</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufes.mdd.umltextual.umlTextual.Subsystem
-   * @generated
-   */
-  public Adapter createSubsystemAdapter()
   {
     return null;
   }
@@ -517,21 +490,6 @@ public class UmlTextualAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUseCaseAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation <em>Actor Use Case Association</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation
-   * @generated
-   */
-  public Adapter createActorUseCaseAssociationAdapter()
   {
     return null;
   }

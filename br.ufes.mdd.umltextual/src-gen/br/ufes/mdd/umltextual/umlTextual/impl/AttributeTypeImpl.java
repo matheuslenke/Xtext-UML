@@ -4,11 +4,13 @@
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
 import br.ufes.mdd.umltextual.umlTextual.AttributeType;
+import br.ufes.mdd.umltextual.umlTextual.DomainSpecificType;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.AttributeTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.AttributeTypeImpl#getDomainType <em>Domain Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +50,16 @@ public class AttributeTypeImpl extends MinimalEObjectImpl.Container implements A
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getDomainType() <em>Domain Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDomainType()
+   * @generated
+   * @ordered
+   */
+  protected DomainSpecificType domainType;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +113,60 @@ public class AttributeTypeImpl extends MinimalEObjectImpl.Container implements A
    * @generated
    */
   @Override
+  public DomainSpecificType getDomainType()
+  {
+    if (domainType != null && domainType.eIsProxy())
+    {
+      InternalEObject oldDomainType = (InternalEObject)domainType;
+      domainType = (DomainSpecificType)eResolveProxy(oldDomainType);
+      if (domainType != oldDomainType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UmlTextualPackage.ATTRIBUTE_TYPE__DOMAIN_TYPE, oldDomainType, domainType));
+      }
+    }
+    return domainType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DomainSpecificType basicGetDomainType()
+  {
+    return domainType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDomainType(DomainSpecificType newDomainType)
+  {
+    DomainSpecificType oldDomainType = domainType;
+    domainType = newDomainType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.ATTRIBUTE_TYPE__DOMAIN_TYPE, oldDomainType, domainType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case UmlTextualPackage.ATTRIBUTE_TYPE__NAME:
         return getName();
+      case UmlTextualPackage.ATTRIBUTE_TYPE__DOMAIN_TYPE:
+        if (resolve) return getDomainType();
+        return basicGetDomainType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +183,9 @@ public class AttributeTypeImpl extends MinimalEObjectImpl.Container implements A
     {
       case UmlTextualPackage.ATTRIBUTE_TYPE__NAME:
         setName((String)newValue);
+        return;
+      case UmlTextualPackage.ATTRIBUTE_TYPE__DOMAIN_TYPE:
+        setDomainType((DomainSpecificType)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +204,9 @@ public class AttributeTypeImpl extends MinimalEObjectImpl.Container implements A
       case UmlTextualPackage.ATTRIBUTE_TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case UmlTextualPackage.ATTRIBUTE_TYPE__DOMAIN_TYPE:
+        setDomainType((DomainSpecificType)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +223,8 @@ public class AttributeTypeImpl extends MinimalEObjectImpl.Container implements A
     {
       case UmlTextualPackage.ATTRIBUTE_TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case UmlTextualPackage.ATTRIBUTE_TYPE__DOMAIN_TYPE:
+        return domainType != null;
     }
     return super.eIsSet(featureID);
   }

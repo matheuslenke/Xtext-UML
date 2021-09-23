@@ -4,7 +4,6 @@
 package br.ufes.mdd.umltextual.umlTextual.util;
 
 import br.ufes.mdd.umltextual.umlTextual.Actor;
-import br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation;
 import br.ufes.mdd.umltextual.umlTextual.Aggregation;
 import br.ufes.mdd.umltextual.umlTextual.Association;
 import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
@@ -18,7 +17,6 @@ import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;
 import br.ufes.mdd.umltextual.umlTextual.ModelElement;
 import br.ufes.mdd.umltextual.umlTextual.Parameter;
-import br.ufes.mdd.umltextual.umlTextual.Subsystem;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 import br.ufes.mdd.umltextual.umlTextual.UseCase;
 import br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram;
@@ -114,13 +112,6 @@ public class UmlTextualSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UmlTextualPackage.SUBSYSTEM:
-      {
-        Subsystem subsystem = (Subsystem)theEObject;
-        T result = caseSubsystem(subsystem);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case UmlTextualPackage.ELEMENT:
       {
         Element element = (Element)theEObject;
@@ -155,7 +146,6 @@ public class UmlTextualSwitch<T> extends Switch<T>
       {
         DomainSpecificType domainSpecificType = (DomainSpecificType)theEObject;
         T result = caseDomainSpecificType(domainSpecificType);
-        if (result == null) result = caseAttributeType(domainSpecificType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -246,13 +236,6 @@ public class UmlTextualSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UmlTextualPackage.ACTOR_USE_CASE_ASSOCIATION:
-      {
-        ActorUseCaseAssociation actorUseCaseAssociation = (ActorUseCaseAssociation)theEObject;
-        T result = caseActorUseCaseAssociation(actorUseCaseAssociation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -301,22 +284,6 @@ public class UmlTextualSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePackage(br.ufes.mdd.umltextual.umlTextual.Package object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Subsystem</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Subsystem</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSubsystem(Subsystem object)
   {
     return null;
   }
@@ -573,22 +540,6 @@ public class UmlTextualSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUseCase(UseCase object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Actor Use Case Association</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Actor Use Case Association</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseActorUseCaseAssociation(ActorUseCaseAssociation object)
   {
     return null;
   }

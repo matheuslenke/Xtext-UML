@@ -10,14 +10,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instantiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentPackage" eType="#//Package"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//Element" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Subsystem">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instantiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainSpecificTypes" upperBound="-1"
+        eType="#//DomainSpecificType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Element" containment="true"/>
   </eClassifiers>
@@ -44,8 +41,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainType" eType="#//DomainSpecificType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DomainSpecificType" eSuperTypes="#//AttributeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainSpecificType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -97,8 +98,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="business" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentActor" eType="#//Actor"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="useCases" upperBound="-1"
-        eType="#//ActorUseCaseAssociation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="useCase" unique="false"
+        upperBound="-1" eType="#//UseCase"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseCase" eSuperTypes="#//UseCaseElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="includedUseCase" unique="false"
@@ -106,9 +107,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendedUseCase" unique="false"
         upperBound="-1" eType="#//UseCase"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActorUseCaseAssociation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="useCase" unique="false"
-        upperBound="-1" eType="#//UseCase"/>
   </eClassifiers>
 </ecore:EPackage>

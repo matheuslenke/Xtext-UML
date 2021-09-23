@@ -3,6 +3,7 @@
  */
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
+import br.ufes.mdd.umltextual.umlTextual.DomainSpecificType;
 import br.ufes.mdd.umltextual.umlTextual.Element;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 
@@ -29,8 +30,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getInstantiable <em>Instantiable</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getType <em>Type</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getParentPackage <em>Parent Package</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getDomainSpecificTypes <em>Domain Specific Types</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.PackageImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -38,6 +41,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltextual.umlTextual.Package
 {
+  /**
+   * The default value of the '{@link #getInstantiable() <em>Instantiable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInstantiable()
+   * @generated
+   * @ordered
+   */
+  protected static final String INSTANTIABLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getInstantiable() <em>Instantiable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInstantiable()
+   * @generated
+   * @ordered
+   */
+  protected String instantiable = INSTANTIABLE_EDEFAULT;
+
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -69,6 +92,16 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
   protected br.ufes.mdd.umltextual.umlTextual.Package parentPackage;
 
   /**
+   * The cached value of the '{@link #getDomainSpecificTypes() <em>Domain Specific Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDomainSpecificTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<DomainSpecificType> domainSpecificTypes;
+
+  /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -97,6 +130,31 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
   protected EClass eStaticClass()
   {
     return UmlTextualPackage.Literals.PACKAGE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getInstantiable()
+  {
+    return instantiable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setInstantiable(String newInstantiable)
+  {
+    String oldInstantiable = instantiable;
+    instantiable = newInstantiable;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.PACKAGE__INSTANTIABLE, oldInstantiable, instantiable));
   }
 
   /**
@@ -175,6 +233,21 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
    * @generated
    */
   @Override
+  public EList<DomainSpecificType> getDomainSpecificTypes()
+  {
+    if (domainSpecificTypes == null)
+    {
+      domainSpecificTypes = new EObjectContainmentEList<DomainSpecificType>(DomainSpecificType.class, this, UmlTextualPackage.PACKAGE__DOMAIN_SPECIFIC_TYPES);
+    }
+    return domainSpecificTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Element> getElements()
   {
     if (elements == null)
@@ -194,6 +267,8 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
   {
     switch (featureID)
     {
+      case UmlTextualPackage.PACKAGE__DOMAIN_SPECIFIC_TYPES:
+        return ((InternalEList<?>)getDomainSpecificTypes()).basicRemove(otherEnd, msgs);
       case UmlTextualPackage.PACKAGE__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
@@ -210,11 +285,15 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
   {
     switch (featureID)
     {
+      case UmlTextualPackage.PACKAGE__INSTANTIABLE:
+        return getInstantiable();
       case UmlTextualPackage.PACKAGE__TYPE:
         return getType();
       case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
         if (resolve) return getParentPackage();
         return basicGetParentPackage();
+      case UmlTextualPackage.PACKAGE__DOMAIN_SPECIFIC_TYPES:
+        return getDomainSpecificTypes();
       case UmlTextualPackage.PACKAGE__ELEMENTS:
         return getElements();
     }
@@ -232,11 +311,18 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
   {
     switch (featureID)
     {
+      case UmlTextualPackage.PACKAGE__INSTANTIABLE:
+        setInstantiable((String)newValue);
+        return;
       case UmlTextualPackage.PACKAGE__TYPE:
         setType((String)newValue);
         return;
       case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
         setParentPackage((br.ufes.mdd.umltextual.umlTextual.Package)newValue);
+        return;
+      case UmlTextualPackage.PACKAGE__DOMAIN_SPECIFIC_TYPES:
+        getDomainSpecificTypes().clear();
+        getDomainSpecificTypes().addAll((Collection<? extends DomainSpecificType>)newValue);
         return;
       case UmlTextualPackage.PACKAGE__ELEMENTS:
         getElements().clear();
@@ -256,11 +342,17 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
   {
     switch (featureID)
     {
+      case UmlTextualPackage.PACKAGE__INSTANTIABLE:
+        setInstantiable(INSTANTIABLE_EDEFAULT);
+        return;
       case UmlTextualPackage.PACKAGE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
       case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
         setParentPackage((br.ufes.mdd.umltextual.umlTextual.Package)null);
+        return;
+      case UmlTextualPackage.PACKAGE__DOMAIN_SPECIFIC_TYPES:
+        getDomainSpecificTypes().clear();
         return;
       case UmlTextualPackage.PACKAGE__ELEMENTS:
         getElements().clear();
@@ -279,10 +371,14 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
   {
     switch (featureID)
     {
+      case UmlTextualPackage.PACKAGE__INSTANTIABLE:
+        return INSTANTIABLE_EDEFAULT == null ? instantiable != null : !INSTANTIABLE_EDEFAULT.equals(instantiable);
       case UmlTextualPackage.PACKAGE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case UmlTextualPackage.PACKAGE__PARENT_PACKAGE:
         return parentPackage != null;
+      case UmlTextualPackage.PACKAGE__DOMAIN_SPECIFIC_TYPES:
+        return domainSpecificTypes != null && !domainSpecificTypes.isEmpty();
       case UmlTextualPackage.PACKAGE__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
@@ -300,7 +396,9 @@ public class PackageImpl extends ModelElementImpl implements br.ufes.mdd.umltext
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (type: ");
+    result.append(" (instantiable: ");
+    result.append(instantiable);
+    result.append(", type: ");
     result.append(type);
     result.append(')');
     return result.toString();

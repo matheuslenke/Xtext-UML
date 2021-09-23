@@ -3,6 +3,16 @@
  */
 package br.ufes.mdd.umltextual.validation;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.IResourceValidator;
+
+import com.google.inject.Inject;
+
+import br.ufes.mdd.umltextual.umlTextual.ModelElement;
+import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
+import br.ufes.mdd.umltextual.umlTextual.Class;
+import br.ufes.mdd.umltextual.umlTextual.Package;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +21,16 @@ package br.ufes.mdd.umltextual.validation;
  */
 public class UmlTextualValidator extends AbstractUmlTextualValidator {
 	
+	@Inject IResourceValidator resourceValidator;
+	
 //	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					UmlTextualPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+
+	@Check
+	public void checkClassStartsWithCapital(Package packageItem) {
+		if (!Character.isUpperCase(packageItem.getName().charAt(0))) {
+			warning("Name should start with a capital",
+					UmlTextualPackage.Literals.PACKAGE.getEStructuralFeature("name"));
+		}
+	}
 	
 }

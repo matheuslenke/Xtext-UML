@@ -4,7 +4,6 @@
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
 import br.ufes.mdd.umltextual.umlTextual.Actor;
-import br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation;
 import br.ufes.mdd.umltextual.umlTextual.Aggregation;
 import br.ufes.mdd.umltextual.umlTextual.Association;
 import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
@@ -18,7 +17,6 @@ import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;
 import br.ufes.mdd.umltextual.umlTextual.ModelElement;
 import br.ufes.mdd.umltextual.umlTextual.Parameter;
-import br.ufes.mdd.umltextual.umlTextual.Subsystem;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualFactory;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 import br.ufes.mdd.umltextual.umlTextual.UseCase;
@@ -60,13 +58,6 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   private EClass packageEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass subsystemEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -179,13 +170,6 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   private EClass useCaseEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass actorUseCaseAssociationEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -311,7 +295,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EAttribute getPackage_Type()
+  public EAttribute getPackage_Instantiable()
   {
     return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
   }
@@ -322,9 +306,9 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getPackage_ParentPackage()
+  public EAttribute getPackage_Type()
   {
-    return (EReference)packageEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)packageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -333,7 +317,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getPackage_Elements()
+  public EReference getPackage_ParentPackage()
   {
     return (EReference)packageEClass.getEStructuralFeatures().get(2);
   }
@@ -344,9 +328,9 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EClass getSubsystem()
+  public EReference getPackage_DomainSpecificTypes()
   {
-    return subsystemEClass;
+    return (EReference)packageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -355,31 +339,9 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EAttribute getSubsystem_Instantiable()
+  public EReference getPackage_Elements()
   {
-    return (EAttribute)subsystemEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSubsystem_Name()
-  {
-    return (EAttribute)subsystemEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSubsystem_Elements()
-  {
-    return (EReference)subsystemEClass.getEStructuralFeatures().get(2);
+    return (EReference)packageEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -564,9 +526,42 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
+  public EReference getAttributeType_DomainType()
+  {
+    return (EReference)attributeTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getDomainSpecificType()
   {
     return domainSpecificTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDomainSpecificType_Name()
+  {
+    return (EAttribute)domainSpecificTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDomainSpecificType_Description()
+  {
+    return (EAttribute)domainSpecificTypeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -971,7 +966,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getActor_UseCases()
+  public EReference getActor_UseCase()
   {
     return (EReference)actorEClass.getEStructuralFeatures().get(5);
   }
@@ -1026,28 +1021,6 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EClass getActorUseCaseAssociation()
-  {
-    return actorUseCaseAssociationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getActorUseCaseAssociation_UseCase()
-  {
-    return (EReference)actorUseCaseAssociationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public UmlTextualFactory getUmlTextualFactory()
   {
     return (UmlTextualFactory)getEFactoryInstance();
@@ -1080,14 +1053,11 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
 
     packageEClass = createEClass(PACKAGE);
+    createEAttribute(packageEClass, PACKAGE__INSTANTIABLE);
     createEAttribute(packageEClass, PACKAGE__TYPE);
     createEReference(packageEClass, PACKAGE__PARENT_PACKAGE);
+    createEReference(packageEClass, PACKAGE__DOMAIN_SPECIFIC_TYPES);
     createEReference(packageEClass, PACKAGE__ELEMENTS);
-
-    subsystemEClass = createEClass(SUBSYSTEM);
-    createEAttribute(subsystemEClass, SUBSYSTEM__INSTANTIABLE);
-    createEAttribute(subsystemEClass, SUBSYSTEM__NAME);
-    createEReference(subsystemEClass, SUBSYSTEM__ELEMENTS);
 
     elementEClass = createEClass(ELEMENT);
     createEAttribute(elementEClass, ELEMENT__NAME);
@@ -1108,8 +1078,11 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
 
     attributeTypeEClass = createEClass(ATTRIBUTE_TYPE);
     createEAttribute(attributeTypeEClass, ATTRIBUTE_TYPE__NAME);
+    createEReference(attributeTypeEClass, ATTRIBUTE_TYPE__DOMAIN_TYPE);
 
     domainSpecificTypeEClass = createEClass(DOMAIN_SPECIFIC_TYPE);
+    createEAttribute(domainSpecificTypeEClass, DOMAIN_SPECIFIC_TYPE__NAME);
+    createEAttribute(domainSpecificTypeEClass, DOMAIN_SPECIFIC_TYPE__DESCRIPTION);
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__VISIBILITY);
@@ -1156,15 +1129,12 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     createEAttribute(actorEClass, ACTOR__ACTIVE);
     createEAttribute(actorEClass, ACTOR__BUSINESS);
     createEReference(actorEClass, ACTOR__PARENT_ACTOR);
-    createEReference(actorEClass, ACTOR__USE_CASES);
+    createEReference(actorEClass, ACTOR__USE_CASE);
 
     useCaseEClass = createEClass(USE_CASE);
     createEReference(useCaseEClass, USE_CASE__INCLUDED_USE_CASE);
     createEReference(useCaseEClass, USE_CASE__EXTENDED_USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__DESCRIPTION);
-
-    actorUseCaseAssociationEClass = createEClass(ACTOR_USE_CASE_ASSOCIATION);
-    createEReference(actorUseCaseAssociationEClass, ACTOR_USE_CASE_ASSOCIATION__USE_CASE);
   }
 
   /**
@@ -1199,7 +1169,6 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     packageEClass.getESuperTypes().add(this.getModelElement());
     classEClass.getESuperTypes().add(this.getElement());
     interfaceEClass.getESuperTypes().add(this.getElement());
-    domainSpecificTypeEClass.getESuperTypes().add(this.getAttributeType());
     associationConnectorEClass.getESuperTypes().add(this.getElement());
     associationEClass.getESuperTypes().add(this.getAssociationConnector());
     aggregationEClass.getESuperTypes().add(this.getAssociationConnector());
@@ -1216,14 +1185,11 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageEClass, br.ufes.mdd.umltextual.umlTextual.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPackage_Instantiable(), ecorePackage.getEString(), "instantiable", null, 0, 1, br.ufes.mdd.umltextual.umlTextual.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPackage_Type(), ecorePackage.getEString(), "type", null, 0, 1, br.ufes.mdd.umltextual.umlTextual.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_ParentPackage(), this.getPackage(), null, "parentPackage", null, 0, 1, br.ufes.mdd.umltextual.umlTextual.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_DomainSpecificTypes(), this.getDomainSpecificType(), null, "domainSpecificTypes", null, 0, -1, br.ufes.mdd.umltextual.umlTextual.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Elements(), this.getElement(), null, "elements", null, 0, -1, br.ufes.mdd.umltextual.umlTextual.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(subsystemEClass, Subsystem.class, "Subsystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSubsystem_Instantiable(), ecorePackage.getEString(), "instantiable", null, 0, 1, Subsystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSubsystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, Subsystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSubsystem_Elements(), this.getElement(), null, "elements", null, 0, -1, Subsystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1244,8 +1210,11 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
 
     initEClass(attributeTypeEClass, AttributeType.class, "AttributeType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttributeType_Name(), ecorePackage.getEString(), "name", null, 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAttributeType_DomainType(), this.getDomainSpecificType(), null, "domainType", null, 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainSpecificTypeEClass, DomainSpecificType.class, "DomainSpecificType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDomainSpecificType_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainSpecificType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDomainSpecificType_Description(), ecorePackage.getEString(), "description", null, 0, 1, DomainSpecificType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Visibility(), ecorePackage.getEString(), "visibility", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1292,15 +1261,12 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     initEAttribute(getActor_Active(), ecorePackage.getEString(), "active", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActor_Business(), ecorePackage.getEString(), "business", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActor_ParentActor(), this.getActor(), null, "parentActor", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getActor_UseCases(), this.getActorUseCaseAssociation(), null, "useCases", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getActor_UseCase(), this.getUseCase(), null, "useCase", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUseCase_IncludedUseCase(), this.getUseCase(), null, "includedUseCase", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_ExtendedUseCase(), this.getUseCase(), null, "extendedUseCase", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseCase_Description(), ecorePackage.getEString(), "description", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(actorUseCaseAssociationEClass, ActorUseCaseAssociation.class, "ActorUseCaseAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getActorUseCaseAssociation_UseCase(), this.getUseCase(), null, "useCase", null, 0, -1, ActorUseCaseAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

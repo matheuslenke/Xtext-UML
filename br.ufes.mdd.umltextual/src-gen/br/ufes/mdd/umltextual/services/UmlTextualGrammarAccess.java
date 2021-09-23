@@ -30,7 +30,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//Model:
 		//    elements+=ModelElement*
-		//    ;
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//elements+=ModelElement*
@@ -62,105 +62,38 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	public class PackageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.Package");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cTypeAlternatives_0_0 = (Alternatives)cTypeAssignment_0.eContents().get(0);
-		private final Keyword cTypePackageKeyword_0_0_0 = (Keyword)cTypeAlternatives_0_0.eContents().get(0);
-		private final Keyword cTypeSubsystemKeyword_0_0_1 = (Keyword)cTypeAlternatives_0_0.eContents().get(1);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cDependsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cOnKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cParentPackageAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final CrossReference cParentPackagePackageCrossReference_2_2_0 = (CrossReference)cParentPackageAssignment_2_2.eContents().get(0);
-		private final RuleCall cParentPackagePackageIDTerminalRuleCall_2_2_0_1 = (RuleCall)cParentPackagePackageCrossReference_2_2_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cElementsElementParserRuleCall_4_0 = (RuleCall)cElementsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cInstantiableAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cInstantiableInstantiableKeyword_0_0 = (Keyword)cInstantiableAssignment_0.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cTypeAlternatives_1_0 = (Alternatives)cTypeAssignment_1.eContents().get(0);
+		private final Keyword cTypePackageKeyword_1_0_0 = (Keyword)cTypeAlternatives_1_0.eContents().get(0);
+		private final Keyword cTypeSubsystemKeyword_1_0_1 = (Keyword)cTypeAlternatives_1_0.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cDependsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cOnKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cParentPackageAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final CrossReference cParentPackagePackageCrossReference_3_2_0 = (CrossReference)cParentPackageAssignment_3_2.eContents().get(0);
+		private final RuleCall cParentPackagePackageIDTerminalRuleCall_3_2_0_1 = (RuleCall)cParentPackagePackageCrossReference_3_2_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDomainSpecificTypesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDomainSpecificTypesDomainSpecificTypeParserRuleCall_5_0 = (RuleCall)cDomainSpecificTypesAssignment_5.eContents().get(0);
+		private final Assignment cElementsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cElementsElementParserRuleCall_6_0 = (RuleCall)cElementsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//// <--- Diagrama de Pacotes --->
 		//Package:
-		//    type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+		//    (instantiable='instantiable')? type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+		//    domainSpecificTypes+=DomainSpecificType*
 		//    elements+=Element*
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
-		//elements+=Element*
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//type=('package' | 'subsystem')
-		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
-		
-		//('package' | 'subsystem')
-		public Alternatives getTypeAlternatives_0_0() { return cTypeAlternatives_0_0; }
-		
-		//'package'
-		public Keyword getTypePackageKeyword_0_0_0() { return cTypePackageKeyword_0_0_0; }
-		
-		//'subsystem'
-		public Keyword getTypeSubsystemKeyword_0_0_1() { return cTypeSubsystemKeyword_0_0_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//('depends' 'on' parentPackage=[Package])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'depends'
-		public Keyword getDependsKeyword_2_0() { return cDependsKeyword_2_0; }
-		
-		//'on'
-		public Keyword getOnKeyword_2_1() { return cOnKeyword_2_1; }
-		
-		//parentPackage=[Package]
-		public Assignment getParentPackageAssignment_2_2() { return cParentPackageAssignment_2_2; }
-		
-		//[Package]
-		public CrossReference getParentPackagePackageCrossReference_2_2_0() { return cParentPackagePackageCrossReference_2_2_0; }
-		
-		//ID
-		public RuleCall getParentPackagePackageIDTerminalRuleCall_2_2_0_1() { return cParentPackagePackageIDTerminalRuleCall_2_2_0_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-		
-		//elements+=Element*
-		public Assignment getElementsAssignment_4() { return cElementsAssignment_4; }
-		
-		//Element
-		public RuleCall getElementsElementParserRuleCall_4_0() { return cElementsElementParserRuleCall_4_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class SubsystemElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.Subsystem");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cInstantiableAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cInstantiableInstantiableKeyword_0_0 = (Keyword)cInstantiableAssignment_0.eContents().get(0);
-		private final Keyword cSubsystemKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cElementsElementParserRuleCall_4_0 = (RuleCall)cElementsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//Subsystem:
-		//    (instantiable='instantiable')? 'subsystem' name=ID '{'
-		//    elements+=Element*
-		//    '}'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//(instantiable='instantiable')? 'subsystem' name=ID '{'
+		//(instantiable='instantiable')? type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+		//domainSpecificTypes+=DomainSpecificType*
 		//elements+=Element*
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -171,8 +104,17 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'instantiable'
 		public Keyword getInstantiableInstantiableKeyword_0_0() { return cInstantiableInstantiableKeyword_0_0; }
 		
+		//type=('package' | 'subsystem')
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//('package' | 'subsystem')
+		public Alternatives getTypeAlternatives_1_0() { return cTypeAlternatives_1_0; }
+		
+		//'package'
+		public Keyword getTypePackageKeyword_1_0_0() { return cTypePackageKeyword_1_0_0; }
+		
 		//'subsystem'
-		public Keyword getSubsystemKeyword_1() { return cSubsystemKeyword_1; }
+		public Keyword getTypeSubsystemKeyword_1_0_1() { return cTypeSubsystemKeyword_1_0_1; }
 		
 		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -180,17 +122,41 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
+		//('depends' 'on' parentPackage=[Package])?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'depends'
+		public Keyword getDependsKeyword_3_0() { return cDependsKeyword_3_0; }
+		
+		//'on'
+		public Keyword getOnKeyword_3_1() { return cOnKeyword_3_1; }
+		
+		//parentPackage=[Package]
+		public Assignment getParentPackageAssignment_3_2() { return cParentPackageAssignment_3_2; }
+		
+		//[Package]
+		public CrossReference getParentPackagePackageCrossReference_3_2_0() { return cParentPackagePackageCrossReference_3_2_0; }
+		
+		//ID
+		public RuleCall getParentPackagePackageIDTerminalRuleCall_3_2_0_1() { return cParentPackagePackageIDTerminalRuleCall_3_2_0_1; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//domainSpecificTypes+=DomainSpecificType*
+		public Assignment getDomainSpecificTypesAssignment_5() { return cDomainSpecificTypesAssignment_5; }
+		
+		//DomainSpecificType
+		public RuleCall getDomainSpecificTypesDomainSpecificTypeParserRuleCall_5_0() { return cDomainSpecificTypesDomainSpecificTypeParserRuleCall_5_0; }
 		
 		//elements+=Element*
-		public Assignment getElementsAssignment_4() { return cElementsAssignment_4; }
+		public Assignment getElementsAssignment_6() { return cElementsAssignment_6; }
 		
 		//Element
-		public RuleCall getElementsElementParserRuleCall_4_0() { return cElementsElementParserRuleCall_4_0; }
+		public RuleCall getElementsElementParserRuleCall_6_0() { return cElementsElementParserRuleCall_6_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class ElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.Element");
@@ -199,6 +165,12 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cAssociationConnectorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cInterfaceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
+		////Subsystem:
+		////     'subsystem' name=ID '{'
+		////    domainSpecificTypes+=DomainSpecificType*
+		////    elements+=Element*
+		////    '}'
+		////;
 		//// <--- Diagrama de Classes --->
 		//Element:
 		//    Class | AssociationConnector | Interface
@@ -253,7 +225,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//Class:
 		//    ('@'stereotype=ID)?
-		//    visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (','interface+=[Interface])*)? '{'
+		//    visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (',' interface+=[Interface])*)? '{'
 		//    attributes+=Attribute*
 		//    methods+=Method*
 		//    '}'
@@ -261,7 +233,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		@Override public ParserRule getRule() { return rule; }
 		
 		//('@'stereotype=ID)?
-		//visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (','interface+=[Interface])*)? '{'
+		//visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (',' interface+=[Interface])*)? '{'
 		//attributes+=Attribute*
 		//methods+=Method*
 		//'}'
@@ -309,7 +281,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getParentClassClassIDTerminalRuleCall_4_1_0_1() { return cParentClassClassIDTerminalRuleCall_4_1_0_1; }
 		
-		//('implements' interface+=[Interface] (','interface+=[Interface])*)?
+		//('implements' interface+=[Interface] (',' interface+=[Interface])*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'implements'
@@ -324,7 +296,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getInterfaceInterfaceIDTerminalRuleCall_5_1_0_1() { return cInterfaceInterfaceIDTerminalRuleCall_5_1_0_1; }
 		
-		//(','interface+=[Interface])*
+		//(',' interface+=[Interface])*
 		public Group getGroup_5_2() { return cGroup_5_2; }
 		
 		//','
@@ -520,18 +492,20 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Keyword cNameShortKeyword_7_0 = (Keyword)cNameAssignment_7.eContents().get(0);
 		private final Assignment cNameAssignment_8 = (Assignment)cAlternatives.eContents().get(8);
 		private final Keyword cNameLongKeyword_8_0 = (Keyword)cNameAssignment_8.eContents().get(0);
-		private final RuleCall cDomainSpecificTypeParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final Assignment cDomainTypeAssignment_9 = (Assignment)cAlternatives.eContents().get(9);
+		private final CrossReference cDomainTypeDomainSpecificTypeCrossReference_9_0 = (CrossReference)cDomainTypeAssignment_9.eContents().get(0);
+		private final RuleCall cDomainTypeDomainSpecificTypeIDTerminalRuleCall_9_0_1 = (RuleCall)cDomainTypeDomainSpecificTypeCrossReference_9_0.eContents().get(1);
 		
 		//AttributeType:
-		//    name="string" | name="int" | name="double" | name="boolean" |
-		//    name="byte" | name="char" | name="float" | name="short" |
-		//    name="long" | DomainSpecificType
+		//    name="string" | name="int"  | name="double" | name="boolean" |
+		//    name="byte"   | name="char" | name="float"  | name="short" |
+		//    name="long"   | domainType=[DomainSpecificType]
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="string" | name="int" | name="double" | name="boolean" |
-		//name="byte" | name="char" | name="float" | name="short" |
-		//name="long" | DomainSpecificType
+		//name="string" | name="int"  | name="double" | name="boolean" |
+		//name="byte"   | name="char" | name="float"  | name="short" |
+		//name="long"   | domainType=[DomainSpecificType]
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//name="string"
@@ -588,25 +562,51 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//"long"
 		public Keyword getNameLongKeyword_8_0() { return cNameLongKeyword_8_0; }
 		
-		//DomainSpecificType
-		public RuleCall getDomainSpecificTypeParserRuleCall_9() { return cDomainSpecificTypeParserRuleCall_9; }
+		//domainType=[DomainSpecificType]
+		public Assignment getDomainTypeAssignment_9() { return cDomainTypeAssignment_9; }
+		
+		//[DomainSpecificType]
+		public CrossReference getDomainTypeDomainSpecificTypeCrossReference_9_0() { return cDomainTypeDomainSpecificTypeCrossReference_9_0; }
+		
+		//ID
+		public RuleCall getDomainTypeDomainSpecificTypeIDTerminalRuleCall_9_0_1() { return cDomainTypeDomainSpecificTypeIDTerminalRuleCall_9_0_1; }
 	}
 	public class DomainSpecificTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.DomainSpecificType");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDomaintypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDescriptionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_3_0 = (RuleCall)cDescriptionAssignment_3.eContents().get(0);
 		
 		//DomainSpecificType:
-		//    name=ID
+		//    'domaintype' name=ID '=' description=STRING
 		//    // Lembrar de modificar para declarar no começo da classe os tipos específicos de domínio
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//'domaintype' name=ID '=' description=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'domaintype'
+		public Keyword getDomaintypeKeyword_0() { return cDomaintypeKeyword_0; }
+		
 		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		
+		//description=STRING
+		public Assignment getDescriptionAssignment_3() { return cDescriptionAssignment_3; }
+		
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_3_0() { return cDescriptionSTRINGTerminalRuleCall_3_0; }
 	}
 	public class MultiplicityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.Multiplicity");
@@ -630,6 +630,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//Multiplicity:
 		//    "1" | "0..1" | "0..*" | "*" | "1..*" | "0.."INT | "1.."INT | INT | INT".."INT
+		//    // Da pra generalizar pra INT | '*' | INT".."(INT | '*')
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -850,16 +851,16 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	public class UnamedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.Unamed");
-		private final Keyword cUnamedKeyword = (Keyword)rule.eContents().get(1);
+		private final Keyword cUnnamedKeyword = (Keyword)rule.eContents().get(1);
 		
 		//// <---- Relações ---->
 		//Unamed:
-		//    "unamed"
+		//    "unnamed"
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"unamed"
-		public Keyword getUnamedKeyword() { return cUnamedKeyword; }
+		//"unnamed"
+		public Keyword getUnnamedKeyword() { return cUnnamedKeyword; }
 	}
 	public class NavigationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.Navigation");
@@ -928,8 +929,8 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final RuleCall cMultiplicity2MultiplicityParserRuleCall_14_0 = (RuleCall)cMultiplicity2Assignment_14.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
-		private final Keyword cAssociatedclassKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_16_1 = (Keyword)cGroup_16.eContents().get(1);
+		private final Keyword cWithKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
+		private final Keyword cAssociatedclassKeyword_16_1 = (Keyword)cGroup_16.eContents().get(1);
 		private final Assignment cClassAssignment_16_2 = (Assignment)cGroup_16.eContents().get(2);
 		private final CrossReference cClassClassCrossReference_16_2_0 = (CrossReference)cClassAssignment_16_2.eContents().get(0);
 		private final RuleCall cClassClassIDTerminalRuleCall_16_2_0_1 = (RuleCall)cClassClassCrossReference_16_2_0.eContents().get(1);
@@ -938,16 +939,16 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//Association:
 		//    'undirected'? 'association' name= (ID | Unamed) '{'
 		//        'from' navigation1=Navigation?  class1=[Class]'['multiplicity1=Multiplicity ']'
-		//        'to' navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
-		//        ('associatedclass' '=' class=[Class])?
+		//        'to'   navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
+		//        ('with' 'associatedclass' class=[Class])?
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'undirected'? 'association' name= (ID | Unamed) '{'
 		//    'from' navigation1=Navigation?  class1=[Class]'['multiplicity1=Multiplicity ']'
-		//    'to' navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
-		//    ('associatedclass' '=' class=[Class])?
+		//    'to'   navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
+		//    ('with' 'associatedclass' class=[Class])?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1032,14 +1033,14 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//']'
 		public Keyword getRightSquareBracketKeyword_15() { return cRightSquareBracketKeyword_15; }
 		
-		//('associatedclass' '=' class=[Class])?
+		//('with' 'associatedclass' class=[Class])?
 		public Group getGroup_16() { return cGroup_16; }
 		
-		//'associatedclass'
-		public Keyword getAssociatedclassKeyword_16_0() { return cAssociatedclassKeyword_16_0; }
+		//'with'
+		public Keyword getWithKeyword_16_0() { return cWithKeyword_16_0; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_16_1() { return cEqualsSignKeyword_16_1; }
+		//'associatedclass'
+		public Keyword getAssociatedclassKeyword_16_1() { return cAssociatedclassKeyword_16_1; }
 		
 		//class=[Class]
 		public Assignment getClassAssignment_16_2() { return cClassAssignment_16_2; }
@@ -1079,17 +1080,20 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Keyword cLeftSquareBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Assignment cMultiplicity2Assignment_12 = (Assignment)cGroup.eContents().get(12);
 		private final RuleCall cMultiplicity2MultiplicityParserRuleCall_12_0 = (RuleCall)cMultiplicity2Assignment_12.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cRightSquareBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Aggregation:
 		//    'aggregation' name= (ID | Unamed) '{'
-		//        'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+		//        'from' class1=[Class]'['multiplicity1=Multiplicity ']'
+		//        'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'aggregation' name= (ID | Unamed) '{'
-		//    'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+		//    'from' class1=[Class]'['multiplicity1=Multiplicity ']'
+		//    'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1162,8 +1166,11 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//Multiplicity
 		public RuleCall getMultiplicity2MultiplicityParserRuleCall_12_0() { return cMultiplicity2MultiplicityParserRuleCall_12_0; }
 		
+		//']'
+		public Keyword getRightSquareBracketKeyword_13() { return cRightSquareBracketKeyword_13; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
 	}
 	public class CompositionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.Composition");
@@ -1191,17 +1198,20 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Keyword cLeftSquareBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Assignment cMultiplicity2Assignment_12 = (Assignment)cGroup.eContents().get(12);
 		private final RuleCall cMultiplicity2MultiplicityParserRuleCall_12_0 = (RuleCall)cMultiplicity2Assignment_12.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cRightSquareBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Composition:
 		//    'composition' name= (ID | Unamed) '{'
-		//        'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+		//        'from' class1=[Class]'['multiplicity1=Multiplicity ']'
+		//        'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'composition' name= (ID | Unamed) '{'
-		//    'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+		//    'from' class1=[Class]'['multiplicity1=Multiplicity ']'
+		//    'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1274,8 +1284,11 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//Multiplicity
 		public RuleCall getMultiplicity2MultiplicityParserRuleCall_12_0() { return cMultiplicity2MultiplicityParserRuleCall_12_0; }
 		
+		//']'
+		public Keyword getRightSquareBracketKeyword_13() { return cRightSquareBracketKeyword_13; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
 	}
 	public class UseCaseDiagramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.UseCaseDiagram");
@@ -1365,21 +1378,29 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		private final Assignment cParentActorAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cParentActorActorParserRuleCall_6_1_0 = (RuleCall)cParentActorAssignment_6_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cUseCasesAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cUseCasesActorUseCaseAssociationParserRuleCall_8_0 = (RuleCall)cUseCasesAssignment_8.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cUsesKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cUseCaseAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cUseCaseUseCaseCrossReference_8_1_0 = (CrossReference)cUseCaseAssignment_8_1.eContents().get(0);
+		private final RuleCall cUseCaseUseCaseIDTerminalRuleCall_8_1_0_1 = (RuleCall)cUseCaseUseCaseCrossReference_8_1_0.eContents().get(1);
+		private final Group cGroup_8_2 = (Group)cGroup_8.eContents().get(2);
+		private final Keyword cCommaKeyword_8_2_0 = (Keyword)cGroup_8_2.eContents().get(0);
+		private final Assignment cUseCaseAssignment_8_2_1 = (Assignment)cGroup_8_2.eContents().get(1);
+		private final CrossReference cUseCaseUseCaseCrossReference_8_2_1_0 = (CrossReference)cUseCaseAssignment_8_2_1.eContents().get(0);
+		private final RuleCall cUseCaseUseCaseIDTerminalRuleCall_8_2_1_0_1 = (RuleCall)cUseCaseUseCaseCrossReference_8_2_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Actor:
 		//    (visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')?
 		//    'actor' name=ID ('extends' parentActor=Actor)? '{'
-		//        useCases+=ActorUseCaseAssociation*
+		//        ('uses' useCase+=[UseCase] (','useCase+=[UseCase])*)*
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//(visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')?
 		//'actor' name=ID ('extends' parentActor=Actor)? '{'
-		//    useCases+=ActorUseCaseAssociation*
+		//    ('uses' useCase+=[UseCase] (','useCase+=[UseCase])*)*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1431,11 +1452,35 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 		
-		//useCases+=ActorUseCaseAssociation*
-		public Assignment getUseCasesAssignment_8() { return cUseCasesAssignment_8; }
+		//('uses' useCase+=[UseCase] (','useCase+=[UseCase])*)*
+		public Group getGroup_8() { return cGroup_8; }
 		
-		//ActorUseCaseAssociation
-		public RuleCall getUseCasesActorUseCaseAssociationParserRuleCall_8_0() { return cUseCasesActorUseCaseAssociationParserRuleCall_8_0; }
+		//'uses'
+		public Keyword getUsesKeyword_8_0() { return cUsesKeyword_8_0; }
+		
+		//useCase+=[UseCase]
+		public Assignment getUseCaseAssignment_8_1() { return cUseCaseAssignment_8_1; }
+		
+		//[UseCase]
+		public CrossReference getUseCaseUseCaseCrossReference_8_1_0() { return cUseCaseUseCaseCrossReference_8_1_0; }
+		
+		//ID
+		public RuleCall getUseCaseUseCaseIDTerminalRuleCall_8_1_0_1() { return cUseCaseUseCaseIDTerminalRuleCall_8_1_0_1; }
+		
+		//(','useCase+=[UseCase])*
+		public Group getGroup_8_2() { return cGroup_8_2; }
+		
+		//','
+		public Keyword getCommaKeyword_8_2_0() { return cCommaKeyword_8_2_0; }
+		
+		//useCase+=[UseCase]
+		public Assignment getUseCaseAssignment_8_2_1() { return cUseCaseAssignment_8_2_1; }
+		
+		//[UseCase]
+		public CrossReference getUseCaseUseCaseCrossReference_8_2_1_0() { return cUseCaseUseCaseCrossReference_8_2_1_0; }
+		
+		//ID
+		public RuleCall getUseCaseUseCaseIDTerminalRuleCall_8_2_1_0_1() { return cUseCaseUseCaseIDTerminalRuleCall_8_2_1_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -1504,28 +1549,24 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		
 		//UseCase:
 		//    'usecase' name=ID  ('includes' includedUseCase+=[UseCase])? ('extends' extendedUseCase+=[UseCase])? '=' description=STRING
-		//    (
-		//    '{'
+		//    ('{'
 		//        ('includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
-		//        'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//         'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
 		//        |
-		//        'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
-		//        'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
-		//    '}'
-		//    )?
+		//         'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//         'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
+		//    '}')?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'usecase' name=ID  ('includes' includedUseCase+=[UseCase])? ('extends' extendedUseCase+=[UseCase])? '=' description=STRING
-		//(
-		//'{'
+		//('{'
 		//    ('includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
-		//    'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//     'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
 		//    |
-		//    'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
-		//    'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
-		//'}'
-		//)?
+		//     'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//     'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
+		//'}')?
 		public Group getGroup() { return cGroup; }
 		
 		//'usecase'
@@ -1576,29 +1617,27 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_0() { return cDescriptionSTRINGTerminalRuleCall_5_0; }
 		
-		//(
-		//'{'
+		//('{'
 		//    ('includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
-		//    'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//     'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
 		//    |
-		//    'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
-		//    'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
-		//'}'
-		//)?
+		//     'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//     'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
+		//'}')?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_6_0() { return cLeftCurlyBracketKeyword_6_0; }
 		
 		//('includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
-		//'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		// 'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
 		//|
-		//'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
-		//'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
+		// 'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		// 'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
 		public Alternatives getAlternatives_6_1() { return cAlternatives_6_1; }
 		
 		//'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
-		//        'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//         'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
 		public Group getGroup_6_1_0() { return cGroup_6_1_0; }
 		
 		//'includes'
@@ -1655,7 +1694,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//ID
 		public RuleCall getExtendedUseCaseUseCaseIDTerminalRuleCall_6_1_0_5_1_0_1() { return cExtendedUseCaseUseCaseIDTerminalRuleCall_6_1_0_5_1_0_1; }
 		
-		//'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+		//'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
 		//'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
 		public Group getGroup_6_1_1() { return cGroup_6_1_1; }
 		
@@ -1716,60 +1755,11 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6_2() { return cRightCurlyBracketKeyword_6_2; }
 	}
-	public class ActorUseCaseAssociationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufes.mdd.umltextual.UmlTextual.ActorUseCaseAssociation");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cUsesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cUseCaseAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cUseCaseUseCaseCrossReference_1_0 = (CrossReference)cUseCaseAssignment_1.eContents().get(0);
-		private final RuleCall cUseCaseUseCaseIDTerminalRuleCall_1_0_1 = (RuleCall)cUseCaseUseCaseCrossReference_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cUseCaseAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cUseCaseUseCaseCrossReference_2_1_0 = (CrossReference)cUseCaseAssignment_2_1.eContents().get(0);
-		private final RuleCall cUseCaseUseCaseIDTerminalRuleCall_2_1_0_1 = (RuleCall)cUseCaseUseCaseCrossReference_2_1_0.eContents().get(1);
-		
-		//ActorUseCaseAssociation:
-		//    'uses' useCase+=[UseCase] (','useCase+=[UseCase])*
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'uses' useCase+=[UseCase] (','useCase+=[UseCase])*
-		public Group getGroup() { return cGroup; }
-		
-		//'uses'
-		public Keyword getUsesKeyword_0() { return cUsesKeyword_0; }
-		
-		//useCase+=[UseCase]
-		public Assignment getUseCaseAssignment_1() { return cUseCaseAssignment_1; }
-		
-		//[UseCase]
-		public CrossReference getUseCaseUseCaseCrossReference_1_0() { return cUseCaseUseCaseCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getUseCaseUseCaseIDTerminalRuleCall_1_0_1() { return cUseCaseUseCaseIDTerminalRuleCall_1_0_1; }
-		
-		//(','useCase+=[UseCase])*
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
-		
-		//useCase+=[UseCase]
-		public Assignment getUseCaseAssignment_2_1() { return cUseCaseAssignment_2_1; }
-		
-		//[UseCase]
-		public CrossReference getUseCaseUseCaseCrossReference_2_1_0() { return cUseCaseUseCaseCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getUseCaseUseCaseIDTerminalRuleCall_2_1_0_1() { return cUseCaseUseCaseIDTerminalRuleCall_2_1_0_1; }
-	}
 	
 	
 	private final ModelElements pModel;
 	private final ModelElementElements pModelElement;
 	private final PackageElements pPackage;
-	private final SubsystemElements pSubsystem;
 	private final ElementElements pElement;
 	private final ClassElements pClass;
 	private final InterfaceElements pInterface;
@@ -1792,7 +1782,6 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	private final UseCaseElementElements pUseCaseElement;
 	private final ActorElements pActor;
 	private final UseCaseElements pUseCase;
-	private final ActorUseCaseAssociationElements pActorUseCaseAssociation;
 	
 	private final Grammar grammar;
 	
@@ -1806,7 +1795,6 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pModel = new ModelElements();
 		this.pModelElement = new ModelElementElements();
 		this.pPackage = new PackageElements();
-		this.pSubsystem = new SubsystemElements();
 		this.pElement = new ElementElements();
 		this.pClass = new ClassElements();
 		this.pInterface = new InterfaceElements();
@@ -1829,7 +1817,6 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		this.pUseCaseElement = new UseCaseElementElements();
 		this.pActor = new ActorElements();
 		this.pUseCase = new UseCaseElements();
-		this.pActorUseCaseAssociation = new ActorUseCaseAssociationElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1861,7 +1848,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Model:
 	//    elements+=ModelElement*
-	//    ;
+	//;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -1883,7 +1870,8 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//// <--- Diagrama de Pacotes --->
 	//Package:
-	//    type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+	//    (instantiable='instantiable')? type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+	//    domainSpecificTypes+=DomainSpecificType*
 	//    elements+=Element*
 	//    '}'
 	//;
@@ -1895,19 +1883,12 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 		return getPackageAccess().getRule();
 	}
 	
-	//Subsystem:
-	//    (instantiable='instantiable')? 'subsystem' name=ID '{'
-	//    elements+=Element*
-	//    '}'
-	//;
-	public SubsystemElements getSubsystemAccess() {
-		return pSubsystem;
-	}
-	
-	public ParserRule getSubsystemRule() {
-		return getSubsystemAccess().getRule();
-	}
-	
+	////Subsystem:
+	////     'subsystem' name=ID '{'
+	////    domainSpecificTypes+=DomainSpecificType*
+	////    elements+=Element*
+	////    '}'
+	////;
 	//// <--- Diagrama de Classes --->
 	//Element:
 	//    Class | AssociationConnector | Interface
@@ -1922,7 +1903,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Class:
 	//    ('@'stereotype=ID)?
-	//    visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (','interface+=[Interface])*)? '{'
+	//    visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (',' interface+=[Interface])*)? '{'
 	//    attributes+=Attribute*
 	//    methods+=Method*
 	//    '}'
@@ -1983,9 +1964,9 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//AttributeType:
-	//    name="string" | name="int" | name="double" | name="boolean" |
-	//    name="byte" | name="char" | name="float" | name="short" |
-	//    name="long" | DomainSpecificType
+	//    name="string" | name="int"  | name="double" | name="boolean" |
+	//    name="byte"   | name="char" | name="float"  | name="short" |
+	//    name="long"   | domainType=[DomainSpecificType]
 	//;
 	public AttributeTypeElements getAttributeTypeAccess() {
 		return pAttributeType;
@@ -1996,7 +1977,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	}
 	
 	//DomainSpecificType:
-	//    name=ID
+	//    'domaintype' name=ID '=' description=STRING
 	//    // Lembrar de modificar para declarar no começo da classe os tipos específicos de domínio
 	//;
 	public DomainSpecificTypeElements getDomainSpecificTypeAccess() {
@@ -2009,6 +1990,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Multiplicity:
 	//    "1" | "0..1" | "0..*" | "*" | "1..*" | "0.."INT | "1.."INT | INT | INT".."INT
+	//    // Da pra generalizar pra INT | '*' | INT".."(INT | '*')
 	//;
 	public MultiplicityElements getMultiplicityAccess() {
 		return pMultiplicity;
@@ -2053,7 +2035,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//// <---- Relações ---->
 	//Unamed:
-	//    "unamed"
+	//    "unnamed"
 	//;
 	public UnamedElements getUnamedAccess() {
 		return pUnamed;
@@ -2088,8 +2070,8 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//Association:
 	//    'undirected'? 'association' name= (ID | Unamed) '{'
 	//        'from' navigation1=Navigation?  class1=[Class]'['multiplicity1=Multiplicity ']'
-	//        'to' navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
-	//        ('associatedclass' '=' class=[Class])?
+	//        'to'   navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
+	//        ('with' 'associatedclass' class=[Class])?
 	//    '}'
 	//;
 	public AssociationElements getAssociationAccess() {
@@ -2102,7 +2084,8 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Aggregation:
 	//    'aggregation' name= (ID | Unamed) '{'
-	//        'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+	//        'from' class1=[Class]'['multiplicity1=Multiplicity ']'
+	//        'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 	//    '}'
 	//;
 	public AggregationElements getAggregationAccess() {
@@ -2115,7 +2098,8 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//Composition:
 	//    'composition' name= (ID | Unamed) '{'
-	//        'from' class1=[Class]'['multiplicity1=Multiplicity ']' 'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+	//        'from' class1=[Class]'['multiplicity1=Multiplicity ']'
+	//        'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 	//    '}'
 	//;
 	public CompositionElements getCompositionAccess() {
@@ -2154,7 +2138,7 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	//Actor:
 	//    (visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')?
 	//    'actor' name=ID ('extends' parentActor=Actor)? '{'
-	//        useCases+=ActorUseCaseAssociation*
+	//        ('uses' useCase+=[UseCase] (','useCase+=[UseCase])*)*
 	//    '}'
 	//;
 	public ActorElements getActorAccess() {
@@ -2167,15 +2151,13 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	//UseCase:
 	//    'usecase' name=ID  ('includes' includedUseCase+=[UseCase])? ('extends' extendedUseCase+=[UseCase])? '=' description=STRING
-	//    (
-	//    '{'
+	//    ('{'
 	//        ('includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*
-	//        'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+	//         'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
 	//        |
-	//        'extends' extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
-	//        'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
-	//    '}'
-	//    )?
+	//         'extends'  extendedUseCase+=[UseCase] (','extendedUseCase+=[UseCase])*
+	//         'includes' includedUseCase+=[UseCase] (','includedUseCase+=[UseCase])*)
+	//    '}')?
 	//;
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
@@ -2183,17 +2165,6 @@ public class UmlTextualGrammarAccess extends AbstractElementFinder.AbstractGramm
 	
 	public ParserRule getUseCaseRule() {
 		return getUseCaseAccess().getRule();
-	}
-	
-	//ActorUseCaseAssociation:
-	//    'uses' useCase+=[UseCase] (','useCase+=[UseCase])*
-	//;
-	public ActorUseCaseAssociationElements getActorUseCaseAssociationAccess() {
-		return pActorUseCaseAssociation;
-	}
-	
-	public ParserRule getActorUseCaseAssociationRule() {
-		return getActorUseCaseAssociationAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

@@ -13,14 +13,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//ModelElement/name"/>
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Package/instantiable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Package/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Package/parentPackage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Package/domainSpecificTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Package/elements"/>
-    </genClasses>
-    <genClasses ecoreClass="UmlTextual.ecore#//Subsystem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Subsystem/instantiable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Subsystem/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Subsystem/elements"/>
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Element/name"/>
@@ -41,8 +38,12 @@
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//AttributeType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//AttributeType/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//AttributeType/domainType"/>
     </genClasses>
-    <genClasses ecoreClass="UmlTextual.ecore#//DomainSpecificType"/>
+    <genClasses ecoreClass="UmlTextual.ecore#//DomainSpecificType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//DomainSpecificType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//DomainSpecificType/description"/>
+    </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Attribute/visibility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Attribute/name"/>
@@ -88,15 +89,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Actor/active"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Actor/business"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Actor/parentActor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Actor/useCases"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Actor/useCase"/>
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//UseCase">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//UseCase/includedUseCase"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//UseCase/extendedUseCase"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//UseCase/description"/>
-    </genClasses>
-    <genClasses ecoreClass="UmlTextual.ecore#//ActorUseCaseAssociation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//ActorUseCaseAssociation/useCase"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

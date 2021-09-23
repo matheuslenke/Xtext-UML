@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.AttributeType#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.AttributeType#getDomainType <em>Domain Type</em>}</li>
  * </ul>
  *
  * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getAttributeType()
@@ -44,5 +45,27 @@ public interface AttributeType extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Domain Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Domain Type</em>' reference.
+   * @see #setDomainType(DomainSpecificType)
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getAttributeType_DomainType()
+   * @model
+   * @generated
+   */
+  DomainSpecificType getDomainType();
+
+  /**
+   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.AttributeType#getDomainType <em>Domain Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Domain Type</em>' reference.
+   * @see #getDomainType()
+   * @generated
+   */
+  void setDomainType(DomainSpecificType value);
 
 } // AttributeType

@@ -4,7 +4,7 @@ generate umlTextual "http://www.ufes.br/mdd/umltextual/UmlTextual"
 
 Model:
 	elements+=ModelElement*
-	;
+;
 	
 ModelElement:
 	Package | UseCaseDiagram
@@ -13,16 +13,18 @@ ModelElement:
 // <--- Diagrama de Pacotes --->
 	
 Package:
-	type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+	(instantiable='instantiable')? type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+	domainSpecificTypes+=DomainSpecificType*
 	elements+=Element*
 	'}'
 ;
 
-Subsystem:
-	(instantiable='instantiable')? 'subsystem' name=ID '{'
-	elements+=Element*
-	'}'
-;
+//Subsystem:
+//	 'subsystem' name=ID '{'
+//	domainSpecificTypes+=DomainSpecificType*
+//	elements+=Element*
+//	'}'
+//;
 
 // <--- Diagrama de Classes --->
 
@@ -61,11 +63,11 @@ Active:
 AttributeType:
 	name="string" | name="int"  | name="double" | name="boolean" |
 	name="byte"   | name="char" | name="float"  | name="short" |
-	name="long"   | name=[DomainSpecificType]
+	name="long"   | domainType=[DomainSpecificType]
 ;
 
 DomainSpecificType:
-	name=ID
+	'domaintype' name=ID '=' description=STRING
 	// Lembrar de modificar para declarar no começo da classe os tipos específicos de domínio
 ;
 
@@ -89,7 +91,7 @@ Parameter:
 // <---- Relações ---->
 
 Unamed:
-	"unamed"	
+	"unnamed"	
 ;
 
 Navigation:
@@ -111,14 +113,14 @@ Association:
 Aggregation:
 	'aggregation' name= (ID | Unamed) '{'
 		'from' class1=[Class]'['multiplicity1=Multiplicity ']'
-		'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+		'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 	'}'
 ;
 
 Composition:
 	'composition' name= (ID | Unamed) '{'
 		'from' class1=[Class]'['multiplicity1=Multiplicity ']'
-		'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity
+		'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 	'}'
 ;
 
@@ -137,7 +139,7 @@ UseCaseElement:
 Actor:
 	(visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')? 
 	'actor' name=ID ('extends' parentActor=Actor)? '{'
-		useCases+=ActorUseCaseAssociation*
+		('uses' useCase+=[UseCase] (','useCase+=[UseCase])*)*
 	'}'
 ;
 
@@ -152,6 +154,3 @@ UseCase:
 	'}')?
 ;
 
-ActorUseCaseAssociation:
-	'uses' useCase+=[UseCase] (','useCase+=[UseCase])*
-;

@@ -4,7 +4,6 @@
 package br.ufes.mdd.umltextual.umlTextual.impl;
 
 import br.ufes.mdd.umltextual.umlTextual.Actor;
-import br.ufes.mdd.umltextual.umlTextual.ActorUseCaseAssociation;
 import br.ufes.mdd.umltextual.umlTextual.Aggregation;
 import br.ufes.mdd.umltextual.umlTextual.Association;
 import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
@@ -18,7 +17,6 @@ import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;
 import br.ufes.mdd.umltextual.umlTextual.ModelElement;
 import br.ufes.mdd.umltextual.umlTextual.Parameter;
-import br.ufes.mdd.umltextual.umlTextual.Subsystem;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualFactory;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 import br.ufes.mdd.umltextual.umlTextual.UseCase;
@@ -88,7 +86,6 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
       case UmlTextualPackage.MODEL: return createModel();
       case UmlTextualPackage.MODEL_ELEMENT: return createModelElement();
       case UmlTextualPackage.PACKAGE: return createPackage();
-      case UmlTextualPackage.SUBSYSTEM: return createSubsystem();
       case UmlTextualPackage.ELEMENT: return createElement();
       case UmlTextualPackage.CLASS: return createClass();
       case UmlTextualPackage.INTERFACE: return createInterface();
@@ -105,7 +102,6 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
       case UmlTextualPackage.USE_CASE_ELEMENT: return createUseCaseElement();
       case UmlTextualPackage.ACTOR: return createActor();
       case UmlTextualPackage.USE_CASE: return createUseCase();
-      case UmlTextualPackage.ACTOR_USE_CASE_ASSOCIATION: return createActorUseCaseAssociation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -145,18 +141,6 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
   {
     PackageImpl package_ = new PackageImpl();
     return package_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Subsystem createSubsystem()
-  {
-    SubsystemImpl subsystem = new SubsystemImpl();
-    return subsystem;
   }
 
   /**
@@ -349,18 +333,6 @@ public class UmlTextualFactoryImpl extends EFactoryImpl implements UmlTextualFac
   {
     UseCaseImpl useCase = new UseCaseImpl();
     return useCase;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ActorUseCaseAssociation createActorUseCaseAssociation()
-  {
-    ActorUseCaseAssociationImpl actorUseCaseAssociation = new ActorUseCaseAssociationImpl();
-    return actorUseCaseAssociation;
   }
 
   /**

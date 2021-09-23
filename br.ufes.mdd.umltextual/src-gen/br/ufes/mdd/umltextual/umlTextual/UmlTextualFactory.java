@@ -51,15 +51,6 @@ public interface UmlTextualFactory extends EFactory
   Package createPackage();
 
   /**
-   * Returns a new object of class '<em>Subsystem</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Subsystem</em>'.
-   * @generated
-   */
-  Subsystem createSubsystem();
-
-  /**
    * Returns a new object of class '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -202,15 +193,6 @@ public interface UmlTextualFactory extends EFactory
    * @generated
    */
   UseCase createUseCase();
-
-  /**
-   * Returns a new object of class '<em>Actor Use Case Association</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Actor Use Case Association</em>'.
-   * @generated
-   */
-  ActorUseCaseAssociation createActorUseCaseAssociation();
 
   /**
    * Returns the package supported by this factory.
