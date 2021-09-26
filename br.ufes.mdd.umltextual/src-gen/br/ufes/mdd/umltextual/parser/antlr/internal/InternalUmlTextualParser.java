@@ -5566,7 +5566,7 @@ public class InternalUmlTextualParser extends AbstractInternalAntlrParser {
             	    					
             	    otherlv_10=(Token)match(input,RULE_ID,FOLLOW_55); 
 
-            	    						newLeafNode(otherlv_10, grammarAccess.getActorAccess().getUseCaseUseCaseCrossReference_8_1_0());
+            	    						newLeafNode(otherlv_10, grammarAccess.getActorAccess().getUseCasesUseCaseCrossReference_8_1_0());
             	    					
 
             	    }
@@ -5606,7 +5606,7 @@ public class InternalUmlTextualParser extends AbstractInternalAntlrParser {
             	    	    						
             	    	    otherlv_12=(Token)match(input,RULE_ID,FOLLOW_55); 
 
-            	    	    							newLeafNode(otherlv_12, grammarAccess.getActorAccess().getUseCaseUseCaseCrossReference_8_2_1_0());
+            	    	    							newLeafNode(otherlv_12, grammarAccess.getActorAccess().getUseCasesUseCaseCrossReference_8_2_1_0());
             	    	    						
 
             	    	    }

@@ -139,7 +139,7 @@ UseCaseElement:
 Actor:
 	(visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')? 
 	'actor' name=ID ('extends' parentActor=Actor)? '{'
-		('uses' useCase+=[UseCase] (','useCase+=[UseCase])*)*
+		('uses' useCases+=[UseCase] (','useCases+=[UseCase])*)*
 	'}'
 ;
 

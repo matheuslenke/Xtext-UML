@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl#getActive <em>Active</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl#getBusiness <em>Business</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl#getParentActor <em>Parent Actor</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl#getUseCase <em>Use Case</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ActorImpl#getUseCases <em>Use Cases</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,14 +132,14 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
   protected Actor parentActor;
 
   /**
-   * The cached value of the '{@link #getUseCase() <em>Use Case</em>}' reference list.
+   * The cached value of the '{@link #getUseCases() <em>Use Cases</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUseCase()
+   * @see #getUseCases()
    * @generated
    * @ordered
    */
-  protected EList<UseCase> useCase;
+  protected EList<UseCase> useCases;
 
   /**
    * <!-- begin-user-doc -->
@@ -318,13 +318,13 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
    * @generated
    */
   @Override
-  public EList<UseCase> getUseCase()
+  public EList<UseCase> getUseCases()
   {
-    if (useCase == null)
+    if (useCases == null)
     {
-      useCase = new EObjectResolvingEList<UseCase>(UseCase.class, this, UmlTextualPackage.ACTOR__USE_CASE);
+      useCases = new EObjectResolvingEList<UseCase>(UseCase.class, this, UmlTextualPackage.ACTOR__USE_CASES);
     }
-    return useCase;
+    return useCases;
   }
 
   /**
@@ -363,8 +363,8 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
         return getBusiness();
       case UmlTextualPackage.ACTOR__PARENT_ACTOR:
         return getParentActor();
-      case UmlTextualPackage.ACTOR__USE_CASE:
-        return getUseCase();
+      case UmlTextualPackage.ACTOR__USE_CASES:
+        return getUseCases();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -395,9 +395,9 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
       case UmlTextualPackage.ACTOR__PARENT_ACTOR:
         setParentActor((Actor)newValue);
         return;
-      case UmlTextualPackage.ACTOR__USE_CASE:
-        getUseCase().clear();
-        getUseCase().addAll((Collection<? extends UseCase>)newValue);
+      case UmlTextualPackage.ACTOR__USE_CASES:
+        getUseCases().clear();
+        getUseCases().addAll((Collection<? extends UseCase>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -428,8 +428,8 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
       case UmlTextualPackage.ACTOR__PARENT_ACTOR:
         setParentActor((Actor)null);
         return;
-      case UmlTextualPackage.ACTOR__USE_CASE:
-        getUseCase().clear();
+      case UmlTextualPackage.ACTOR__USE_CASES:
+        getUseCases().clear();
         return;
     }
     super.eUnset(featureID);
@@ -455,8 +455,8 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
         return BUSINESS_EDEFAULT == null ? business != null : !BUSINESS_EDEFAULT.equals(business);
       case UmlTextualPackage.ACTOR__PARENT_ACTOR:
         return parentActor != null;
-      case UmlTextualPackage.ACTOR__USE_CASE:
-        return useCase != null && !useCase.isEmpty();
+      case UmlTextualPackage.ACTOR__USE_CASES:
+        return useCases != null && !useCases.isEmpty();
     }
     return super.eIsSet(featureID);
   }

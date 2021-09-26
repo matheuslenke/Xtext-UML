@@ -966,7 +966,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getActor_UseCase()
+  public EReference getActor_UseCases()
   {
     return (EReference)actorEClass.getEStructuralFeatures().get(5);
   }
@@ -1129,7 +1129,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     createEAttribute(actorEClass, ACTOR__ACTIVE);
     createEAttribute(actorEClass, ACTOR__BUSINESS);
     createEReference(actorEClass, ACTOR__PARENT_ACTOR);
-    createEReference(actorEClass, ACTOR__USE_CASE);
+    createEReference(actorEClass, ACTOR__USE_CASES);
 
     useCaseEClass = createEClass(USE_CASE);
     createEReference(useCaseEClass, USE_CASE__INCLUDED_USE_CASE);
@@ -1261,7 +1261,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     initEAttribute(getActor_Active(), ecorePackage.getEString(), "active", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActor_Business(), ecorePackage.getEString(), "business", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActor_ParentActor(), this.getActor(), null, "parentActor", null, 0, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getActor_UseCase(), this.getUseCase(), null, "useCase", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getActor_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUseCase_IncludedUseCase(), this.getUseCase(), null, "includedUseCase", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

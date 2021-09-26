@@ -15404,31 +15404,31 @@ public class InternalUmlTextualParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Actor__Group_8__1__Impl"
-    // InternalUmlTextual.g:4970:1: rule__Actor__Group_8__1__Impl : ( ( rule__Actor__UseCaseAssignment_8_1 ) ) ;
+    // InternalUmlTextual.g:4970:1: rule__Actor__Group_8__1__Impl : ( ( rule__Actor__UseCasesAssignment_8_1 ) ) ;
     public final void rule__Actor__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUmlTextual.g:4974:1: ( ( ( rule__Actor__UseCaseAssignment_8_1 ) ) )
-            // InternalUmlTextual.g:4975:1: ( ( rule__Actor__UseCaseAssignment_8_1 ) )
+            // InternalUmlTextual.g:4974:1: ( ( ( rule__Actor__UseCasesAssignment_8_1 ) ) )
+            // InternalUmlTextual.g:4975:1: ( ( rule__Actor__UseCasesAssignment_8_1 ) )
             {
-            // InternalUmlTextual.g:4975:1: ( ( rule__Actor__UseCaseAssignment_8_1 ) )
-            // InternalUmlTextual.g:4976:2: ( rule__Actor__UseCaseAssignment_8_1 )
+            // InternalUmlTextual.g:4975:1: ( ( rule__Actor__UseCasesAssignment_8_1 ) )
+            // InternalUmlTextual.g:4976:2: ( rule__Actor__UseCasesAssignment_8_1 )
             {
-             before(grammarAccess.getActorAccess().getUseCaseAssignment_8_1()); 
-            // InternalUmlTextual.g:4977:2: ( rule__Actor__UseCaseAssignment_8_1 )
-            // InternalUmlTextual.g:4977:3: rule__Actor__UseCaseAssignment_8_1
+             before(grammarAccess.getActorAccess().getUseCasesAssignment_8_1()); 
+            // InternalUmlTextual.g:4977:2: ( rule__Actor__UseCasesAssignment_8_1 )
+            // InternalUmlTextual.g:4977:3: rule__Actor__UseCasesAssignment_8_1
             {
             pushFollow(FOLLOW_2);
-            rule__Actor__UseCaseAssignment_8_1();
+            rule__Actor__UseCasesAssignment_8_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getActorAccess().getUseCaseAssignment_8_1()); 
+             after(grammarAccess.getActorAccess().getUseCasesAssignment_8_1()); 
 
             }
 
@@ -15657,31 +15657,31 @@ public class InternalUmlTextualParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Actor__Group_8_2__1__Impl"
-    // InternalUmlTextual.g:5050:1: rule__Actor__Group_8_2__1__Impl : ( ( rule__Actor__UseCaseAssignment_8_2_1 ) ) ;
+    // InternalUmlTextual.g:5050:1: rule__Actor__Group_8_2__1__Impl : ( ( rule__Actor__UseCasesAssignment_8_2_1 ) ) ;
     public final void rule__Actor__Group_8_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUmlTextual.g:5054:1: ( ( ( rule__Actor__UseCaseAssignment_8_2_1 ) ) )
-            // InternalUmlTextual.g:5055:1: ( ( rule__Actor__UseCaseAssignment_8_2_1 ) )
+            // InternalUmlTextual.g:5054:1: ( ( ( rule__Actor__UseCasesAssignment_8_2_1 ) ) )
+            // InternalUmlTextual.g:5055:1: ( ( rule__Actor__UseCasesAssignment_8_2_1 ) )
             {
-            // InternalUmlTextual.g:5055:1: ( ( rule__Actor__UseCaseAssignment_8_2_1 ) )
-            // InternalUmlTextual.g:5056:2: ( rule__Actor__UseCaseAssignment_8_2_1 )
+            // InternalUmlTextual.g:5055:1: ( ( rule__Actor__UseCasesAssignment_8_2_1 ) )
+            // InternalUmlTextual.g:5056:2: ( rule__Actor__UseCasesAssignment_8_2_1 )
             {
-             before(grammarAccess.getActorAccess().getUseCaseAssignment_8_2_1()); 
-            // InternalUmlTextual.g:5057:2: ( rule__Actor__UseCaseAssignment_8_2_1 )
-            // InternalUmlTextual.g:5057:3: rule__Actor__UseCaseAssignment_8_2_1
+             before(grammarAccess.getActorAccess().getUseCasesAssignment_8_2_1()); 
+            // InternalUmlTextual.g:5057:2: ( rule__Actor__UseCasesAssignment_8_2_1 )
+            // InternalUmlTextual.g:5057:3: rule__Actor__UseCasesAssignment_8_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__Actor__UseCaseAssignment_8_2_1();
+            rule__Actor__UseCasesAssignment_8_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getActorAccess().getUseCaseAssignment_8_2_1()); 
+             after(grammarAccess.getActorAccess().getUseCasesAssignment_8_2_1()); 
 
             }
 
@@ -21450,9 +21450,9 @@ public class InternalUmlTextualParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Actor__ParentActorAssignment_6_1"
 
 
-    // $ANTLR start "rule__Actor__UseCaseAssignment_8_1"
-    // InternalUmlTextual.g:7130:1: rule__Actor__UseCaseAssignment_8_1 : ( ( RULE_ID ) ) ;
-    public final void rule__Actor__UseCaseAssignment_8_1() throws RecognitionException {
+    // $ANTLR start "rule__Actor__UseCasesAssignment_8_1"
+    // InternalUmlTextual.g:7130:1: rule__Actor__UseCasesAssignment_8_1 : ( ( RULE_ID ) ) ;
+    public final void rule__Actor__UseCasesAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -21463,17 +21463,17 @@ public class InternalUmlTextualParser extends AbstractInternalContentAssistParse
             // InternalUmlTextual.g:7135:2: ( ( RULE_ID ) )
             // InternalUmlTextual.g:7136:3: ( RULE_ID )
             {
-             before(grammarAccess.getActorAccess().getUseCaseUseCaseCrossReference_8_1_0()); 
+             before(grammarAccess.getActorAccess().getUseCasesUseCaseCrossReference_8_1_0()); 
             // InternalUmlTextual.g:7137:3: ( RULE_ID )
             // InternalUmlTextual.g:7138:4: RULE_ID
             {
-             before(grammarAccess.getActorAccess().getUseCaseUseCaseIDTerminalRuleCall_8_1_0_1()); 
+             before(grammarAccess.getActorAccess().getUseCasesUseCaseIDTerminalRuleCall_8_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getActorAccess().getUseCaseUseCaseIDTerminalRuleCall_8_1_0_1()); 
+             after(grammarAccess.getActorAccess().getUseCasesUseCaseIDTerminalRuleCall_8_1_0_1()); 
 
             }
 
-             after(grammarAccess.getActorAccess().getUseCaseUseCaseCrossReference_8_1_0()); 
+             after(grammarAccess.getActorAccess().getUseCasesUseCaseCrossReference_8_1_0()); 
 
             }
 
@@ -21492,12 +21492,12 @@ public class InternalUmlTextualParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Actor__UseCaseAssignment_8_1"
+    // $ANTLR end "rule__Actor__UseCasesAssignment_8_1"
 
 
-    // $ANTLR start "rule__Actor__UseCaseAssignment_8_2_1"
-    // InternalUmlTextual.g:7149:1: rule__Actor__UseCaseAssignment_8_2_1 : ( ( RULE_ID ) ) ;
-    public final void rule__Actor__UseCaseAssignment_8_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Actor__UseCasesAssignment_8_2_1"
+    // InternalUmlTextual.g:7149:1: rule__Actor__UseCasesAssignment_8_2_1 : ( ( RULE_ID ) ) ;
+    public final void rule__Actor__UseCasesAssignment_8_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -21508,17 +21508,17 @@ public class InternalUmlTextualParser extends AbstractInternalContentAssistParse
             // InternalUmlTextual.g:7154:2: ( ( RULE_ID ) )
             // InternalUmlTextual.g:7155:3: ( RULE_ID )
             {
-             before(grammarAccess.getActorAccess().getUseCaseUseCaseCrossReference_8_2_1_0()); 
+             before(grammarAccess.getActorAccess().getUseCasesUseCaseCrossReference_8_2_1_0()); 
             // InternalUmlTextual.g:7156:3: ( RULE_ID )
             // InternalUmlTextual.g:7157:4: RULE_ID
             {
-             before(grammarAccess.getActorAccess().getUseCaseUseCaseIDTerminalRuleCall_8_2_1_0_1()); 
+             before(grammarAccess.getActorAccess().getUseCasesUseCaseIDTerminalRuleCall_8_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getActorAccess().getUseCaseUseCaseIDTerminalRuleCall_8_2_1_0_1()); 
+             after(grammarAccess.getActorAccess().getUseCasesUseCaseIDTerminalRuleCall_8_2_1_0_1()); 
 
             }
 
-             after(grammarAccess.getActorAccess().getUseCaseUseCaseCrossReference_8_2_1_0()); 
+             after(grammarAccess.getActorAccess().getUseCasesUseCaseCrossReference_8_2_1_0()); 
 
             }
 
@@ -21537,7 +21537,7 @@ public class InternalUmlTextualParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Actor__UseCaseAssignment_8_2_1"
+    // $ANTLR end "rule__Actor__UseCasesAssignment_8_2_1"
 
 
     // $ANTLR start "rule__UseCase__NameAssignment_1"

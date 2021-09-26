@@ -89,7 +89,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Actor/active"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Actor/business"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Actor/parentActor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Actor/useCase"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Actor/useCases"/>
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//UseCase">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//UseCase/includedUseCase"/>

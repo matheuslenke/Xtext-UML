@@ -106,7 +106,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         business='business'? 
 	 *         name=ID 
 	 *         parentActor=Actor? 
-	 *         (useCase+=[UseCase|ID] useCase+=[UseCase|ID]*)*
+	 *         (useCases+=[UseCase|ID] useCases+=[UseCase|ID]*)*
 	 *     )
 	 */
 	protected void sequence_Actor(ISerializationContext context, Actor semanticObject) {

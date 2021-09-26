@@ -1012,13 +1012,13 @@ public interface UmlTextualPackage extends EPackage
   int ACTOR__PARENT_ACTOR = USE_CASE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Use Case</b></em>' reference list.
+   * The feature id for the '<em><b>Use Cases</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTOR__USE_CASE = USE_CASE_ELEMENT_FEATURE_COUNT + 5;
+  int ACTOR__USE_CASES = USE_CASE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Actor</em>' class.
@@ -1794,15 +1794,15 @@ public interface UmlTextualPackage extends EPackage
   EReference getActor_ParentActor();
 
   /**
-   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getUseCase <em>Use Case</em>}'.
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getUseCases <em>Use Cases</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Use Case</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getUseCase()
+   * @return the meta object for the reference list '<em>Use Cases</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Actor#getUseCases()
    * @see #getActor()
    * @generated
    */
-  EReference getActor_UseCase();
+  EReference getActor_UseCases();
 
   /**
    * Returns the meta object for class '{@link br.ufes.mdd.umltextual.umlTextual.UseCase <em>Use Case</em>}'.
@@ -2435,12 +2435,12 @@ public interface UmlTextualPackage extends EPackage
     EReference ACTOR__PARENT_ACTOR = eINSTANCE.getActor_ParentActor();
 
     /**
-     * The meta object literal for the '<em><b>Use Case</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Use Cases</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ACTOR__USE_CASE = eINSTANCE.getActor_UseCase();
+    EReference ACTOR__USE_CASES = eINSTANCE.getActor_UseCases();
 
     /**
      * The meta object literal for the '{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl <em>Use Case</em>}' class.

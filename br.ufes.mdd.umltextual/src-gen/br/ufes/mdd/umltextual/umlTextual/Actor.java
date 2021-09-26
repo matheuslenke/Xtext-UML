@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Actor#getActive <em>Active</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Actor#getBusiness <em>Business</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor <em>Parent Actor</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Actor#getUseCase <em>Use Case</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Actor#getUseCases <em>Use Cases</em>}</li>
  * </ul>
  *
  * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getActor()
@@ -139,15 +139,15 @@ public interface Actor extends UseCaseElement
   void setParentActor(Actor value);
 
   /**
-   * Returns the value of the '<em><b>Use Case</b></em>' reference list.
+   * Returns the value of the '<em><b>Use Cases</b></em>' reference list.
    * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.UseCase}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Use Case</em>' reference list.
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getActor_UseCase()
+   * @return the value of the '<em>Use Cases</em>' reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getActor_UseCases()
    * @model
    * @generated
    */
-  EList<UseCase> getUseCase();
+  EList<UseCase> getUseCases();
 
 } // Actor

@@ -150,8 +150,8 @@ public class UmlTextualParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getActorAccess().getBusinessAssignment_3(), "rule__Actor__BusinessAssignment_3");
 			builder.put(grammarAccess.getActorAccess().getNameAssignment_5(), "rule__Actor__NameAssignment_5");
 			builder.put(grammarAccess.getActorAccess().getParentActorAssignment_6_1(), "rule__Actor__ParentActorAssignment_6_1");
-			builder.put(grammarAccess.getActorAccess().getUseCaseAssignment_8_1(), "rule__Actor__UseCaseAssignment_8_1");
-			builder.put(grammarAccess.getActorAccess().getUseCaseAssignment_8_2_1(), "rule__Actor__UseCaseAssignment_8_2_1");
+			builder.put(grammarAccess.getActorAccess().getUseCasesAssignment_8_1(), "rule__Actor__UseCasesAssignment_8_1");
+			builder.put(grammarAccess.getActorAccess().getUseCasesAssignment_8_2_1(), "rule__Actor__UseCasesAssignment_8_2_1");
 			builder.put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 			builder.put(grammarAccess.getUseCaseAccess().getIncludedUseCaseAssignment_2_1(), "rule__UseCase__IncludedUseCaseAssignment_2_1");
 			builder.put(grammarAccess.getUseCaseAccess().getExtendedUseCaseAssignment_3_1(), "rule__UseCase__ExtendedUseCaseAssignment_3_1");
