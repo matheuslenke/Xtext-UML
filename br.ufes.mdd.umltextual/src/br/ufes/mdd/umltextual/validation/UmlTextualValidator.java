@@ -4,7 +4,9 @@
 package br.ufes.mdd.umltextual.validation;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.IResourceValidator;
@@ -14,11 +16,19 @@ import com.google.inject.Inject;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
 import br.ufes.mdd.umltextual.umlTextual.UseCaseDiagram;
 import br.ufes.mdd.umltextual.umlTextual.Class;
+import br.ufes.mdd.umltextual.umlTextual.DomainSpecificType;
 import br.ufes.mdd.umltextual.umlTextual.Package;
+import br.ufes.mdd.umltextual.umlTextual.Parameter;
 import br.ufes.mdd.umltextual.umlTextual.Actor;
 import br.ufes.mdd.umltextual.umlTextual.Attribute;
 import br.ufes.mdd.umltextual.umlTextual.UseCaseElement;
 import br.ufes.mdd.umltextual.umlTextual.UseCase;
+import br.ufes.mdd.umltextual.umlTextual.Element;
+//import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
+import br.ufes.mdd.umltextual.umlTextual.Interface;
+import br.ufes.mdd.umltextual.umlTextual.Method;
+import br.ufes.mdd.umltextual.umlTextual.Model;
+import br.ufes.mdd.umltextual.umlTextual.ModelElement;
 
 /**
  * This class contains custom validation rules. 
@@ -49,12 +59,39 @@ public class UmlTextualValidator extends AbstractUmlTextualValidator {
 		}
 	}
 	
+	// Diagramas de casos de uso devem começar com letra maiúscula
+	@Check
+	public void checkUseCaseDiagramStartsWithCapital(UseCaseDiagram diagramItem) {
+		if (!Character.isUpperCase(diagramItem.getName().charAt(0))) {
+			warning("UseCase Diagram name should start with a capital",
+					UmlTextualPackage.Literals.USE_CASE_DIAGRAM.getEStructuralFeature("name"));
+		}
+	}
+	
 	// Atributo deve começar com letra minúscula
 	@Check
-	public void checkClassStartsWithCapital(Attribute attr) {
+	public void checkAttributeLowercase(Attribute attr) {
 		if (!Character.isLowerCase(attr.getName().charAt(0))) {
 			warning("Attribute name should start with lowercase",
 					UmlTextualPackage.Literals.ATTRIBUTE.getEStructuralFeature("name"));
+		}
+	}
+	
+	// Ator deve começar com letra maiúscula
+	@Check
+	public void checkActorStartsWithCapital(Actor actor) {
+		if (!Character.isUpperCase(actor.getName().charAt(0))) {
+			warning("Actor name should start with a capital",
+					UmlTextualPackage.Literals.ACTOR.getEStructuralFeature("name"));
+		}
+	}
+	
+	// Caso de uso deve começar com letra maiúscula
+	@Check
+	public void checkUseCaseStartsWithCapital(UseCase usecase) {
+		if (!Character.isUpperCase(usecase.getName().charAt(0))) {
+			warning("UseCase name should start with a capital",
+					UmlTextualPackage.Literals.USE_CASE.getEStructuralFeature("name"));
 		}
 	}
 	
@@ -62,19 +99,33 @@ public class UmlTextualValidator extends AbstractUmlTextualValidator {
 	@Check
 	public void checkPackageInstantiable(Package packageItem) {
 		if(packageItem.getInstantiable().compareTo("instantiable") == 0 && packageItem.getType().compareTo("package") == 0) {
-			error("Package cannot be instantiable", UmlTextualPackage.Literals.PACKAGE.getEStructuralFeature("instantiable"));
+			error("Package cannot be instantiable", UmlTextualPackage.Literals.PACKAGE__INSTANTIABLE);
 		}
 	}
 	
-	// Classe não pode extender ela mesma
-//	@Check
-//	public void checkClassExtendsItself(Class classItem) {
-//		if(classItem.getName().compareTo(classItem.getParentClass().getName()) == 0) {
-//			error("Class cannot extends itself", UmlTextualPackage.Literals.CLASS.getEStructuralFeature("parentClass"));
-//		}
-//	}
+	// Pacote não pode depender dele mesmo ou ciclicamente
+	@Check
+	public void checkInterfaceExtendsCyclic(Package packageItem) {
+		Package tartaruga = packageItem.getParentPackage();
+		if(tartaruga == null) {return;}
+		
+		Package lebre = tartaruga.getParentPackage();
+		if(lebre == null) {return;}
 	
-	// Classe não pode extender ciclicamente
+		while(lebre != null) {
+			if(tartaruga.getName().compareTo(lebre.getName()) == 0) {
+				error("Package dependency contains cycle. Please analyse the dependencies", UmlTextualPackage.Literals.PACKAGE__PARENT_PACKAGE);
+				return;
+			}
+			tartaruga = tartaruga.getParentPackage();
+			lebre = lebre.getParentPackage();
+			if(lebre == null) {break;}
+			lebre = lebre.getParentPackage();
+		}
+	}
+	
+	
+	// Classe não pode extender ela mesma ou ciclicamente
 	@Check
 	public void checkClassExtendsCyclic(Class classItem) {
 		Class tartaruga = classItem.getParentClass();
@@ -85,7 +136,7 @@ public class UmlTextualValidator extends AbstractUmlTextualValidator {
 	
 		while(lebre != null) {
 			if(tartaruga.getName().compareTo(lebre.getName()) == 0) {
-				error("Class references contains cycle. Please analyse the inheritances", UmlTextualPackage.Literals.CLASS.getEStructuralFeature("parentClass"));
+				error("Class extension contains cycle. Please analyse the inheritances", UmlTextualPackage.Literals.CLASS__PARENT_CLASS);
 				return;
 			}
 			tartaruga = tartaruga.getParentClass();
@@ -95,36 +146,153 @@ public class UmlTextualValidator extends AbstractUmlTextualValidator {
 		}
 	}
 	
-	// Classes não podem possuir o mesmo nome
+	// Interface não pode extender ela mesma ou ciclicamente
 	@Check
-	public void checkClassWithSameName(Class classItem) {
-//		EObject rootElement = EcoreUtil2.getRootContainer(context);
-//		List<Class> candidates = EcoreUtil2.getAllContentsOfType(rootElement, Class.class);
-//		while(parentClass != null && parentClass.getName().compareTo(classItem.getName()) == 0) {
-//			if (parentClass.getName().compareTo(classItem.getName()) == 0) {
-//				error("Class cannot extends itself or have cyclic reference", UmlTextualPackage.Literals.PACKAGE.getEStructuralFeature("parentClass"));
-//				break;
-//			}
-//			parentClass = parentClass.getParentClass();
-//		}
+	public void checkInterfaceExtendsCyclic(Interface interfaceItem) {
+		Interface tartaruga = interfaceItem.getParentInterface();
+		if(tartaruga == null) {return;}
+		
+		Interface lebre = tartaruga.getParentInterface();
+		if(lebre == null) {return;}
+	
+		while(lebre != null) {
+			if(tartaruga.getName().compareTo(lebre.getName()) == 0) {
+				error("Interface extension contains cycle. Please analyse the inheritances", UmlTextualPackage.Literals.INTERFACE__PARENT_INTERFACE);
+				return;
+			}
+			tartaruga = tartaruga.getParentInterface();
+			lebre = lebre.getParentInterface();
+			if(lebre == null) {break;}
+			lebre = lebre.getParentInterface();
+		}
 	}
 	
-	// Usecases não podem ser referenciados várias vezes pelo mesmo ator
+	// Classes, interfaces e associações não podem possuir o mesmo nome
 	@Check
-	public void checkClassWithSameName(Actor actor) {
-
-		List<UseCase> verifiedUseCases = new ArrayList<>();
+	public void checkPackageElementWithSameName(Package packageItem) {
+		Set<String> verifiedClasses = new HashSet<>();
+//		Set<String> verifiedAssociations = new HashSet<>();
+		Set<String> verifiedInterfaces = new HashSet<>();
 		int i = 0;
-		for (UseCase actorcase : actor.getUseCases()) {
-			if(verifiedUseCases.contains(actorcase)) {
-				error("Duplicated useCase", UmlTextualPackage.Literals.ACTOR.getEStructuralFeature("useCases"), i);
-			} else {
-				verifiedUseCases.add(actorcase);
+		for (Element element : packageItem.getElements()) {
+			// Verificação das classes
+			if(element instanceof Class) {
+				if(!verifiedClasses.add(element.getName())) {
+					error("Duplicated Class", UmlTextualPackage.Literals.PACKAGE__ELEMENTS, i);
+				}
+			}
+			// Verificação das associações
+//			else if(element instanceof AssociationConnector) {
+//				if(verifiedAssociations.contains(element.getName()) && element.getName().compareTo("unnamed") != 0) {
+//					error("Duplicated Association", UmlTextualPackage.Literals.PACKAGE.getEStructuralFeature("elements"), i);
+//				} else {
+//					verifiedAssociations.add(element.getName());
+//				}
+//			}
+			// Verificação das interfaces
+			else if(element instanceof Interface) {
+				if(!verifiedInterfaces.add(element.getName())) {
+					error("Duplicated Interface", UmlTextualPackage.Literals.PACKAGE__ELEMENTS, i);
+				}
+			}
+			
+			i++;
+		}
+		
+	}
+	
+	// Classe não pode implementar a mesma interface multiplas vezes
+	@Check
+	public void checkClassImplementsDuplicatedInterface(Class classItem) {
+		Set<String> verifiedInterfaces = new HashSet<>();
+		int i = 0;
+		for (Interface interfaceElement : classItem.getInterfaces()) {
+			if(!verifiedInterfaces.add(interfaceElement.getName())) {
+				error("Duplicated Interface implementation", UmlTextualPackage.Literals.CLASS__INTERFACES, i);
 			}
 			i++;
 		}
 	}
 	
+	// Atributos não podem possuir nome repetido na mesma classe
+	@Check
+	public void checkDuplicatedAttributeName(Class classItem) {
+		Set<String> verifiedAttributes = new HashSet<>();
+		int i = 0;
+		for (Attribute attElement : classItem.getAttributes()) {
+			if(!verifiedAttributes.add(attElement.getName())) {
+				error("Duplicated Attribute declaration", UmlTextualPackage.Literals.CLASS__ATTRIBUTES, i);
+			}
+			i++;
+		}
+	}
+	
+	// Métodos não podem possuir nome duplicado
+	@Check
+	public void checkDuplicatedFunctionName(Class classItem) {
+		Set<String> verifiedMethods = new HashSet<>();
+		int i = 0;
+		for (Method methodElement : classItem.getMethods()) {
+			if(!verifiedMethods.add(methodElement.getName())) {
+				error("Duplicated Method declaration", UmlTextualPackage.Literals.CLASS__METHODS, i);
+			}
+			i++;
+		}
+	}
+	
+	// Métodos não podem possuir atributos com o mesmo nome
+	@Check
+	public void checkDuplicatedFunctionName(Method methodItem) {
+		Set<String> verifiedParameters = new HashSet<>();
+		int i = 0;
+		for (Parameter attElement : methodItem.getParameters()) {
+			if(!verifiedParameters.add(attElement.getName())) {
+				error("Duplicated Parameter declaration", UmlTextualPackage.Literals.METHOD__PARAMETERS, i);
+			}
+			i++;
+		}
+	}
+	
+	// Usecases não podem ser referenciados várias vezes pelo mesmo ator
+	@Check
+	public void checkDuplicatedActorUseCaseReference(Actor actor) {
+
+		Set<String> verifiedUseCases = new HashSet<>();
+		int i = 0;
+		for (UseCase actorcase : actor.getUseCases()) {
+			if(!verifiedUseCases.add(actorcase.getName())) {
+				error("Duplicated useCase reference", UmlTextualPackage.Literals.ACTOR__USE_CASES, i);
+			}
+			i++;
+		}
+	}
+	
+	// Usecases não podem ser referenciados várias vezes pelo mesmo ator
+	@Check
+	public void checkDuplicatedUseCaseIncludesExtendsReference(UseCase useCaseItem) {
+
+		Set<UseCase> verifiedIncludes = new HashSet<>();
+		Set<UseCase> verifiedExtends = new HashSet<>();
+		int i = 0;
+		for (UseCase useCase : useCaseItem.getIncludedUseCases()) {
+			if(!verifiedIncludes.add(useCase)) {
+				error("Duplicated include useCase reference", UmlTextualPackage.Literals.USE_CASE__INCLUDED_USE_CASES, i);
+			}
+			i++;
+		}
+		i = 0;
+		for (UseCase useCase : useCaseItem.getExtendedUseCases()) {
+			if(!verifiedExtends.add(useCase)) {
+				error("Duplicated extends useCase reference", UmlTextualPackage.Literals.USE_CASE__EXTENDED_USE_CASES, i);
+			} else if (verifiedIncludes.contains(useCase)) {
+				error("Extended useCase was already included", UmlTextualPackage.Literals.USE_CASE__EXTENDED_USE_CASES, i);
+			}
+			i++;
+		}
+	}
+	
+	
+	// Checar se casos de uso e atores possuem nomes repetidos
 	@Check
 	public void checkDuplicatedUsecaseName(UseCaseDiagram caseDiagram) {
 		
@@ -134,13 +302,13 @@ public class UmlTextualValidator extends AbstractUmlTextualValidator {
 		for(UseCaseElement element : caseDiagram.getElements()) {
 			if(element instanceof UseCase) {
 				if (verifiedCases.contains(element.getName())) {
-					error("Duplicated useCase name", UmlTextualPackage.Literals.USE_CASE_DIAGRAM.getEStructuralFeature("elements"), i );
+					error("Duplicated useCase name", UmlTextualPackage.Literals.USE_CASE_DIAGRAM__ELEMENTS, i );
 				} else {
 					verifiedCases.add(element.getName());
 				}
 			} else {
 				if (verifiedActors.contains(element.getName())) {
-					error("Duplicated Actor name", UmlTextualPackage.Literals.USE_CASE_DIAGRAM.getEStructuralFeature("elements"), i );
+					error("Duplicated Actor name", UmlTextualPackage.Literals.USE_CASE_DIAGRAM__ELEMENTS, i );
 				} else {
 					verifiedActors.add(element.getName());
 				}
@@ -148,5 +316,68 @@ public class UmlTextualValidator extends AbstractUmlTextualValidator {
 			i++;
 		}
 	}
+	
+	// Pacotes e Diagramas de casos de uso não podem ter nomes repetidos
+	@Check
+	public void checkDuplicatedPackageAndUseCaseDiagramName(Model modelItem) {
+
+		Set<String> verifiedPackages = new HashSet<>();
+		Set<String> verifiedDiagrams = new HashSet<>();
+		int i = 0;
+		for (ModelElement element : modelItem.getElements()) {
+			if(element instanceof Package) {
+				if(verifiedPackages.contains(element.getName())) {
+					error("Duplicated package name", UmlTextualPackage.Literals.MODEL__ELEMENTS, i);
+				} else {
+					verifiedPackages.add(element.getName());
+				}
+			} else 	if(element instanceof UseCaseDiagram) {
+				if(verifiedDiagrams.contains(element.getName())) {
+					error("Duplicated UseCase Diagram", UmlTextualPackage.Literals.MODEL__ELEMENTS, i);
+				} else {
+					verifiedDiagrams.add(element.getName());
+				}
+			}
+			
+			i++;
+		}
+	}
+		
+	// Tipos específicos de domínio não podem ter o mesmo nome
+	@Check
+	public void checkDuplicatedDomainSpecificTypeName(Package packageItem) {
+
+		Set<String> verifiedTypes = new HashSet<>();
+		int i = 0;
+		for (DomainSpecificType type : packageItem.getDomainSpecificTypes()) {
+			if(!verifiedTypes.add(type.getName())) {
+				error("Duplicated Domain specific type name", UmlTextualPackage.Literals.PACKAGE__DOMAIN_SPECIFIC_TYPES, i);
+			}
+			i++;
+		}
+	}
+	
+	// Casos de uso não podem extender ou incluir a si mesmos
+	@Check
+	public void checkUseCaseRefersItself(UseCase useCaseItem) {
+
+		int i = 0;
+		for (UseCase usecase : useCaseItem.getIncludedUseCases()) {
+			if(usecase.getName().compareTo(useCaseItem.getName()) == 0) {
+				error("Usecase cannot include itself", UmlTextualPackage.Literals.USE_CASE__INCLUDED_USE_CASES, i);
+			}
+			i++;
+		}
+		i = 0;
+		for (UseCase usecase : useCaseItem.getExtendedUseCases()) {
+			if(usecase.getName().compareTo(useCaseItem.getName()) == 0) {
+				error("Usecase cannot extend itself", UmlTextualPackage.Literals.USE_CASE__EXTENDED_USE_CASES, i);
+			}
+			
+			i++;
+		}
+	}
+	
+	
 	
 }

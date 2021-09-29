@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl#getVisibility <em>Visibility</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl#getParentClass <em>Parent Class</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl#getParentInterface <em>Parent Interface</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.InterfaceImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -81,14 +81,14 @@ public class InterfaceImpl extends ElementImpl implements Interface
   protected String visibility = VISIBILITY_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParentClass() <em>Parent Class</em>}' reference.
+   * The cached value of the '{@link #getParentInterface() <em>Parent Interface</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParentClass()
+   * @see #getParentInterface()
    * @generated
    * @ordered
    */
-  protected br.ufes.mdd.umltextual.umlTextual.Class parentClass;
+  protected Interface parentInterface;
 
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -177,19 +177,19 @@ public class InterfaceImpl extends ElementImpl implements Interface
    * @generated
    */
   @Override
-  public br.ufes.mdd.umltextual.umlTextual.Class getParentClass()
+  public Interface getParentInterface()
   {
-    if (parentClass != null && parentClass.eIsProxy())
+    if (parentInterface != null && parentInterface.eIsProxy())
     {
-      InternalEObject oldParentClass = (InternalEObject)parentClass;
-      parentClass = (br.ufes.mdd.umltextual.umlTextual.Class)eResolveProxy(oldParentClass);
-      if (parentClass != oldParentClass)
+      InternalEObject oldParentInterface = (InternalEObject)parentInterface;
+      parentInterface = (Interface)eResolveProxy(oldParentInterface);
+      if (parentInterface != oldParentInterface)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UmlTextualPackage.INTERFACE__PARENT_CLASS, oldParentClass, parentClass));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UmlTextualPackage.INTERFACE__PARENT_INTERFACE, oldParentInterface, parentInterface));
       }
     }
-    return parentClass;
+    return parentInterface;
   }
 
   /**
@@ -197,9 +197,9 @@ public class InterfaceImpl extends ElementImpl implements Interface
    * <!-- end-user-doc -->
    * @generated
    */
-  public br.ufes.mdd.umltextual.umlTextual.Class basicGetParentClass()
+  public Interface basicGetParentInterface()
   {
-    return parentClass;
+    return parentInterface;
   }
 
   /**
@@ -208,12 +208,12 @@ public class InterfaceImpl extends ElementImpl implements Interface
    * @generated
    */
   @Override
-  public void setParentClass(br.ufes.mdd.umltextual.umlTextual.Class newParentClass)
+  public void setParentInterface(Interface newParentInterface)
   {
-    br.ufes.mdd.umltextual.umlTextual.Class oldParentClass = parentClass;
-    parentClass = newParentClass;
+    Interface oldParentInterface = parentInterface;
+    parentInterface = newParentInterface;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.INTERFACE__PARENT_CLASS, oldParentClass, parentClass));
+      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.INTERFACE__PARENT_INTERFACE, oldParentInterface, parentInterface));
   }
 
   /**
@@ -261,9 +261,9 @@ public class InterfaceImpl extends ElementImpl implements Interface
         return getStereotype();
       case UmlTextualPackage.INTERFACE__VISIBILITY:
         return getVisibility();
-      case UmlTextualPackage.INTERFACE__PARENT_CLASS:
-        if (resolve) return getParentClass();
-        return basicGetParentClass();
+      case UmlTextualPackage.INTERFACE__PARENT_INTERFACE:
+        if (resolve) return getParentInterface();
+        return basicGetParentInterface();
       case UmlTextualPackage.INTERFACE__ATTRIBUTES:
         return getAttributes();
     }
@@ -287,8 +287,8 @@ public class InterfaceImpl extends ElementImpl implements Interface
       case UmlTextualPackage.INTERFACE__VISIBILITY:
         setVisibility((String)newValue);
         return;
-      case UmlTextualPackage.INTERFACE__PARENT_CLASS:
-        setParentClass((br.ufes.mdd.umltextual.umlTextual.Class)newValue);
+      case UmlTextualPackage.INTERFACE__PARENT_INTERFACE:
+        setParentInterface((Interface)newValue);
         return;
       case UmlTextualPackage.INTERFACE__ATTRIBUTES:
         getAttributes().clear();
@@ -314,8 +314,8 @@ public class InterfaceImpl extends ElementImpl implements Interface
       case UmlTextualPackage.INTERFACE__VISIBILITY:
         setVisibility(VISIBILITY_EDEFAULT);
         return;
-      case UmlTextualPackage.INTERFACE__PARENT_CLASS:
-        setParentClass((br.ufes.mdd.umltextual.umlTextual.Class)null);
+      case UmlTextualPackage.INTERFACE__PARENT_INTERFACE:
+        setParentInterface((Interface)null);
         return;
       case UmlTextualPackage.INTERFACE__ATTRIBUTES:
         getAttributes().clear();
@@ -338,8 +338,8 @@ public class InterfaceImpl extends ElementImpl implements Interface
         return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
       case UmlTextualPackage.INTERFACE__VISIBILITY:
         return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
-      case UmlTextualPackage.INTERFACE__PARENT_CLASS:
-        return parentClass != null;
+      case UmlTextualPackage.INTERFACE__PARENT_INTERFACE:
+        return parentInterface != null;
       case UmlTextualPackage.INTERFACE__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
     }

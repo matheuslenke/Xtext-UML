@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Interface#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Interface#getVisibility <em>Visibility</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Interface#getParentClass <em>Parent Class</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Interface#getParentInterface <em>Parent Interface</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Interface#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -71,26 +71,26 @@ public interface Interface extends Element
   void setVisibility(String value);
 
   /**
-   * Returns the value of the '<em><b>Parent Class</b></em>' reference.
+   * Returns the value of the '<em><b>Parent Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parent Class</em>' reference.
-   * @see #setParentClass(br.ufes.mdd.umltextual.umlTextual.Class)
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getInterface_ParentClass()
+   * @return the value of the '<em>Parent Interface</em>' reference.
+   * @see #setParentInterface(Interface)
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getInterface_ParentInterface()
    * @model
    * @generated
    */
-  br.ufes.mdd.umltextual.umlTextual.Class getParentClass();
+  Interface getParentInterface();
 
   /**
-   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getParentClass <em>Parent Class</em>}' reference.
+   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getParentInterface <em>Parent Interface</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parent Class</em>' reference.
-   * @see #getParentClass()
+   * @param value the new value of the '<em>Parent Interface</em>' reference.
+   * @see #getParentInterface()
    * @generated
    */
-  void setParentClass(br.ufes.mdd.umltextual.umlTextual.Class value);
+  void setParentInterface(Interface value);
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

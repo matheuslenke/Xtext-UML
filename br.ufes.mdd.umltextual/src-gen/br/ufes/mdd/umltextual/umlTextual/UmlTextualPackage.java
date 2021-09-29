@@ -261,13 +261,13 @@ public interface UmlTextualPackage extends EPackage
   int CLASS__PARENT_CLASS = ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Interface</b></em>' reference list.
+   * The feature id for the '<em><b>Interfaces</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__INTERFACE = ELEMENT_FEATURE_COUNT + 3;
+  int CLASS__INTERFACES = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -334,13 +334,13 @@ public interface UmlTextualPackage extends EPackage
   int INTERFACE__VISIBILITY = ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Parent Class</b></em>' reference.
+   * The feature id for the '<em><b>Parent Interface</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE__PARENT_CLASS = ELEMENT_FEATURE_COUNT + 2;
+  int INTERFACE__PARENT_INTERFACE = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1049,22 +1049,22 @@ public interface UmlTextualPackage extends EPackage
   int USE_CASE__NAME = USE_CASE_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Included Use Case</b></em>' reference list.
+   * The feature id for the '<em><b>Included Use Cases</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__INCLUDED_USE_CASE = USE_CASE_ELEMENT_FEATURE_COUNT + 0;
+  int USE_CASE__INCLUDED_USE_CASES = USE_CASE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Extended Use Case</b></em>' reference list.
+   * The feature id for the '<em><b>Extended Use Cases</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__EXTENDED_USE_CASE = USE_CASE_ELEMENT_FEATURE_COUNT + 1;
+  int USE_CASE__EXTENDED_USE_CASES = USE_CASE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1257,15 +1257,15 @@ public interface UmlTextualPackage extends EPackage
   EReference getClass_ParentClass();
 
   /**
-   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.Class#getInterface <em>Interface</em>}'.
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.Class#getInterfaces <em>Interfaces</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Interface</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Class#getInterface()
+   * @return the meta object for the reference list '<em>Interfaces</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Class#getInterfaces()
    * @see #getClass_()
    * @generated
    */
-  EReference getClass_Interface();
+  EReference getClass_Interfaces();
 
   /**
    * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Class#getAttributes <em>Attributes</em>}'.
@@ -1322,15 +1322,15 @@ public interface UmlTextualPackage extends EPackage
   EAttribute getInterface_Visibility();
 
   /**
-   * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getParentClass <em>Parent Class</em>}'.
+   * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getParentInterface <em>Parent Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parent Class</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.Interface#getParentClass()
+   * @return the meta object for the reference '<em>Parent Interface</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.Interface#getParentInterface()
    * @see #getInterface()
    * @generated
    */
-  EReference getInterface_ParentClass();
+  EReference getInterface_ParentInterface();
 
   /**
    * Returns the meta object for the containment reference list '{@link br.ufes.mdd.umltextual.umlTextual.Interface#getAttributes <em>Attributes</em>}'.
@@ -1815,26 +1815,26 @@ public interface UmlTextualPackage extends EPackage
   EClass getUseCase();
 
   /**
-   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCase <em>Included Use Case</em>}'.
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCases <em>Included Use Cases</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Included Use Case</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCase()
+   * @return the meta object for the reference list '<em>Included Use Cases</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCases()
    * @see #getUseCase()
    * @generated
    */
-  EReference getUseCase_IncludedUseCase();
+  EReference getUseCase_IncludedUseCases();
 
   /**
-   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCase <em>Extended Use Case</em>}'.
+   * Returns the meta object for the reference list '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCases <em>Extended Use Cases</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Extended Use Case</em>'.
-   * @see br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCase()
+   * @return the meta object for the reference list '<em>Extended Use Cases</em>'.
+   * @see br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCases()
    * @see #getUseCase()
    * @generated
    */
-  EReference getUseCase_ExtendedUseCase();
+  EReference getUseCase_ExtendedUseCases();
 
   /**
    * Returns the meta object for the attribute '{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getDescription <em>Description</em>}'.
@@ -2009,12 +2009,12 @@ public interface UmlTextualPackage extends EPackage
     EReference CLASS__PARENT_CLASS = eINSTANCE.getClass_ParentClass();
 
     /**
-     * The meta object literal for the '<em><b>Interface</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Interfaces</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__INTERFACE = eINSTANCE.getClass_Interface();
+    EReference CLASS__INTERFACES = eINSTANCE.getClass_Interfaces();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
@@ -2059,12 +2059,12 @@ public interface UmlTextualPackage extends EPackage
     EAttribute INTERFACE__VISIBILITY = eINSTANCE.getInterface_Visibility();
 
     /**
-     * The meta object literal for the '<em><b>Parent Class</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Parent Interface</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference INTERFACE__PARENT_CLASS = eINSTANCE.getInterface_ParentClass();
+    EReference INTERFACE__PARENT_INTERFACE = eINSTANCE.getInterface_ParentInterface();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
@@ -2453,20 +2453,20 @@ public interface UmlTextualPackage extends EPackage
     EClass USE_CASE = eINSTANCE.getUseCase();
 
     /**
-     * The meta object literal for the '<em><b>Included Use Case</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Included Use Cases</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference USE_CASE__INCLUDED_USE_CASE = eINSTANCE.getUseCase_IncludedUseCase();
+    EReference USE_CASE__INCLUDED_USE_CASES = eINSTANCE.getUseCase_IncludedUseCases();
 
     /**
-     * The meta object literal for the '<em><b>Extended Use Case</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Extended Use Cases</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference USE_CASE__EXTENDED_USE_CASE = eINSTANCE.getUseCase_ExtendedUseCase();
+    EReference USE_CASE__EXTENDED_USE_CASES = eINSTANCE.getUseCase_ExtendedUseCases();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

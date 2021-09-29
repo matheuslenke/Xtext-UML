@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getParentClass <em>Parent Class</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getInterfaces <em>Interfaces</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.Class#getMethods <em>Methods</em>}</li>
  * </ul>
@@ -95,16 +95,16 @@ public interface Class extends Element
   void setParentClass(Class value);
 
   /**
-   * Returns the value of the '<em><b>Interface</b></em>' reference list.
+   * Returns the value of the '<em><b>Interfaces</b></em>' reference list.
    * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.Interface}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface</em>' reference list.
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getClass_Interface()
+   * @return the value of the '<em>Interfaces</em>' reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getClass_Interfaces()
    * @model
    * @generated
    */
-  EList<Interface> getInterface();
+  EList<Interface> getInterfaces();
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

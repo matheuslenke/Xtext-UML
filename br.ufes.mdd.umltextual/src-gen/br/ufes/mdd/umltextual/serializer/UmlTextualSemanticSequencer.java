@@ -122,7 +122,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         (name=ID | name=Unamed) 
+	 *         (name=ID | name=Unnamed) 
 	 *         class1=[Class|ID] 
 	 *         multiplicity1=Multiplicity 
 	 *         navigation=Navigation? 
@@ -143,7 +143,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         (name=ID | name=Unamed) 
+	 *         (name=ID | name=Unnamed) 
 	 *         navigation1=Navigation? 
 	 *         class1=[Class|ID] 
 	 *         multiplicity1=Multiplicity 
@@ -204,7 +204,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         visibility=Visibility? 
 	 *         name=ID 
 	 *         parentClass=[Class|ID]? 
-	 *         (interface+=[Interface|ID] interface+=[Interface|ID]*)? 
+	 *         (interfaces+=[Interface|ID] interfaces+=[Interface|ID]*)? 
 	 *         attributes+=Attribute* 
 	 *         methods+=Method*
 	 *     )
@@ -222,7 +222,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         (name=ID | name=Unamed) 
+	 *         (name=ID | name=Unnamed) 
 	 *         class1=[Class|ID] 
 	 *         multiplicity1=Multiplicity 
 	 *         navigation=Navigation? 
@@ -262,7 +262,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Interface returns Interface
 	 *
 	 * Constraint:
-	 *     (stereotype=ID? visibility=Visibility? name=ID parentClass=[Class|ID]? attributes+=Attribute*)
+	 *     (stereotype=ID? visibility=Visibility? name=ID parentInterface=[Interface|ID]? attributes+=Attribute*)
 	 */
 	protected void sequence_Interface(ISerializationContext context, Interface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -274,7 +274,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Method returns Method
 	 *
 	 * Constraint:
-	 *     (visibility=Visibility? name=ID parameters+=Parameter* returnType=AttributeType)
+	 *     (visibility=Visibility? name=ID parameters+=Parameter? parameters+=Parameter* returnType=AttributeType)
 	 */
 	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -355,12 +355,12 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         includedUseCase+=[UseCase|ID]? 
-	 *         extendedUseCase+=[UseCase|ID]? 
+	 *         includedUseCases+=[UseCase|ID]? 
+	 *         extendedUseCases+=[UseCase|ID]? 
 	 *         description=STRING 
 	 *         (
-	 *             (includedUseCase+=[UseCase|ID] includedUseCase+=[UseCase|ID]* extendedUseCase+=[UseCase|ID] extendedUseCase+=[UseCase|ID]*) | 
-	 *             (extendedUseCase+=[UseCase|ID] extendedUseCase+=[UseCase|ID]* includedUseCase+=[UseCase|ID] includedUseCase+=[UseCase|ID]*)
+	 *             (includedUseCases+=[UseCase|ID] includedUseCases+=[UseCase|ID]* extendedUseCases+=[UseCase|ID] extendedUseCases+=[UseCase|ID]*) | 
+	 *             (extendedUseCases+=[UseCase|ID] extendedUseCases+=[UseCase|ID]* includedUseCases+=[UseCase|ID] includedUseCases+=[UseCase|ID]*)
 	 *         )?
 	 *     )
 	 */

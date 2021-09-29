@@ -60,7 +60,7 @@ public class UmlTextualSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) 'association' name=ID
-	 *     (rule start) (ambiguity) 'association' name=Unamed
+	 *     (rule start) (ambiguity) 'association' name=Unnamed
 	 */
 	protected void emit_Association_UndirectedKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

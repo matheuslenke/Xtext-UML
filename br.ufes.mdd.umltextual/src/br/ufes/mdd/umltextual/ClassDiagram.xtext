@@ -1,26 +1,7 @@
-grammar br.ufes.mdd.umltextual.UmlTextual with org.eclipse.xtext.common.Terminals
+grammar br.ufes.mdd.umltextual.ClassDiagram with br.ufes.mdd.umltextual.UseCaseDiagram
 
-generate umlTextual "http://www.ufes.br/mdd/umltextual/UmlTextual"
+generate classDiagram "http://www.ufes.br/mdd/umltextual/classDiagram"
 
-Model:
-	elements+=ModelElement*
-;
-	
-ModelElement:
-	Package | UseCaseDiagram
-;
-	
-// <--- Diagrama de Pacotes --->
-	
-Package:
-	(instantiable='instantiable')? type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
-	domainSpecificTypes+=DomainSpecificType*
-	elements+=Element*
-	'}'
-;
-
-
-// <--- Diagrama de Classes --->
 
 Element:
 	Class | AssociationConnector | Interface
@@ -29,7 +10,7 @@ Element:
 
 Class:
 	('@'stereotype=ID)?
-	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interfaces+=[Interface] (',' interfaces+=[Interface])*)? '{'
+	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interface+=[Interface] (',' interface+=[Interface])*)? '{'
 	attributes+=Attribute*
 	methods+=Method*
 	'}'
@@ -42,17 +23,6 @@ Interface:
 	'}'
 ;
 
-Visibility:
-	"public" | "private" | "protected" | "package"
-;
-
-Abstract:
-	'abstract'
-;
-
-Active:
-	'active'
-;
 
 AttributeType:
 	name="string" | name="int"  | name="double" | name="boolean" |
@@ -117,34 +87,3 @@ Composition:
 		'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
 	'}'
 ;
-
-// <--- Gramática do diagrama de Casos de Uso --->
-
-UseCaseDiagram:
-	'usecase' 'diagram' name=ID '{'
-		elements+=UseCaseElement*
-	'}'
-;
-
-UseCaseElement:
-	Actor | UseCase
-;
-
-Actor:
-	(visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')? 
-	'actor' name=ID ('extends' parentActor=Actor)? '{'
-		('uses' useCases+=[UseCase] (','useCases+=[UseCase])*)*
-	'}'
-;
-
-UseCase:
-	'usecase' name=ID  ('includes' includedUseCases+=[UseCase])? ('extends' extendedUseCases+=[UseCase])? '=' description=STRING
-	('{'
-		('includes' includedUseCases+=[UseCase] (','includedUseCases+=[UseCase])*
-		 'extends'  extendedUseCases+=[UseCase] (','extendedUseCases+=[UseCase])*
-		|
-		 'extends'  extendedUseCases+=[UseCase] (','extendedUseCases+=[UseCase])*
-		 'includes' includedUseCases+=[UseCase] (','includedUseCases+=[UseCase])*)
-	'}')?
-;
-

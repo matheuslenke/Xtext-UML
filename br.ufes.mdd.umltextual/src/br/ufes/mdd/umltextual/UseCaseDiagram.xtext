@@ -1,0 +1,44 @@
+grammar br.ufes.mdd.umltextual.UseCaseDiagram with org.eclipse.xtext.common.Terminals
+
+generate useCaseDiagram "http://www.ufes.br/mdd/umltextual/UseCaseDiagram"
+
+//UseCaseDiagram:
+//	'usecase' 'diagram' name=ID '{'
+//		elements+=UseCaseElement*
+//	'}'
+//;
+
+UseCaseElement:
+	Actor | UseCase
+;
+
+Abstract:
+	'abstract'
+;
+
+Active:
+	'active'
+;
+
+Visibility:
+	"public" | "private" | "protected" | "package"
+;
+
+Actor:
+	(visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')? 
+	'actor' name=ID ('extends' parentActor=Actor)? '{'
+		('uses' useCases+=[UseCase] (','useCases+=[UseCase])*)*
+	'}'
+;
+
+UseCase:
+	'usecase' name=ID  ('includes' includedUseCases+=[UseCase])? ('extends' extendedUseCases+=[UseCase])? '=' description=STRING
+	('{' 
+		('includes' includedUseCases+=[UseCase] (','includedUseCases+=[UseCase])*
+		 'extends'  extendedUseCases+=[UseCase] (','extendedUseCases+=[UseCase])*
+		|
+		 'extends'  extendedUseCases+=[UseCase] (','extendedUseCases+=[UseCase])*
+		 'includes' includedUseCases+=[UseCase] (','includedUseCases+=[UseCase])*)
+	'}')?
+;
+

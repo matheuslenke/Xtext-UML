@@ -1391,10 +1391,10 @@ public class InternalUmlTextualLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUmlTextual.g:7388:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalUmlTextual.g:7388:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalUmlTextual.g:7484:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalUmlTextual.g:7484:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalUmlTextual.g:7388:11: ( '^' )?
+            // InternalUmlTextual.g:7484:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1403,7 +1403,7 @@ public class InternalUmlTextualLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalUmlTextual.g:7388:11: '^'
+                    // InternalUmlTextual.g:7484:11: '^'
                     {
                     match('^'); 
 
@@ -1421,7 +1421,7 @@ public class InternalUmlTextualLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalUmlTextual.g:7388:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalUmlTextual.g:7484:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1470,10 +1470,10 @@ public class InternalUmlTextualLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUmlTextual.g:7390:10: ( ( '0' .. '9' )+ )
-            // InternalUmlTextual.g:7390:12: ( '0' .. '9' )+
+            // InternalUmlTextual.g:7486:10: ( ( '0' .. '9' )+ )
+            // InternalUmlTextual.g:7486:12: ( '0' .. '9' )+
             {
-            // InternalUmlTextual.g:7390:12: ( '0' .. '9' )+
+            // InternalUmlTextual.g:7486:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1487,7 +1487,7 @@ public class InternalUmlTextualLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalUmlTextual.g:7390:13: '0' .. '9'
+            	    // InternalUmlTextual.g:7486:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1519,10 +1519,10 @@ public class InternalUmlTextualLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUmlTextual.g:7392:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalUmlTextual.g:7392:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalUmlTextual.g:7488:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalUmlTextual.g:7488:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalUmlTextual.g:7392:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalUmlTextual.g:7488:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1540,10 +1540,10 @@ public class InternalUmlTextualLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalUmlTextual.g:7392:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalUmlTextual.g:7488:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalUmlTextual.g:7392:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalUmlTextual.g:7488:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1559,7 +1559,7 @@ public class InternalUmlTextualLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalUmlTextual.g:7392:21: '\\\\' .
+                    	    // InternalUmlTextual.g:7488:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1567,7 +1567,7 @@ public class InternalUmlTextualLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalUmlTextual.g:7392:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalUmlTextual.g:7488:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1592,10 +1592,10 @@ public class InternalUmlTextualLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalUmlTextual.g:7392:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalUmlTextual.g:7488:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalUmlTextual.g:7392:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalUmlTextual.g:7488:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1611,7 +1611,7 @@ public class InternalUmlTextualLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalUmlTextual.g:7392:54: '\\\\' .
+                    	    // InternalUmlTextual.g:7488:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1619,7 +1619,7 @@ public class InternalUmlTextualLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalUmlTextual.g:7392:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalUmlTextual.g:7488:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1662,12 +1662,12 @@ public class InternalUmlTextualLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUmlTextual.g:7394:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalUmlTextual.g:7394:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalUmlTextual.g:7490:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalUmlTextual.g:7490:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalUmlTextual.g:7394:24: ( options {greedy=false; } : . )*
+            // InternalUmlTextual.g:7490:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1692,7 +1692,7 @@ public class InternalUmlTextualLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalUmlTextual.g:7394:52: .
+            	    // InternalUmlTextual.g:7490:52: .
             	    {
             	    matchAny(); 
 
@@ -1722,12 +1722,12 @@ public class InternalUmlTextualLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUmlTextual.g:7396:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalUmlTextual.g:7396:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalUmlTextual.g:7492:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalUmlTextual.g:7492:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalUmlTextual.g:7396:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalUmlTextual.g:7492:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1740,7 +1740,7 @@ public class InternalUmlTextualLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalUmlTextual.g:7396:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalUmlTextual.g:7492:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1760,7 +1760,7 @@ public class InternalUmlTextualLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalUmlTextual.g:7396:40: ( ( '\\r' )? '\\n' )?
+            // InternalUmlTextual.g:7492:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1769,9 +1769,9 @@ public class InternalUmlTextualLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalUmlTextual.g:7396:41: ( '\\r' )? '\\n'
+                    // InternalUmlTextual.g:7492:41: ( '\\r' )? '\\n'
                     {
-                    // InternalUmlTextual.g:7396:41: ( '\\r' )?
+                    // InternalUmlTextual.g:7492:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1780,7 +1780,7 @@ public class InternalUmlTextualLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalUmlTextual.g:7396:41: '\\r'
+                            // InternalUmlTextual.g:7492:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1812,10 +1812,10 @@ public class InternalUmlTextualLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUmlTextual.g:7398:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalUmlTextual.g:7398:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalUmlTextual.g:7494:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalUmlTextual.g:7494:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalUmlTextual.g:7398:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalUmlTextual.g:7494:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1869,8 +1869,8 @@ public class InternalUmlTextualLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalUmlTextual.g:7400:16: ( . )
-            // InternalUmlTextual.g:7400:18: .
+            // InternalUmlTextual.g:7496:16: ( . )
+            // InternalUmlTextual.g:7496:18: .
             {
             matchAny(); 
 

@@ -26,14 +26,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Class/stereotype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Class/visibility"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Class/parentClass"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Class/interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Class/interfaces"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Class/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Class/methods"/>
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//Interface">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Interface/stereotype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//Interface/visibility"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Interface/parentClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Interface/parentInterface"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Interface/attributes"/>
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//AttributeType">
@@ -92,8 +92,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//Actor/useCases"/>
     </genClasses>
     <genClasses ecoreClass="UmlTextual.ecore#//UseCase">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//UseCase/includedUseCase"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//UseCase/extendedUseCase"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//UseCase/includedUseCases"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UmlTextual.ecore#//UseCase/extendedUseCases"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlTextual.ecore#//UseCase/description"/>
     </genClasses>
   </genPackages>

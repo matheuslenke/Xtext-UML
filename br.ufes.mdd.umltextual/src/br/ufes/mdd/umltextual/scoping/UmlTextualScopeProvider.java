@@ -40,6 +40,9 @@ public class UmlTextualScopeProvider extends AbstractUmlTextualScopeProvider {
             // Scope that filters out the context element from the candidates list
             return new FilteringScope(existingScope, (e) -> !Objects.equal(e.getEObjectOrProxy(), context));
 	    }
+	    
+	    
+	    
 	    return super.getScope(context, reference);
 	}
 

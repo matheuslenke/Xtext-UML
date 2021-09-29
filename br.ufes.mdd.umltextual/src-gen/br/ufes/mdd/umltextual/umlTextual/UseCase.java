@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCase <em>Included Use Case</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCase <em>Extended Use Case</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getIncludedUseCases <em>Included Use Cases</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getExtendedUseCases <em>Extended Use Cases</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.UseCase#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -26,28 +26,28 @@ import org.eclipse.emf.common.util.EList;
 public interface UseCase extends UseCaseElement
 {
   /**
-   * Returns the value of the '<em><b>Included Use Case</b></em>' reference list.
+   * Returns the value of the '<em><b>Included Use Cases</b></em>' reference list.
    * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.UseCase}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Included Use Case</em>' reference list.
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getUseCase_IncludedUseCase()
+   * @return the value of the '<em>Included Use Cases</em>' reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getUseCase_IncludedUseCases()
    * @model
    * @generated
    */
-  EList<UseCase> getIncludedUseCase();
+  EList<UseCase> getIncludedUseCases();
 
   /**
-   * Returns the value of the '<em><b>Extended Use Case</b></em>' reference list.
+   * Returns the value of the '<em><b>Extended Use Cases</b></em>' reference list.
    * The list contents are of type {@link br.ufes.mdd.umltextual.umlTextual.UseCase}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extended Use Case</em>' reference list.
-   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getUseCase_ExtendedUseCase()
+   * @return the value of the '<em>Extended Use Cases</em>' reference list.
+   * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getUseCase_ExtendedUseCases()
    * @model
    * @generated
    */
-  EList<UseCase> getExtendedUseCase();
+  EList<UseCase> getExtendedUseCases();
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.

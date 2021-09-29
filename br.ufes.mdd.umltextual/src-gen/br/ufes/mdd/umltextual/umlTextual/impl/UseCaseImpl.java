@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl#getIncludedUseCase <em>Included Use Case</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl#getExtendedUseCase <em>Extended Use Case</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl#getIncludedUseCases <em>Included Use Cases</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl#getExtendedUseCases <em>Extended Use Cases</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.UseCaseImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -36,24 +36,24 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 public class UseCaseImpl extends UseCaseElementImpl implements UseCase
 {
   /**
-   * The cached value of the '{@link #getIncludedUseCase() <em>Included Use Case</em>}' reference list.
+   * The cached value of the '{@link #getIncludedUseCases() <em>Included Use Cases</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIncludedUseCase()
+   * @see #getIncludedUseCases()
    * @generated
    * @ordered
    */
-  protected EList<UseCase> includedUseCase;
+  protected EList<UseCase> includedUseCases;
 
   /**
-   * The cached value of the '{@link #getExtendedUseCase() <em>Extended Use Case</em>}' reference list.
+   * The cached value of the '{@link #getExtendedUseCases() <em>Extended Use Cases</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExtendedUseCase()
+   * @see #getExtendedUseCases()
    * @generated
    * @ordered
    */
-  protected EList<UseCase> extendedUseCase;
+  protected EList<UseCase> extendedUseCases;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -102,13 +102,13 @@ public class UseCaseImpl extends UseCaseElementImpl implements UseCase
    * @generated
    */
   @Override
-  public EList<UseCase> getIncludedUseCase()
+  public EList<UseCase> getIncludedUseCases()
   {
-    if (includedUseCase == null)
+    if (includedUseCases == null)
     {
-      includedUseCase = new EObjectResolvingEList<UseCase>(UseCase.class, this, UmlTextualPackage.USE_CASE__INCLUDED_USE_CASE);
+      includedUseCases = new EObjectResolvingEList<UseCase>(UseCase.class, this, UmlTextualPackage.USE_CASE__INCLUDED_USE_CASES);
     }
-    return includedUseCase;
+    return includedUseCases;
   }
 
   /**
@@ -117,13 +117,13 @@ public class UseCaseImpl extends UseCaseElementImpl implements UseCase
    * @generated
    */
   @Override
-  public EList<UseCase> getExtendedUseCase()
+  public EList<UseCase> getExtendedUseCases()
   {
-    if (extendedUseCase == null)
+    if (extendedUseCases == null)
     {
-      extendedUseCase = new EObjectResolvingEList<UseCase>(UseCase.class, this, UmlTextualPackage.USE_CASE__EXTENDED_USE_CASE);
+      extendedUseCases = new EObjectResolvingEList<UseCase>(UseCase.class, this, UmlTextualPackage.USE_CASE__EXTENDED_USE_CASES);
     }
-    return extendedUseCase;
+    return extendedUseCases;
   }
 
   /**
@@ -161,10 +161,10 @@ public class UseCaseImpl extends UseCaseElementImpl implements UseCase
   {
     switch (featureID)
     {
-      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASE:
-        return getIncludedUseCase();
-      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASE:
-        return getExtendedUseCase();
+      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASES:
+        return getIncludedUseCases();
+      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASES:
+        return getExtendedUseCases();
       case UmlTextualPackage.USE_CASE__DESCRIPTION:
         return getDescription();
     }
@@ -182,13 +182,13 @@ public class UseCaseImpl extends UseCaseElementImpl implements UseCase
   {
     switch (featureID)
     {
-      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASE:
-        getIncludedUseCase().clear();
-        getIncludedUseCase().addAll((Collection<? extends UseCase>)newValue);
+      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASES:
+        getIncludedUseCases().clear();
+        getIncludedUseCases().addAll((Collection<? extends UseCase>)newValue);
         return;
-      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASE:
-        getExtendedUseCase().clear();
-        getExtendedUseCase().addAll((Collection<? extends UseCase>)newValue);
+      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASES:
+        getExtendedUseCases().clear();
+        getExtendedUseCases().addAll((Collection<? extends UseCase>)newValue);
         return;
       case UmlTextualPackage.USE_CASE__DESCRIPTION:
         setDescription((String)newValue);
@@ -207,11 +207,11 @@ public class UseCaseImpl extends UseCaseElementImpl implements UseCase
   {
     switch (featureID)
     {
-      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASE:
-        getIncludedUseCase().clear();
+      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASES:
+        getIncludedUseCases().clear();
         return;
-      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASE:
-        getExtendedUseCase().clear();
+      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASES:
+        getExtendedUseCases().clear();
         return;
       case UmlTextualPackage.USE_CASE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -230,10 +230,10 @@ public class UseCaseImpl extends UseCaseElementImpl implements UseCase
   {
     switch (featureID)
     {
-      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASE:
-        return includedUseCase != null && !includedUseCase.isEmpty();
-      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASE:
-        return extendedUseCase != null && !extendedUseCase.isEmpty();
+      case UmlTextualPackage.USE_CASE__INCLUDED_USE_CASES:
+        return includedUseCases != null && !includedUseCases.isEmpty();
+      case UmlTextualPackage.USE_CASE__EXTENDED_USE_CASES:
+        return extendedUseCases != null && !extendedUseCases.isEmpty();
       case UmlTextualPackage.USE_CASE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
     }

@@ -416,7 +416,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getClass_Interface()
+  public EReference getClass_Interfaces()
   {
     return (EReference)classEClass.getEStructuralFeatures().get(3);
   }
@@ -482,7 +482,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getInterface_ParentClass()
+  public EReference getInterface_ParentInterface()
   {
     return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
   }
@@ -988,7 +988,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getUseCase_IncludedUseCase()
+  public EReference getUseCase_IncludedUseCases()
   {
     return (EReference)useCaseEClass.getEStructuralFeatures().get(0);
   }
@@ -999,7 +999,7 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
    * @generated
    */
   @Override
-  public EReference getUseCase_ExtendedUseCase()
+  public EReference getUseCase_ExtendedUseCases()
   {
     return (EReference)useCaseEClass.getEStructuralFeatures().get(1);
   }
@@ -1066,14 +1066,14 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     createEAttribute(classEClass, CLASS__STEREOTYPE);
     createEAttribute(classEClass, CLASS__VISIBILITY);
     createEReference(classEClass, CLASS__PARENT_CLASS);
-    createEReference(classEClass, CLASS__INTERFACE);
+    createEReference(classEClass, CLASS__INTERFACES);
     createEReference(classEClass, CLASS__ATTRIBUTES);
     createEReference(classEClass, CLASS__METHODS);
 
     interfaceEClass = createEClass(INTERFACE);
     createEAttribute(interfaceEClass, INTERFACE__STEREOTYPE);
     createEAttribute(interfaceEClass, INTERFACE__VISIBILITY);
-    createEReference(interfaceEClass, INTERFACE__PARENT_CLASS);
+    createEReference(interfaceEClass, INTERFACE__PARENT_INTERFACE);
     createEReference(interfaceEClass, INTERFACE__ATTRIBUTES);
 
     attributeTypeEClass = createEClass(ATTRIBUTE_TYPE);
@@ -1132,8 +1132,8 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     createEReference(actorEClass, ACTOR__USE_CASES);
 
     useCaseEClass = createEClass(USE_CASE);
-    createEReference(useCaseEClass, USE_CASE__INCLUDED_USE_CASE);
-    createEReference(useCaseEClass, USE_CASE__EXTENDED_USE_CASE);
+    createEReference(useCaseEClass, USE_CASE__INCLUDED_USE_CASES);
+    createEReference(useCaseEClass, USE_CASE__EXTENDED_USE_CASES);
     createEAttribute(useCaseEClass, USE_CASE__DESCRIPTION);
   }
 
@@ -1198,14 +1198,14 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     initEAttribute(getClass_Stereotype(), ecorePackage.getEString(), "stereotype", null, 0, 1, br.ufes.mdd.umltextual.umlTextual.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClass_Visibility(), ecorePackage.getEString(), "visibility", null, 0, 1, br.ufes.mdd.umltextual.umlTextual.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_ParentClass(), this.getClass_(), null, "parentClass", null, 0, 1, br.ufes.mdd.umltextual.umlTextual.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Interface(), this.getInterface(), null, "interface", null, 0, -1, br.ufes.mdd.umltextual.umlTextual.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Interfaces(), this.getInterface(), null, "interfaces", null, 0, -1, br.ufes.mdd.umltextual.umlTextual.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, br.ufes.mdd.umltextual.umlTextual.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Methods(), this.getMethod(), null, "methods", null, 0, -1, br.ufes.mdd.umltextual.umlTextual.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInterface_Stereotype(), ecorePackage.getEString(), "stereotype", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInterface_Visibility(), ecorePackage.getEString(), "visibility", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInterface_ParentClass(), this.getClass_(), null, "parentClass", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_ParentInterface(), this.getInterface(), null, "parentInterface", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeTypeEClass, AttributeType.class, "AttributeType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1264,8 +1264,8 @@ public class UmlTextualPackageImpl extends EPackageImpl implements UmlTextualPac
     initEReference(getActor_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUseCase_IncludedUseCase(), this.getUseCase(), null, "includedUseCase", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUseCase_ExtendedUseCase(), this.getUseCase(), null, "extendedUseCase", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_IncludedUseCases(), this.getUseCase(), null, "includedUseCases", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_ExtendedUseCases(), this.getUseCase(), null, "extendedUseCases", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseCase_Description(), ecorePackage.getEString(), "description", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

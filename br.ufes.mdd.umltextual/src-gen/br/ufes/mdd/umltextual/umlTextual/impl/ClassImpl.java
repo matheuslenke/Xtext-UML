@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getParentClass <em>Parent Class</em>}</li>
- *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getInterfaces <em>Interfaces</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link br.ufes.mdd.umltextual.umlTextual.impl.ClassImpl#getMethods <em>Methods</em>}</li>
  * </ul>
@@ -95,14 +95,14 @@ public class ClassImpl extends ElementImpl implements br.ufes.mdd.umltextual.uml
   protected br.ufes.mdd.umltextual.umlTextual.Class parentClass;
 
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference list.
+   * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getInterfaces()
    * @generated
    * @ordered
    */
-  protected EList<Interface> interface_;
+  protected EList<Interface> interfaces;
 
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -246,13 +246,13 @@ public class ClassImpl extends ElementImpl implements br.ufes.mdd.umltextual.uml
    * @generated
    */
   @Override
-  public EList<Interface> getInterface()
+  public EList<Interface> getInterfaces()
   {
-    if (interface_ == null)
+    if (interfaces == null)
     {
-      interface_ = new EObjectResolvingEList<Interface>(Interface.class, this, UmlTextualPackage.CLASS__INTERFACE);
+      interfaces = new EObjectResolvingEList<Interface>(Interface.class, this, UmlTextualPackage.CLASS__INTERFACES);
     }
-    return interface_;
+    return interfaces;
   }
 
   /**
@@ -320,8 +320,8 @@ public class ClassImpl extends ElementImpl implements br.ufes.mdd.umltextual.uml
       case UmlTextualPackage.CLASS__PARENT_CLASS:
         if (resolve) return getParentClass();
         return basicGetParentClass();
-      case UmlTextualPackage.CLASS__INTERFACE:
-        return getInterface();
+      case UmlTextualPackage.CLASS__INTERFACES:
+        return getInterfaces();
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         return getAttributes();
       case UmlTextualPackage.CLASS__METHODS:
@@ -350,9 +350,9 @@ public class ClassImpl extends ElementImpl implements br.ufes.mdd.umltextual.uml
       case UmlTextualPackage.CLASS__PARENT_CLASS:
         setParentClass((br.ufes.mdd.umltextual.umlTextual.Class)newValue);
         return;
-      case UmlTextualPackage.CLASS__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends Interface>)newValue);
+      case UmlTextualPackage.CLASS__INTERFACES:
+        getInterfaces().clear();
+        getInterfaces().addAll((Collection<? extends Interface>)newValue);
         return;
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         getAttributes().clear();
@@ -385,8 +385,8 @@ public class ClassImpl extends ElementImpl implements br.ufes.mdd.umltextual.uml
       case UmlTextualPackage.CLASS__PARENT_CLASS:
         setParentClass((br.ufes.mdd.umltextual.umlTextual.Class)null);
         return;
-      case UmlTextualPackage.CLASS__INTERFACE:
-        getInterface().clear();
+      case UmlTextualPackage.CLASS__INTERFACES:
+        getInterfaces().clear();
         return;
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         getAttributes().clear();
@@ -414,8 +414,8 @@ public class ClassImpl extends ElementImpl implements br.ufes.mdd.umltextual.uml
         return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
       case UmlTextualPackage.CLASS__PARENT_CLASS:
         return parentClass != null;
-      case UmlTextualPackage.CLASS__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case UmlTextualPackage.CLASS__INTERFACES:
+        return interfaces != null && !interfaces.isEmpty();
       case UmlTextualPackage.CLASS__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
       case UmlTextualPackage.CLASS__METHODS:

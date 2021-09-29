@@ -1,0 +1,26 @@
+grammar br.ufes.mdd.umltextual.PackageDiagram with br.ufes.mdd.umltextual.ClassDiagram
+
+generate packageDiagram "http://www.ufes.br/mdd/umltextual/UmlTextual"
+
+Model:
+	elements+=ModelElement*
+;
+	
+ModelElement:
+	Package | UseCaseDiagram
+;
+	
+// <--- Diagrama de Pacotes --->
+	
+Package:
+	(instantiable='instantiable')? type=('package' | 'subsystem') name=ID ('depends' 'on' parentPackage=[Package])? '{'
+	domainSpecificTypes+=DomainSpecificType*
+	elements+=Element*
+	'}'
+;
+
+UseCaseDiagram:
+	'usecase' 'diagram' name=ID '{'
+		elements+=UseCaseElement*
+	'}'
+;
