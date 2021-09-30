@@ -2,6 +2,9 @@ grammar br.ufes.mdd.umltextual.UmlTextual with org.eclipse.xtext.common.Terminal
 
 generate umlTextual "http://www.ufes.br/mdd/umltextual/UmlTextual"
 
+	
+// <--- Diagrama de Pacotes --->
+	
 Model:
 	elements+=ModelElement*
 ;
@@ -19,6 +22,9 @@ Package:
 	'}'
 ;
 
+QualifiedName hidden():
+	ID ('.' ID)*
+;
 
 // <--- Diagrama de Classes --->
 
@@ -29,7 +35,7 @@ Element:
 
 Class:
 	('@'stereotype=ID)?
-	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class])? ('implements' interfaces+=[Interface] (',' interfaces+=[Interface])*)? '{'
+	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class|QualifiedName])? ('implements' interfaces+=[Interface|QualifiedName] (',' interfaces+=[Interface|QualifiedName])*)? '{'
 	attributes+=Attribute*
 	methods+=Method*
 	'}'
@@ -37,7 +43,7 @@ Class:
 
 Interface:
 	('@'stereotype=ID)?
-	visibility=Visibility? 'interface' name=ID ('extends' parentInterface=[Interface])? '{'
+	visibility=Visibility? 'interface' name=ID ('extends' parentInterface=[Interface|QualifiedName])? '{'
 	attributes+=Attribute*
 	'}'
 ;
@@ -57,7 +63,7 @@ Active:
 AttributeType:
 	name="string" | name="int"  | name="double" | name="boolean" |
 	name="byte"   | name="char" | name="float"  | name="short" |
-	name="long"   | domainType=[DomainSpecificType]
+	name="long"   | domainType=[DomainSpecificType|QualifiedName]
 ;
 
 DomainSpecificType:
@@ -98,23 +104,23 @@ AssociationConnector:
 
 Association:
 	'undirected'? 'association' name= (ID | Unnamed) '{'
-		'from' navigation1=Navigation?  class1=[Class]'['multiplicity1=Multiplicity ']' 
-		'to'   navigation2=Navigation?  class2=[Class]'['multiplicity2=Multiplicity ']'
-		('with' 'associatedclass' class=[Class])?
+		'from' navigation1=Navigation?  class1=[Class|QualifiedName]'['multiplicity1=Multiplicity ']' 
+		'to'   navigation2=Navigation?  class2=[Class|QualifiedName]'['multiplicity2=Multiplicity ']'
+		('with' 'associatedclass' class=[Class|QualifiedName])?
 	'}'
 ;
 
 Aggregation:
 	'aggregation' name= (ID | Unnamed) '{'
-		'from' class1=[Class]'['multiplicity1=Multiplicity ']'
-		'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
+		'from' class1=[Class|QualifiedName]'['multiplicity1=Multiplicity ']'
+		'to' navigation=Navigation? class2=[Class|QualifiedName]'['multiplicity2=Multiplicity ']'
 	'}'
 ;
 
 Composition:
 	'composition' name= (ID | Unnamed) '{'
-		'from' class1=[Class]'['multiplicity1=Multiplicity ']'
-		'to' navigation=Navigation? class2=[Class]'['multiplicity2=Multiplicity ']'
+		'from' class1=[Class|QualifiedName]'['multiplicity1=Multiplicity ']'
+		'to' navigation=Navigation? class2=[Class|QualifiedName]'['multiplicity2=Multiplicity ']'
 	'}'
 ;
 
@@ -132,19 +138,20 @@ UseCaseElement:
 
 Actor:
 	(visibility=Visibility)? (abstract=Abstract)? (active=Active)? (business='business')? 
-	'actor' name=ID ('extends' parentActor=Actor)? '{'
-		('uses' useCases+=[UseCase] (','useCases+=[UseCase])*)*
+	'actor' name=ID ('extends' parentActor=[Actor|QualifiedName])? '{'
+		('uses' useCases+=[UseCase|QualifiedName] (','useCases+=[UseCase|QualifiedName])*)*
 	'}'
 ;
 
 UseCase:
-	'usecase' name=ID  ('includes' includedUseCases+=[UseCase])? ('extends' extendedUseCases+=[UseCase])? '=' description=STRING
+	'usecase' name=ID  ('includes' includedUseCases+=[UseCase|QualifiedName])? ('extends' extendedUseCases+=[UseCase|QualifiedName])? '=' description=STRING
 	('{'
-		('includes' includedUseCases+=[UseCase] (','includedUseCases+=[UseCase])*
-		 'extends'  extendedUseCases+=[UseCase] (','extendedUseCases+=[UseCase])*
+		('includes' includedUseCases+=[UseCase|QualifiedName] (','includedUseCases+=[UseCase|QualifiedName])*
+		 'extends'  extendedUseCases+=[UseCase|QualifiedName] (','extendedUseCases+=[UseCase|QualifiedName])*
 		|
-		 'extends'  extendedUseCases+=[UseCase] (','extendedUseCases+=[UseCase])*
-		 'includes' includedUseCases+=[UseCase] (','includedUseCases+=[UseCase])*)
+		 'extends'  extendedUseCases+=[UseCase|QualifiedName] (','extendedUseCases+=[UseCase|QualifiedName])*
+		 'includes' includedUseCases+=[UseCase|QualifiedName] (','includedUseCases+=[UseCase|QualifiedName])*)
 	'}')?
 ;
+
 

@@ -1003,7 +1003,7 @@ public interface UmlTextualPackage extends EPackage
   int ACTOR__BUSINESS = USE_CASE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Parent Actor</b></em>' containment reference.
+   * The feature id for the '<em><b>Parent Actor</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1783,10 +1783,10 @@ public interface UmlTextualPackage extends EPackage
   EAttribute getActor_Business();
 
   /**
-   * Returns the meta object for the containment reference '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor <em>Parent Actor</em>}'.
+   * Returns the meta object for the reference '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor <em>Parent Actor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parent Actor</em>'.
+   * @return the meta object for the reference '<em>Parent Actor</em>'.
    * @see br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor()
    * @see #getActor()
    * @generated
@@ -2427,7 +2427,7 @@ public interface UmlTextualPackage extends EPackage
     EAttribute ACTOR__BUSINESS = eINSTANCE.getActor_Business();
 
     /**
-     * The meta object literal for the '<em><b>Parent Actor</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Parent Actor</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

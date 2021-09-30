@@ -45,6 +45,8 @@ public class UmlTextualParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUseCaseAccess().getAlternatives_6_1(), "rule__UseCase__Alternatives_6_1");
 			builder.put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 			builder.put(grammarAccess.getPackageAccess().getGroup_3(), "rule__Package__Group_3__0");
+			builder.put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+			builder.put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 			builder.put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
 			builder.put(grammarAccess.getClassAccess().getGroup_0(), "rule__Class__Group_0__0");
 			builder.put(grammarAccess.getClassAccess().getGroup_4(), "rule__Class__Group_4__0");
@@ -60,7 +62,8 @@ public class UmlTextualParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 			builder.put(grammarAccess.getAttributeAccess().getGroup_5(), "rule__Attribute__Group_5__0");
 			builder.put(grammarAccess.getMethodAccess().getGroup(), "rule__Method__Group__0");
-			builder.put(grammarAccess.getMethodAccess().getGroup_7(), "rule__Method__Group_7__0");
+			builder.put(grammarAccess.getMethodAccess().getGroup_6(), "rule__Method__Group_6__0");
+			builder.put(grammarAccess.getMethodAccess().getGroup_6_1(), "rule__Method__Group_6_1__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 			builder.put(grammarAccess.getAssociationAccess().getGroup(), "rule__Association__Group__0");
 			builder.put(grammarAccess.getAssociationAccess().getGroup_16(), "rule__Association__Group_16__0");
@@ -119,9 +122,9 @@ public class UmlTextualParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAttributeAccess().getMultiplicityAssignment_5_1(), "rule__Attribute__MultiplicityAssignment_5_1");
 			builder.put(grammarAccess.getMethodAccess().getVisibilityAssignment_2(), "rule__Method__VisibilityAssignment_2");
 			builder.put(grammarAccess.getMethodAccess().getNameAssignment_4(), "rule__Method__NameAssignment_4");
-			builder.put(grammarAccess.getMethodAccess().getParametersAssignment_6(), "rule__Method__ParametersAssignment_6");
-			builder.put(grammarAccess.getMethodAccess().getParametersAssignment_7_1(), "rule__Method__ParametersAssignment_7_1");
-			builder.put(grammarAccess.getMethodAccess().getReturnTypeAssignment_10(), "rule__Method__ReturnTypeAssignment_10");
+			builder.put(grammarAccess.getMethodAccess().getParametersAssignment_6_0(), "rule__Method__ParametersAssignment_6_0");
+			builder.put(grammarAccess.getMethodAccess().getParametersAssignment_6_1_1(), "rule__Method__ParametersAssignment_6_1_1");
+			builder.put(grammarAccess.getMethodAccess().getReturnTypeAssignment_9(), "rule__Method__ReturnTypeAssignment_9");
 			builder.put(grammarAccess.getParameterAccess().getNameAssignment_0(), "rule__Parameter__NameAssignment_0");
 			builder.put(grammarAccess.getParameterAccess().getParameterTypeAssignment_2(), "rule__Parameter__ParameterTypeAssignment_2");
 			builder.put(grammarAccess.getAssociationAccess().getNameAssignment_2(), "rule__Association__NameAssignment_2");

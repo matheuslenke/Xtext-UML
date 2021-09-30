@@ -10,7 +10,6 @@ import br.ufes.mdd.umltextual.umlTextual.UseCase;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -122,7 +121,7 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
   protected String business = BUSINESS_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParentActor() <em>Parent Actor</em>}' containment reference.
+   * The cached value of the '{@link #getParentActor() <em>Parent Actor</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParentActor()
@@ -270,6 +269,16 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
   @Override
   public Actor getParentActor()
   {
+    if (parentActor != null && parentActor.eIsProxy())
+    {
+      InternalEObject oldParentActor = (InternalEObject)parentActor;
+      parentActor = (Actor)eResolveProxy(oldParentActor);
+      if (parentActor != oldParentActor)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UmlTextualPackage.ACTOR__PARENT_ACTOR, oldParentActor, parentActor));
+      }
+    }
     return parentActor;
   }
 
@@ -278,16 +287,9 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParentActor(Actor newParentActor, NotificationChain msgs)
+  public Actor basicGetParentActor()
   {
-    Actor oldParentActor = parentActor;
-    parentActor = newParentActor;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UmlTextualPackage.ACTOR__PARENT_ACTOR, oldParentActor, newParentActor);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return parentActor;
   }
 
   /**
@@ -298,18 +300,10 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
   @Override
   public void setParentActor(Actor newParentActor)
   {
-    if (newParentActor != parentActor)
-    {
-      NotificationChain msgs = null;
-      if (parentActor != null)
-        msgs = ((InternalEObject)parentActor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UmlTextualPackage.ACTOR__PARENT_ACTOR, null, msgs);
-      if (newParentActor != null)
-        msgs = ((InternalEObject)newParentActor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UmlTextualPackage.ACTOR__PARENT_ACTOR, null, msgs);
-      msgs = basicSetParentActor(newParentActor, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.ACTOR__PARENT_ACTOR, newParentActor, newParentActor));
+    Actor oldParentActor = parentActor;
+    parentActor = newParentActor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UmlTextualPackage.ACTOR__PARENT_ACTOR, oldParentActor, parentActor));
   }
 
   /**
@@ -333,22 +327,6 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case UmlTextualPackage.ACTOR__PARENT_ACTOR:
-        return basicSetParentActor(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -362,7 +340,8 @@ public class ActorImpl extends UseCaseElementImpl implements Actor
       case UmlTextualPackage.ACTOR__BUSINESS:
         return getBusiness();
       case UmlTextualPackage.ACTOR__PARENT_ACTOR:
-        return getParentActor();
+        if (resolve) return getParentActor();
+        return basicGetParentActor();
       case UmlTextualPackage.ACTOR__USE_CASES:
         return getUseCases();
     }

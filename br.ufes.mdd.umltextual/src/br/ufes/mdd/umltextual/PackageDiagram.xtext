@@ -1,10 +1,8 @@
 grammar br.ufes.mdd.umltextual.PackageDiagram with br.ufes.mdd.umltextual.ClassDiagram
 
-generate packageDiagram "http://www.ufes.br/mdd/umltextual/UmlTextual"
+generate packageDiagram "http://www.ufes.br/mdd/umltextual/PackageDiagram"
 
-Model:
-	elements+=ModelElement*
-;
+
 	
 ModelElement:
 	Package | UseCaseDiagram

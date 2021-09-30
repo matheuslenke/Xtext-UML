@@ -105,8 +105,8 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         active=Active? 
 	 *         business='business'? 
 	 *         name=ID 
-	 *         parentActor=Actor? 
-	 *         (useCases+=[UseCase|ID] useCases+=[UseCase|ID]*)*
+	 *         parentActor=[Actor|QualifiedName]? 
+	 *         (useCases+=[UseCase|QualifiedName] useCases+=[UseCase|QualifiedName]*)*
 	 *     )
 	 */
 	protected void sequence_Actor(ISerializationContext context, Actor semanticObject) {
@@ -123,10 +123,10 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         (name=ID | name=Unnamed) 
-	 *         class1=[Class|ID] 
+	 *         class1=[Class|QualifiedName] 
 	 *         multiplicity1=Multiplicity 
 	 *         navigation=Navigation? 
-	 *         class2=[Class|ID] 
+	 *         class2=[Class|QualifiedName] 
 	 *         multiplicity2=Multiplicity
 	 *     )
 	 */
@@ -145,12 +145,12 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         (name=ID | name=Unnamed) 
 	 *         navigation1=Navigation? 
-	 *         class1=[Class|ID] 
+	 *         class1=[Class|QualifiedName] 
 	 *         multiplicity1=Multiplicity 
 	 *         navigation2=Navigation? 
-	 *         class2=[Class|ID] 
+	 *         class2=[Class|QualifiedName] 
 	 *         multiplicity2=Multiplicity 
-	 *         class=[Class|ID]?
+	 *         class=[Class|QualifiedName]?
 	 *     )
 	 */
 	protected void sequence_Association(ISerializationContext context, Association semanticObject) {
@@ -173,7 +173,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         name='float' | 
 	 *         name='short' | 
 	 *         name='long' | 
-	 *         domainType=[DomainSpecificType|ID]
+	 *         domainType=[DomainSpecificType|QualifiedName]
 	 *     )
 	 */
 	protected void sequence_AttributeType(ISerializationContext context, AttributeType semanticObject) {
@@ -203,8 +203,8 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         stereotype=ID? 
 	 *         visibility=Visibility? 
 	 *         name=ID 
-	 *         parentClass=[Class|ID]? 
-	 *         (interfaces+=[Interface|ID] interfaces+=[Interface|ID]*)? 
+	 *         parentClass=[Class|QualifiedName]? 
+	 *         (interfaces+=[Interface|QualifiedName] interfaces+=[Interface|QualifiedName]*)? 
 	 *         attributes+=Attribute* 
 	 *         methods+=Method*
 	 *     )
@@ -223,10 +223,10 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         (name=ID | name=Unnamed) 
-	 *         class1=[Class|ID] 
+	 *         class1=[Class|QualifiedName] 
 	 *         multiplicity1=Multiplicity 
 	 *         navigation=Navigation? 
-	 *         class2=[Class|ID] 
+	 *         class2=[Class|QualifiedName] 
 	 *         multiplicity2=Multiplicity
 	 *     )
 	 */
@@ -262,7 +262,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Interface returns Interface
 	 *
 	 * Constraint:
-	 *     (stereotype=ID? visibility=Visibility? name=ID parentInterface=[Interface|ID]? attributes+=Attribute*)
+	 *     (stereotype=ID? visibility=Visibility? name=ID parentInterface=[Interface|QualifiedName]? attributes+=Attribute*)
 	 */
 	protected void sequence_Interface(ISerializationContext context, Interface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -274,7 +274,7 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Method returns Method
 	 *
 	 * Constraint:
-	 *     (visibility=Visibility? name=ID parameters+=Parameter? parameters+=Parameter* returnType=AttributeType)
+	 *     (visibility=Visibility? name=ID (parameters+=Parameter parameters+=Parameter*)? returnType=AttributeType)
 	 */
 	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -355,12 +355,22 @@ public class UmlTextualSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         includedUseCases+=[UseCase|ID]? 
-	 *         extendedUseCases+=[UseCase|ID]? 
+	 *         includedUseCases+=[UseCase|QualifiedName]? 
+	 *         extendedUseCases+=[UseCase|QualifiedName]? 
 	 *         description=STRING 
 	 *         (
-	 *             (includedUseCases+=[UseCase|ID] includedUseCases+=[UseCase|ID]* extendedUseCases+=[UseCase|ID] extendedUseCases+=[UseCase|ID]*) | 
-	 *             (extendedUseCases+=[UseCase|ID] extendedUseCases+=[UseCase|ID]* includedUseCases+=[UseCase|ID] includedUseCases+=[UseCase|ID]*)
+	 *             (
+	 *                 includedUseCases+=[UseCase|QualifiedName] 
+	 *                 includedUseCases+=[UseCase|QualifiedName]* 
+	 *                 extendedUseCases+=[UseCase|QualifiedName] 
+	 *                 extendedUseCases+=[UseCase|QualifiedName]*
+	 *             ) | 
+	 *             (
+	 *                 extendedUseCases+=[UseCase|QualifiedName] 
+	 *                 extendedUseCases+=[UseCase|QualifiedName]* 
+	 *                 includedUseCases+=[UseCase|QualifiedName] 
+	 *                 includedUseCases+=[UseCase|QualifiedName]*
+	 *             )
 	 *         )?
 	 *     )
 	 */

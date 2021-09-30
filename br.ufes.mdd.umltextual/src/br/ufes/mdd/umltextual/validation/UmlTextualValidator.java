@@ -24,7 +24,6 @@ import br.ufes.mdd.umltextual.umlTextual.Attribute;
 import br.ufes.mdd.umltextual.umlTextual.UseCaseElement;
 import br.ufes.mdd.umltextual.umlTextual.UseCase;
 import br.ufes.mdd.umltextual.umlTextual.Element;
-//import br.ufes.mdd.umltextual.umlTextual.AssociationConnector;
 import br.ufes.mdd.umltextual.umlTextual.Interface;
 import br.ufes.mdd.umltextual.umlTextual.Method;
 import br.ufes.mdd.umltextual.umlTextual.Model;

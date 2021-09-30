@@ -26,4 +26,5 @@ Export-Package: br.ufes.mdd.umltextual.parser.antlr.internal,
  br.ufes.mdd.umltextual.scoping,
  br.ufes.mdd.umltextual.services,
  br.ufes.mdd.umltextual.validation
-Import-Package: org.apache.log4j
+Import-Package: br.ufes.matheuslenke.dslestados.dslEstados,
+ org.apache.log4j

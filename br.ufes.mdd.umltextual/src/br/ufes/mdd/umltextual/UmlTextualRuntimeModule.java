@@ -3,9 +3,17 @@
  */
 package br.ufes.mdd.umltextual;
 
-
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class UmlTextualRuntimeModule extends AbstractUmlTextualRuntimeModule {
+	
+//	public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+//		return UmlTextualResourceDescriptionStrategy
+//	}
+//
+//	@Override
+//	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+//		UmlTextualGlobalScopeProvider
+//	}
 }

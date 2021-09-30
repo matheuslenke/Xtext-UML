@@ -117,22 +117,22 @@ public interface Actor extends UseCaseElement
   void setBusiness(String value);
 
   /**
-   * Returns the value of the '<em><b>Parent Actor</b></em>' containment reference.
+   * Returns the value of the '<em><b>Parent Actor</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parent Actor</em>' containment reference.
+   * @return the value of the '<em>Parent Actor</em>' reference.
    * @see #setParentActor(Actor)
    * @see br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage#getActor_ParentActor()
-   * @model containment="true"
+   * @model
    * @generated
    */
   Actor getParentActor();
 
   /**
-   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor <em>Parent Actor</em>}' containment reference.
+   * Sets the value of the '{@link br.ufes.mdd.umltextual.umlTextual.Actor#getParentActor <em>Parent Actor</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parent Actor</em>' containment reference.
+   * @param value the new value of the '<em>Parent Actor</em>' reference.
    * @see #getParentActor()
    * @generated
    */

@@ -3,16 +3,16 @@
  */
 package br.ufes.mdd.umltextual.scoping;
 
-import java.util.List;
+//import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.EcoreUtil2;
+//import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.scoping.Scopes;
-import org.eclipse.xtext.scoping.impl.FilteringScope;
-
-import com.google.common.base.Objects;
+//import org.eclipse.xtext.scoping.Scopes;
+//import org.eclipse.xtext.scoping.impl.FilteringScope;
+//
+//import com.google.common.base.Objects;
 
 import br.ufes.mdd.umltextual.umlTextual.Class;
 import br.ufes.mdd.umltextual.umlTextual.UmlTextualPackage;
@@ -29,22 +29,27 @@ public class UmlTextualScopeProvider extends AbstractUmlTextualScopeProvider {
 	public IScope getScope(EObject context, EReference reference) {
 	    // We want to define the Scope for the Element's superElement cross-reference
 	    if (context instanceof Class
-	            && reference == UmlTextualPackage.Literals.CLASS__PARENT_CLASS) {
+	    	      && reference == UmlTextualPackage.Literals.CLASS__PARENT_CLASS) {
 	        // Collect a list of candidates by going through the model
 	        // EcoreUtil2 provides useful functionality to do that
 	        // For example searching for all elements within the root Object's tree
-	        EObject rootElement = EcoreUtil2.getRootContainer(context);
-	        List<Class> candidates = EcoreUtil2.getAllContentsOfType(rootElement, Class.class);
+//	        EObject rootElement = EcoreUtil2.getRootContainer(context);
+//	        List<Class> candidates = EcoreUtil2.getAllContentsOfType(rootElement, Class.class);
 	        // Create IEObjectDescriptions and puts them into an IScope instance
-	        IScope existingScope = Scopes.scopeFor(candidates);
+//	        IScope existingScope = Scopes.scopeFor(candidates);
             // Scope that filters out the context element from the candidates list
-            return new FilteringScope(existingScope, (e) -> !Objects.equal(e.getEObjectOrProxy(), context));
+	        return super.getScope(context, reference);
+//            return new FilteringScope(existingScope, (e) -> !Objects.equal(e.getEObjectOrProxy(), context));
 	    }
-	    
-	    
 	    
 	    return super.getScope(context, reference);
 	}
+	
+//	public IScope clazzScope(Class clazz) {
+//		if (class !== null) {
+//			Scopes.scopeFor(clazz.feat)
+//		}
+//	}
 
 
 }
