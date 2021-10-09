@@ -3,8 +3,6 @@ grammar br.ufes.mdd.umltextual.UmlTextual with org.eclipse.xtext.common.Terminal
 generate umlTextual "http://www.ufes.br/mdd/umltextual/UmlTextual"
 
 	
-// <--- Diagrama de Pacotes --->
-	
 Model:
 	elements+=ModelElement*
 ;
@@ -22,7 +20,7 @@ Package:
 	'}'
 ;
 
-QualifiedName hidden():
+QualifiedName:
 	ID ('.' ID)*
 ;
 
@@ -35,7 +33,8 @@ Element:
 
 Class:
 	('@'stereotype=ID)?
-	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class|QualifiedName])? ('implements' interfaces+=[Interface|QualifiedName] (',' interfaces+=[Interface|QualifiedName])*)? '{'
+	visibility=Visibility? 'class' name=ID ('extends' parentClass=[Class|QualifiedName])? 
+	('implements' interfaces+=[Interface|QualifiedName] (',' interfaces+=[Interface|QualifiedName])*)? '{'
 	attributes+=Attribute*
 	methods+=Method*
 	'}'
@@ -45,6 +44,7 @@ Interface:
 	('@'stereotype=ID)?
 	visibility=Visibility? 'interface' name=ID ('extends' parentInterface=[Interface|QualifiedName])? '{'
 	attributes+=Attribute*
+	methods+=Method*
 	'}'
 ;
 
@@ -68,12 +68,10 @@ AttributeType:
 
 DomainSpecificType:
 	'domaintype' name=ID '=' description=STRING
-	// Lembrar de modificar para declarar no começo da classe os tipos específicos de domínio
 ;
 
 Multiplicity:
 	"1" | "0..1" | "0..*" | "*" | "1..*" | "0.."INT | "1.."INT | INT | INT".."INT
-	// Da pra generalizar pra INT | '*' | INT".."(INT | '*')
 ;
 
 Attribute:
@@ -81,7 +79,8 @@ Attribute:
 ;
 
 Method:
-	'abstract'? 'static'? visibility=(Visibility)? 'function' name=ID '(' (parameters+=Parameter (','parameters+=Parameter)*)? ')' '->' returnType=AttributeType
+	'abstract'? 'static'? visibility=(Visibility)? 'function' name=ID 
+	'(' (parameters+=Parameter (','parameters+=Parameter)*)? ')' '->' returnType=AttributeType
 ;
 
 Parameter:
@@ -144,7 +143,8 @@ Actor:
 ;
 
 UseCase:
-	'usecase' name=ID  ('includes' includedUseCases+=[UseCase|QualifiedName])? ('extends' extendedUseCases+=[UseCase|QualifiedName])? '=' description=STRING
+	'usecase' name=ID  ('includes' includedUseCases+=[UseCase|QualifiedName])? 
+	('extends' extendedUseCases+=[UseCase|QualifiedName])? '=' description=STRING
 	('{'
 		('includes' includedUseCases+=[UseCase|QualifiedName] (','includedUseCases+=[UseCase|QualifiedName])*
 		 'extends'  extendedUseCases+=[UseCase|QualifiedName] (','extendedUseCases+=[UseCase|QualifiedName])*

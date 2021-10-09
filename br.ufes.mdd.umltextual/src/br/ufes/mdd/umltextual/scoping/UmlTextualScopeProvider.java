@@ -45,11 +45,6 @@ public class UmlTextualScopeProvider extends AbstractUmlTextualScopeProvider {
 	    return super.getScope(context, reference);
 	}
 	
-//	public IScope clazzScope(Class clazz) {
-//		if (class !== null) {
-//			Scopes.scopeFor(clazz.feat)
-//		}
-//	}
 
 
 }
